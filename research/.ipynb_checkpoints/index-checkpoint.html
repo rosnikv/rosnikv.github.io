@@ -1,0 +1,41 @@
+---
+layout: default
+title: Research
+category: research
+---
+
+<div class="posts">
+{% for post in site.posts %}
+  {% if post.categories contains 'research' %}
+ 
+          <!--nav id="menu">
+         
+            <ul>
+           
+              <li><a href="{{ site.baseurl }}/paper"><b>Publications</b></a></li> 
+              <!--li><a href="{{ site.baseurl }}/research"><b>Notes</b></a></li>     
+              <li><a href="{{ site.baseurl }}/sticknotes"><b>Logs</b></a></li>
+              </ul>
+      
+          </nav-->
+ 
+
+    <article class="post">
+
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+
+     <div class="date">
+    	 Written on {{ post.date | date: "%B %e, %Y" }}
+     </div>
+      
+      <div class="entry">
+        {{ post.excerpt }}
+      </div>
+
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+    </article>
+
+{% endif %}
+{% endfor %}
+</div>
+
