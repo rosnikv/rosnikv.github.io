@@ -18,7 +18,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I’m currently a PhD candidate in [Department of Informatics](https://www.ifi.uzh.ch/en.html) at University of Zurich, where I’m advised by [Prof. Abraham Bernstein](https://www.ifi.uzh.ch/en/ddis/people/bernstein.html).
+I’m currently a PhD candidate in [Department of Informatics](https://www.ifi.uzh.ch/en.html) at the University of Zurich, where I’m advised by [Prof. Abraham Bernstein](https://www.ifi.uzh.ch/en/ddis/people/bernstein.html).
 My PhD is part of the Swiss National Science Foundation-funded project [CrowdAlytics: Large-Scale Human-Machine Systems for Data Science](https://www.ifi.uzh.ch/en/ddis/research/CrowdAlytics.html).
 
 I have a master’s degree in Artificial Intelligence from the [University of Hyderabad](https://scis.uohyd.ac.in/). For my master's thesis, 
