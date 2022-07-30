@@ -4,8 +4,14 @@
 
 // Typography
 
-p, h1, h2, h3, h4, h5, h6, em, div, li, span, strong {
+h1, h2, h3, h4, h5, h6, em, div, li, span, strong {
   color: var(--global-text-color);
+
+}
+
+p {
+  color: var(--global-text-color);
+  font-size: 1.2rem;
 }
 
 hr {
@@ -15,9 +21,10 @@ hr {
 table {
   td, th {
     color: var(--global-text-color);
+    font-size: 1.1rem;
   }
   td {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }
 
@@ -94,6 +101,7 @@ blockquote {
 
 .profile {
   margin-left: 1rem;
+  margin-right: 1rem;
   width: 100%;
 
   .address {
@@ -168,6 +176,7 @@ blockquote {
   }
   .navbar-nav .nav-item .nav-link {
     color: var(--global-text-color);
+    font-size: 1.5rem;
     &:hover {
       color: var(--global-hover-color);
     }
@@ -248,7 +257,7 @@ blockquote {
 .social {
   text-align: center;
   .contact-icons {
-    font-size: 4rem;
+    font-size: 2.5rem;
     a {
       i::before {
         color: var(--global-text-color);
@@ -262,7 +271,7 @@ blockquote {
     }
   }
   .contact-note {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 }
 

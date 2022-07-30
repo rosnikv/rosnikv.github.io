@@ -2,24 +2,33 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: <a href='https://www.ifi.uzh.ch/en/ddis/people/rosni.html#'>PhD Student (Research Assistant)</a> at University of Zurich.
 
 profile:
   align: right
   image: prof_pic.jpg
   image_cicular: false # crops the image to make it circular
   address: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>Department of Informatics</p>
+    <p>University of Zurich</p>
+    <p>Binzmühlestrasse 14, CH-8050 Zürich</p>
 
 news: true  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I’m currently a PhD candidate in [Department of Informatics](https://www.ifi.uzh.ch/en.html) at University of Zurich, where I’m advised by [Prof. Abraham Bernstein](https://www.ifi.uzh.ch/en/ddis/people/bernstein.html).
+My PhD is part of the Swiss National Science Foundation-funded project [CrowdAlytics: Large-Scale Human-Machine Systems for Data Science](https://www.ifi.uzh.ch/en/ddis/research/CrowdAlytics.html).
 
-Put your address / P.O. box / other info right below your picture. You can also disable any these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I have a master’s degree in Artificial Intelligence from the [University of Hyderabad](https://scis.uohyd.ac.in/). For my master's thesis, 
+I worked with [Prof. Vineet Padmanabhan](https://scis.uohyd.ac.in/People/profile/vn_profile.php) in the topic of recommender systems. I have worked as a 
+researcher in the cybersecurity and privacy group at [Tata Research Development and Design Centre, Pune, India](https://www.linkedin.com/company/tata-research-development-and-design-centre-trddc/?originalSubdomain=in).
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+My research is in _human-machine collaboration_ and _data science_. I'm interested in modeling how machines
+and humans can collaborate and assist each other in the task of data-driven hypotheses detection, 
+generation, and ranking. 
+
+I also have a broad interest in topics around language models and _controllable text simplification in the biomedical domain_.
+
+<span style="color:blue"> If you are interested in collaboration, feel free to send me an email</span>.
