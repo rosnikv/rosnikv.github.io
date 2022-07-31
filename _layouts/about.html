@@ -41,18 +41,20 @@ layout: default
           </div>
 
 
-
+          <hr/>
           {% if page.news -%}
           <!-- News -->
-          {%- include news.html %}
+          <h2 style="font-size: 1.7em ">what's new</h2>
+          {%- include selected_news.html %}
           {%- endif %}
 
-
+          <hr/>
           {% if page.selected_papers -%}
             <!-- Selected papers -->
             {%- include selected_papers.html %}
           {%- endif %}
 
+          <hr/>
           {%- if page.social %}
           <!-- Social -->
           <div class="social">
