@@ -1,11 +1,8 @@
 ---
 layout: post
-title: Migration from WordPress to Jekyll
-date: 2017-08-31 00:00:00 +0200
-categories: Log
+category: Log
 ---
-
-## Head to Github blog now!
+## Head to Github blog now! [Outdated]
 
 Recently I migrated from my wordpress blog (quite outdated though :wink:) to Jekyll. This is simple, minimal static
 site generator.
