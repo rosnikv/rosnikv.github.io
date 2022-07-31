@@ -1,7 +1,7 @@
 ---
 layout: post
 category: Log
-title: Virtual environments, Play safe in small Python Projects !
+title: Virtual environments, Play safe in small Python Projects ![Outdated]
 ---
 
 Creating virtual environment for small projects(python)  was new information for me.

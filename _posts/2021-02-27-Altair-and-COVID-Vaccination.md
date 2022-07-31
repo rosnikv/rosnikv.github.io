@@ -34,8 +34,6 @@ alt.Chart(source).mark_area().encode(
 
 Upon selecting the options in `legend`, you would be able to see that particular option highlighted in the plot. I hope these small interactions contribute a lot to understanding and interpreting the data via visualizations.
 
-{% include example_plot.html %}
-
 
 During this pandemic time, one who does data analysis played a vital role in consolidating data related to corona across the globe and made it interpretable for a layman with the help of small but relevant interactions. One of the examples is [corona-data](https://corona-data.ch/) website which has the Switzerland COVID info.
 
@@ -46,15 +44,15 @@ Recently, Kaggle has published the `COVID-19 World Vaccination Progress, Daily a
 
 To demonstrate, I have used the vaccination data and tried to plot what per cent from each country's population are vaccinated and what vaccines are used by each country. You can see the plot below (`mouseover`: tooltip will help you provide more details on the data point!)
 
-{% include chart.html %}
+{%- include code/chart.html %}
 
-It is super easy to integrate the Altair generated plots into your own website. Altair library allows you to save your plots into an HTML file  (also, other different image formats and JSON file). For example, all you have to do in a Jekyll-now static website generator is include the generated HTML in the `_includes` directory and use the __liquid template language__ within your markdown file;
+P.S: It is super easy to integrate the Altair generated plots into your own website. Altair library allows you to save your plots into an HTML file  (also, other different image formats and JSON file). For example, all you have to do in a Jekyll-now static website generator is include the generated HTML in the `_includes` directory and use the __liquid template language__ within your markdown file;
 
 ```python
-{% include chart.html %}
+{% include code/chart.html %}
 ```
 
-P.S: I have done the same with this post  :metal: :octocat:
+I have done the same with this post  :metal: :octocat:
 
 
 
