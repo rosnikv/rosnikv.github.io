@@ -26,8 +26,8 @@ I worked with [Prof. Vineet Padmanabhan](https://scis.uohyd.ac.in/People/profile
 researcher in the cybersecurity and privacy group at [Tata Research Development and Design Centre, Pune, India](https://www.linkedin.com/company/tata-research-development-and-design-centre-trddc/?originalSubdomain=in).
 
 My research is in _human-machine collaboration_ and _data science_. I'm interested in modeling how machines
-and humans can collaborate and assist each other in the task of data-driven hypotheses detection, 
-generation, and ranking. 
+and humans can collaborate and assist each other in the task of data-driven _hypotheses_ detection, 
+_generation_, and _ranking_. 
 
 I also have a broad interest in topics around language models and _controllable text simplification in the biomedical domain_.
 
