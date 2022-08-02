@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="13334350-c148-4c1e-b002-98e27a26943a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2013-09-19-play-safe-using-virtual-environments.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2013-09-19-play-safe-using-virtual-environments.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2021-02-27-Altair-and-COVID-Vaccination.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2021-02-27-Altair-and-COVID-Vaccination.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_news/announcement_5.md" beforeDir="false" afterPath="$PROJECT_DIR$/_news/announcement_5.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_news/announcement_6.md" beforeDir="false" afterPath="$PROJECT_DIR$/_news/announcement_6.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_news/announcement_7.md" beforeDir="false" afterPath="$PROJECT_DIR$/_news/announcement_7.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,21 +28,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/rosni/blog/rosnikv.github.io/_pages",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/rosni/blog/rosnikv.github.io/_pages&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/_pages" />
@@ -58,6 +60,7 @@
       <workItem from="1659118935822" duration="667000" />
       <workItem from="1659119610667" duration="4072000" />
       <workItem from="1659170882437" duration="7982000" />
+      <workItem from="1659464943937" duration="515000" />
     </task>
     <servers />
   </component>
