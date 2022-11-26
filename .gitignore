@@ -10,4 +10,4 @@ Gemfile.lock
 vendor
 .backup/
 .backup/_pages
-
+.idea/
