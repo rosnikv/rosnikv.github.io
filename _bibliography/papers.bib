@@ -25,25 +25,28 @@
   note={US Patent 11,256,826}
 }
 
-@inproceedings{basu2021automatic,
+@inproceedings{basu2023,
   title={Med-EASi: Finely Annotated Dataset and Models for Controllable Simplification of Medical Texts.},
   author={Basu, Chandrayee and Vasu, Rosni and Yasunaga, Michihiro and Yang, Qian},
   booktitle={AAAI 2023},
   year={2023},
-    booktitle     = {Association for the Advancement of Artificial Intelligence},
+    booktitle     = {Association for the Advancement of Artificial Intelligence, AAAI 2023},
     abbr          = {AAAI},
     month         = {February},
     url           = {https://aaai-23.aaai.org/},
-    abstract      = {Health Literacy is the degree to which individuals can comprehend basic health information needed to make appropriate health decisions. The topmost reason for low health literacy is the vocabulary gap between providers and patients.
-                     Automatic medical text simplification can contribute to improving health literacy by assisting providers with patientfriendly communication, improving health data search, and
-                     making online medical texts more accessible. It is, however,
-                     extremely challenging to curate quality corpus for this natural language processing (NLP) task. In this position paper,
-                     we observe that, despite recent research efforts, existing open
-                     corpora for medical text simplification are poor in quality and
-                     size. In order to match the progress in general text simplification and style transfer, we must leverage careful crowdsourcing. We discuss the challenges of naive crowd-sourcing.
-                     We propose that careful crowd-sourcing for medical text simplification is possible, when combined with automatic data
-                     labeling, a well-designed expert-layman collaboration framework, and context-dependent crowd-sourcing instructions.},
-    pdf           = {http://ceur-ws.org/Vol-3068/short6.pdf},
+    abstract      = {Automatic medical text simplification can assist providers with patient-friendly communication and make
+    medical texts more accessible, thereby improving health literacy. But curating a quality corpus for this task requires
+    the supervision of medical experts. In this work, we present Med-EASi (Medical dataset for Elaborative and Abstractive
+    Simplification), a uniquely crowdsourced and finely annotated dataset for supervised simplification of short medical texts.
+    Its expert-layman-AI collaborative annotations facilitate controllability over text simplification by marking four kinds
+    of textual transformations: elaboration, replacement, deletion, and insertion. To learn medical text simplification, we fine-tune T5-large with four different styles of
+    input-output combinations, leading to two control-free and two controllable versions of the model. We add two types
+    of controllability into text simplification, by using a multi-angle training approach: position-aware, which uses in-place
+                     annotated inputs and outputs, and position-agnostic, where the model only knows the contents to be edited, but not
+                     their positions. Our results show that our fine-grained annotations improve learning compared to the unannotated base-
+                     line. Furthermore, our position-aware control enhances the model’s ability to generate better simplification than the
+                     position-agnostic version. The data and code are available at https://github.com/Chandrayee/CTRL-SIMP.},
+    pdf           = {},
     selected      = {true}
 }
 
