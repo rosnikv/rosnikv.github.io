@@ -25,10 +25,6 @@ I have a master’s degree in Artificial Intelligence from the [University of Hy
 I worked with [Prof. Vineet Padmanabhan](https://scis.uohyd.ac.in/People/profile/vn_profile.php) in the topic of recommender systems. I have worked as a 
 researcher in the cybersecurity and privacy group at [Tata Research Development and Design Centre, Pune, India](https://www.linkedin.com/company/tata-research-development-and-design-centre-trddc/?originalSubdomain=in).
 
-My research is in _human-machine collaboration_ and _data science_. I'm interested in modeling how machines
-and humans can collaborate and assist each other in the task of data-driven _hypotheses detection, 
-generation_, and _ranking_. 
-
-I also have a broad interest in topics around language models and _controllable text simplification in the biomedical domain_.
+My research focuses on _human-machine collaboration_ for _scientific text understanding and reasoning_. I am particularly interested in how humans and machines can jointly contribute to the tasks of scientific hypotheses detection and generation. Additionally, I am passionate about using _large language models_ to the _broader societal benefit_.
 
 <span style="color:blue"> If you are interested in collaboration, feel free to send me an email</span>.
