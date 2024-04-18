@@ -6,4 +6,4 @@ inline: true
 
 Presented our work "Med-EASi: Finely Annotated Dataset 
 and Models for Controllable Simplification of Medical Texts" \
-at AAAI 2023, AISI track.
+at AAAI 2023, AISI track. :sparkles:

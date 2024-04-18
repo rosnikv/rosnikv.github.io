@@ -25,6 +25,6 @@ I have a master’s degree in Artificial Intelligence from the [University of Hy
 I worked with [Prof. Vineet Padmanabhan](https://scis.uohyd.ac.in/People/profile/vn_profile.php) in the topic of recommender systems. I have worked as a 
 researcher in the cybersecurity and privacy group at [Tata Research Development and Design Centre, Pune, India](https://www.linkedin.com/company/tata-research-development-and-design-centre-trddc/?originalSubdomain=in).
 
-My research focuses on _human-machine collaboration_ for _scientific text understanding and reasoning_. I am particularly interested in how humans and machines can jointly contribute to the tasks of scientific hypotheses detection and generation. Additionally, I am passionate about using _large language models_ to the _broader societal benefit_.
+**Research Interests:** My research focuses on _human-machine collaboration_ for _scientific text understanding and reasoning_. I am particularly interested in how humans and machines can jointly contribute to the tasks of scientific hypotheses detection and generation. I am also passionate about using _large language models_ to the _broader societal benefit_.
 
-<span style="color:blue"> If you are interested in collaboration, feel free to send me an email</span>.
+<span style="color:green"> If you are interested in collaboration, feel free to send me an email</span>.
