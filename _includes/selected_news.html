@@ -1,19 +1,29 @@
-<div class="news">
-    {% if site.news  %}
-    <div class="table-responsive">
-        <table class="table table-sm table-borderless">
-            {% assign newss = site.news | reverse %}
-            {% for item in newss limit: site.news_limit %}
-            <tr>
-                <td scope="row" class="lec-years">{{ item.date |  date: "%m-%Y" }}</td>
-                <td>
-                    {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
+<style>
+    .table-responsive .lec-years {
+        white-space: nowrap; /* Ensure the date doesn't wrap */
+        width: 100px; /* Adjust width as necessary */
+        padding-right: 15px; /* Add some space between the date and content */
+        vertical-align: middle; /* Center align vertically if necessary */
+    }
+    </style>
+    
+    <div class="news">
+        {% if site.news %}
+        <div class="table-responsive">
+            <table class="table table-sm table-borderless">
+                {% assign newss = site.news | reverse %}
+                {% for item in newss limit: site.news_limit %}
+                <tr>
+                    <td scope="row" class="lec-years">{{ item.date | date: "%m-%Y" }}</td>
+                    <td>
+                        {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% else %}
+        <p>No news so far...</p>
+        {% endif %}
     </div>
-    {% else %}
-    <p>No news so far...</p>
-    {% endif %}
-</div>
+    
