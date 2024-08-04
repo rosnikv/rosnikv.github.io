@@ -18,12 +18,11 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I’m currently a PhD candidate in [Department of Informatics](https://www.ifi.uzh.ch/en.html) at the University of Zurich, where I’m advised by [Prof. Abraham Bernstein](https://www.ifi.uzh.ch/en/ddis/people/bernstein.html).
-My PhD is part of the Swiss National Science Foundation-funded project [CrowdAlytics: Large-Scale Human-Machine Systems for Data Science](https://www.ifi.uzh.ch/en/ddis/research/CrowdAlytics.html).
+I'm currently a PhD candidate in [Department of Informatics](https://www.ifi.uzh.ch/en.html) at the University of Zurich, where I'm advised by [Prof. Abraham Bernstein](https://www.ifi.uzh.ch/en/ddis/people/bernstein.html).
 
-I have a master’s degree in Artificial Intelligence from the [University of Hyderabad](https://scis.uohyd.ac.in/). For my master's thesis, 
-I worked with [Prof. Vineet Padmanabhan](https://scis.uohyd.ac.in/People/profile/vn_profile.php) in the topic of recommender systems. I have worked as a 
-researcher in the cybersecurity and privacy group at [Tata Research Development and Design Centre, Pune, India](https://www.linkedin.com/company/tata-research-development-and-design-centre-trddc/?originalSubdomain=in).
+I have a master's degree in Artificial Intelligence from the [University of Hyderabad](https://scis.uohyd.ac.in/). For my master's thesis, 
+I worked with [Prof. Vineet Padmanabhan](https://scis.uohyd.ac.in/People/profile/vn_profile.php) on the topic of recommender systems. I have worked as a 
+researcher in the cybersecurity and privacy group at [Tata Research Development and Design Centre, Pune, India](https://www.linkedin.com/company/tata-research-development-and-design-centre-trddc/?originalSubdomain=in), where I had the privilege to work with [Sachin Lodha](https://www.linkedin.com/in/sachin-lodha-8ba2991/?originalSubdomain=in). 
 
 **Research Interests:** My research focuses on _human-machine collaboration_ for _scientific text understanding and reasoning_. I am particularly interested in how humans and machines can jointly contribute to the tasks of scientific hypotheses detection and generation. I am also passionate about using _large language models_ to the _broader societal benefit_.
 
