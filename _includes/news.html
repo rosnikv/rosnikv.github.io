@@ -1,24 +1,26 @@
 <div class="news">
-  <h2>what's new</h2>
-  {% if site.news  %}
+  <h2></h2>
+  {% if site.news %}
   <div class="table-responsive">
     <table id="news-table" class="table table-sm table-borderless">
       <thead style="display: none;"><th></th><th></th></thead>
       <tbody>
-      {% assign news = site.news | reverse %}
-      {% for item in news %}
-      <tr>
-        <!--th scope="row"><abbr class="badge news-title">{{ item.date | date: "%b %-d, %Y" }}</abbr></th-->
-        <th scope="row" width="110px">{{ item.date | date: "%b %-d, %Y" }}</th>
-        <td>
-          {% if item.inline %}
-          {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
-          {% else %}
-          <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
-          {% endif %}
-        </td>
-      </tr>
-      {% endfor %}
+        {% assign news = site.news | reverse %}
+        {% for item in news %}
+        <tr>
+          <!-- Display the date -->
+          <th scope="row" width="110px" style="vertical-align: top; font-weight: bold;">
+            {{ item.date | date: "%b %-d, %Y" }}
+          </th>
+          <td style="vertical-align: top;">
+            {% if item.inline %}
+              {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
+            {% else %}
+              <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
       </tbody>
     </table>
   </div>
