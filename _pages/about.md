@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='https://www.ifi.uzh.ch/en/ddis/people/rosni.html#'>PhD Student (Research Assistant)</a> at University of Zurich.
+subtitle: <a href='https://www.ifi.uzh.ch/en/ddis/people/rosni.html#'>PhD Student (Research Assistant)</a> at University of Zurich, Visiting Student at Ai2.
 
 profile:
   align: right
@@ -19,6 +19,8 @@ social: true  # includes social icons at the bottom of the page
 ---
 
 I'm currently a PhD candidate in [Department of Informatics](https://www.ifi.uzh.ch/en.html) at the University of Zurich, where I'm advised by [Prof. Abraham Bernstein](https://www.ifi.uzh.ch/en/ddis/people/bernstein.html).
+
+Additionally, I am a <span style="color:green">Visiting Student at the Allen Institute for AI (Ai2)</span>, working with the Aristo team on literature-grounded hypothesis generation and ranking.
 
 I have a master's degree in Artificial Intelligence from the [University of Hyderabad](https://scis.uohyd.ac.in/). For my master's thesis, 
 I worked with [Prof. Vineet Padmanabhan](https://scis.uohyd.ac.in/People/profile/vn_profile.php) on the topic of recommender systems. I have worked as a 
