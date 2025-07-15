@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HARPA Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; }
+h2, h3, h4 { color: #007b5f; }
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>33161a5a9b5dcb635b5a97475e6a6209a69ada7d</p>
+<hr>
+<h2>Motivation</h2>
+<p>The source paper is "The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery" (231 citations, 2024, ID: 33161a5a9b5dcb635b5a97475e6a6209a69ada7d). This idea builds on a progression of related work [6f1cf87439bfd84a0ec302d5362f12075267fb81, 8071a14c38e707f4e1b773e4fdab7abc926c4e5c].</p>
+<p>The analysis reveals a progression in enhancing the scientific review process, which is a critical component of the AI Scientist framework. The source paper introduces a comprehensive framework for automated scientific discovery, but the evaluation of AI-generated research remains a challenge. OpenReviewer and Re2 address this by improving the quality and realism of peer reviews and providing a robust dataset for review and rebuttal discussions. However, there is still a gap in integrating these advancements into a seamless workflow that can be utilized by AI agents for continuous improvement and feedback. A research idea that builds upon these advancements could focus on creating an integrated system that combines the AI Scientist's capabilities with enhanced review processes to iteratively refine AI-generated research.</p>
+<hr>
+<h2>Hypothesis</h2>
+<p>Integrating AI-Assisted Authoring Support with Retrieval Augmented Verification will improve the soundness and contribution scores of AI-generated research papers compared to using AI-Assisted Authoring Support alone.</p>
+<hr>
+<h2>Research Gap</h2>
+<p>Existing research has not extensively explored the integration of AI-Assisted Authoring Support with Retrieval Augmented Verification (RAV) systems to enhance the soundness and contribution scores of AI-generated research papers. This hypothesis addresses the gap by evaluating how these components can synergistically improve the factual soundness and originality of research outputs.</p>
+<hr>
+<h2>Hypothesis Elements</h2>
+<p>Independent variable: Integration of AI-Assisted Authoring Support with Retrieval Augmented Verification (RAV)</p>
+<p>Dependent variable: Soundness and contribution scores of AI-generated research papers</p>
+<p>Comparison groups: Papers revised with integrated RAV system vs. papers revised with AI-Assisted Authoring Support alone</p>
+<p>Baseline/control: AI-Assisted Authoring Support alone</p>
+<p>Context/setting: AI-generated research paper authoring and revision process</p>
+<p>Assumptions: AI-Assisted Authoring Support improves clarity and structure; RAV enhances factual soundness by grounding claims in verified knowledge bases</p>
+<p>Relationship type: Causal (integration will improve scores)</p>
+<p>Population: AI-generated research papers</p>
+<p>Timeframe: Not specified</p>
+<p>Measurement method: Evaluation on a 1-4 scale for soundness (methodological rigor and validity) and contribution (significance and originality)</p>
+<hr>
+<h2>Overview</h2>
+<p>This research explores the integration of AI-Assisted Authoring Support with Retrieval Augmented Verification (RAV) to enhance the soundness and contribution scores of AI-generated research papers. AI-Assisted Authoring Support provides formative feedback on manuscript drafts, focusing on clarity, structure, and adherence to guidelines. It aids authors in structuring effective rebuttals and improving the impact of their submissions. RAV systems enhance LLMs by connecting them to authoritative knowledge bases, allowing AI to cross-reference claims, suggest relevant citations, and ensure factual soundness. The hypothesis is that combining these systems will provide a more comprehensive review process, improving the methodological rigor and originality of the papers. The integration is expected to address gaps in existing research by ensuring that AI-generated papers are not only well-structured but also factually sound and novel. The evaluation will focus on the soundness and contribution scores, using a controlled experimental setup where papers are revised with and without RAV integration. This approach aims to demonstrate the potential of combining these AI systems to produce higher-quality research outputs.</p>
+<hr>
+<h2>Background</h2>
+<p><a href="https://www.semanticscholar.org/paper/8be11f515f919f8073f9c6c82f675a7297196a98">AI-Assisted Authoring Support</a>: AI-Assisted Authoring Support provides real-time feedback on manuscript drafts, focusing on clarity, structure, and adherence to guidelines. It uses LLMs trained on scientific corpora to analyze drafts and offer suggestions for improvement. This system helps authors refine their work before submission, enhancing the quality of manuscripts and streamlining the peer review process. The expected role of this variable is to improve the clarity and structure of research papers, making them more likely to meet publication standards.</p>
+<p><a href="https://www.semanticscholar.org/paper/8be11f515f919f8073f9c6c82f675a7297196a98">Retrieval Augmented Verification (RAV)</a>: RAV systems connect LLMs to authoritative knowledge bases like scientific literature repositories. This grounding allows AI to cross-reference claims, suggest relevant citations, and ensure factual soundness. Implementation involves using retrieval techniques to fetch relevant literature and grounding the AI's analysis in verified scientific knowledge. The expected role of RAV is to enhance the factual soundness of research papers by providing evidence-based feedback, ensuring that claims are supported by credible sources.</p>
+<hr>
+<h2>Implementation</h2>
+<p>The hypothesis will be implemented by integrating AI-Assisted Authoring Support with Retrieval Augmented Verification (RAV) in the ASD Agent's workflow. The AI-Assisted Authoring Support will first analyze manuscript drafts, providing feedback on clarity, structure, and adherence to guidelines. This feedback will be used to revise the drafts, focusing on improving the overall presentation and argument coherence. Next, the RAV system will be integrated to cross-reference the revised drafts with authoritative knowledge bases. This involves using retrieval techniques to fetch relevant literature and grounding the AI's analysis in verified scientific knowledge. The RAV system will suggest relevant citations and ensure that claims made in the drafts are factually sound. The integration will occur at the feedback stage, where the outputs from AI-Assisted Authoring Support are used as inputs for the RAV system. The RAV system will then provide additional feedback, focusing on the factual soundness and originality of the drafts. The final revised drafts will be evaluated based on their soundness and contribution scores, comparing the results with a control group that only uses AI-Assisted Authoring Support. The expected outcome is that the integration of RAV will lead to higher soundness and contribution scores, demonstrating the effectiveness of combining these AI systems to enhance the quality of research papers.</p>
+<hr>
+<h2>Operationalization Information</h2>
+
+    <div style="display: flex; gap: 2em;">
+    <div style="flex: 1;">
+    
+<p><p>Please build an experiment to test whether integrating Retrieval Augmented Verification (RAV) with AI-Assisted Authoring Support improves the soundness and contribution scores of AI-generated research papers compared to using AI-Assisted Authoring Support alone.</p></p>
+<p><h2>Experiment Overview</h2>
+<p>This experiment will compare two conditions:<br />
+1. <strong>Baseline Condition</strong>: AI-Assisted Authoring Support alone<br />
+2. <strong>Experimental Condition</strong>: AI-Assisted Authoring Support integrated with Retrieval Augmented Verification (RAV)</p></p>
+<p><p>The experiment will process a set of draft research papers through both conditions and evaluate the resulting papers on soundness and contribution scores.</p></p>
+<p><h2>System Components</h2></p>
+<p><h3>1. AI-Assisted Authoring Support System</h3>
+<p>Implement a system that provides formative feedback on manuscript drafts, focusing on clarity, structure, and adherence to guidelines. This system should:<br />
+- Accept a draft research paper as input<br />
+- Analyze the paper for issues related to clarity, structure, and guideline adherence<br />
+- Generate specific feedback and suggestions for improvement<br />
+- Return the feedback in a structured format</p></p>
+<p><h3>2. Retrieval Augmented Verification (RAV) System</h3>
+<p>Implement a RAV system that enhances the AI-Assisted Authoring Support by connecting to scientific literature repositories. This system should:<br />
+- Accept a draft research paper and the feedback from the AI-Assisted Authoring Support as input<br />
+- Identify claims in the paper that require verification or citation<br />
+- Query scientific literature repositories to find relevant supporting evidence<br />
+- Verify the factual soundness of claims<br />
+- Suggest relevant citations<br />
+- Generate additional feedback focused on factual soundness and originality<br />
+- Return the enhanced feedback in a structured format</p></p>
+<p><h3>3. Paper Revision System</h3>
+<p>Implement a system that revises draft papers based on feedback. This system should:<br />
+- Accept a draft paper and feedback as input<br />
+- Generate a revised version of the paper incorporating the feedback<br />
+- Return the revised paper</p></p>
+<p><h3>4. Evaluation System</h3>
+<p>Implement a system to evaluate papers on soundness and contribution scores. This system should:<br />
+- Accept a paper as input<br />
+- Evaluate the paper on a 1-4 scale for soundness (methodological rigor and validity)<br />
+- Evaluate the paper on a 1-4 scale for contribution (significance and originality)<br />
+- Return the scores with justifications</p></p>
+<p><h2>Experiment Workflow</h2>
+<ol>
+<li>Start with a set of draft research papers</li>
+<li>For each paper:<br />
+   a. Process through the baseline condition:<ul>
+<li>Generate feedback using AI-Assisted Authoring Support</li>
+<li>Revise the paper based on this feedback</li>
+<li>Evaluate the revised paper for soundness and contribution<br />
+   b. Process through the experimental condition:</li>
+<li>Generate feedback using AI-Assisted Authoring Support</li>
+<li>Enhance the feedback using the RAV system</li>
+<li>Revise the paper based on the enhanced feedback</li>
+<li>Evaluate the revised paper for soundness and contribution</li>
+</ul>
+</li>
+<li>Compare the evaluation scores between conditions</li>
+</ol></p>
+<p><h2>Data Requirements</h2>
+<ul>
+<li>Draft research papers from various scientific domains</li>
+<li>Access to scientific literature repositories for the RAV system</li>
+</ul></p>
+<p><h2>Pilot Mode Implementation</h2>
+<p>Implement a global variable <code>PILOT_MODE</code> with three possible settings: <code>MINI_PILOT</code>, <code>PILOT</code>, or <code>FULL_EXPERIMENT</code>.</p></p>
+<p><h3>MINI_PILOT</h3>
+<ul>
+<li>Process 3 draft papers</li>
+<li>Use a simplified scientific literature repository with a small subset of papers (e.g., 50-100 papers)</li>
+<li>Run time: ~10-15 minutes</li>
+</ul></p>
+<p><h3>PILOT</h3>
+<ul>
+<li>Process 10-15 draft papers</li>
+<li>Use a moderate-sized scientific literature repository (e.g., 1000-2000 papers)</li>
+<li>Run time: ~1-2 hours</li>
+</ul></p>
+</div><div style='flex: 1;'>
+<p><h3>FULL_EXPERIMENT</h3>
+<ul>
+<li>Process 50+ draft papers</li>
+<li>Use a comprehensive scientific literature repository</li>
+<li>Run statistical analysis to determine significance of differences</li>
+<li>Run time: Several hours to days</li>
+</ul></p>
+<p><p>Start by running the MINI_PILOT first. If everything looks good, proceed to the PILOT. After the PILOT completes, stop and do not run the FULL_EXPERIMENT (a human will manually verify the results and make the change to FULL_EXPERIMENT if appropriate).</p></p>
+<p><h2>Output Requirements</h2>
+<ol>
+<li>Log files containing:</li>
+<li>Original draft papers</li>
+<li>Feedback from AI-Assisted Authoring Support</li>
+<li>Enhanced feedback from RAV (for experimental condition)</li>
+<li>Revised papers for both conditions</li>
+<li>Evaluation scores and justifications</li>
+</ol></p>
+<p><ol>
+<li>Results file containing:</li>
+<li>Summary statistics for soundness and contribution scores in both conditions</li>
+<li>Statistical analysis of differences between conditions</li>
+<li>Examples of improvements made in the experimental condition</li>
+</ol></p>
+<p><ol>
+<li>Analysis report answering:</li>
+<li>Does RAV integration significantly improve soundness scores?</li>
+<li>Does RAV integration significantly improve contribution scores?</li>
+<li>What types of improvements are most common with RAV integration?</li>
+<li>Are there any domains or paper types where RAV is particularly effective?</li>
+</ol></p>
+<p><h2>Implementation Details</h2></p>
+<p><h3>Scientific Literature Repository</h3>
+<p>For the scientific literature repositories, you can use:<br />
+1. A small curated dataset of scientific papers for the MINI_PILOT<br />
+2. A larger dataset for the PILOT<br />
+3. Connection to a comprehensive database for the FULL_EXPERIMENT</p></p>
+<p><p>Each paper in the repository should include:<br />
+- Title<br />
+- Abstract<br />
+- Full text (if available)<br />
+- Keywords<br />
+- Citations</p></p>
+<p><h3>RAV Implementation</h3>
+<p>The RAV system should:<br />
+1. Extract key claims from the paper<br />
+2. Convert these claims into search queries<br />
+3. Retrieve relevant papers from the repository<br />
+4. Compare the claims with the retrieved information<br />
+5. Generate verification feedback and citation suggestions</p></p>
+<p><p>Please implement appropriate vector embeddings and similarity search for efficient retrieval.</p></p>
+<p><h3>Evaluation Metrics</h3>
+<p>Soundness Score (1-4 scale):<br />
+1 = Major methodological flaws or invalid claims<br />
+2 = Some methodological issues or unsupported claims<br />
+3 = Generally sound methodology with minor issues<br />
+4 = Rigorous methodology with well-supported claims</p></p>
+<p><p>Contribution Score (1-4 scale):<br />
+1 = Minimal original contribution or significance<br />
+2 = Incremental contribution with limited significance<br />
+3 = Notable contribution with clear significance<br />
+4 = Substantial, original contribution with high significance</p></p>
+<p><p>Please implement bootstrap resampling or another appropriate statistical method to determine if differences between conditions are significant.</p></p>
+</div></div>
+<hr>
+<h2>References</h2>
+<ol>
+<li>
+<p>The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery (2024). Paper ID: 33161a5a9b5dcb635b5a97475e6a6209a69ada7d</p>
+</li>
+<li>
+<p>OpenReviewer: A Specialized Large Language Model for Generating Critical Scientific Paper Reviews (2024). Paper ID: 8071a14c38e707f4e1b773e4fdab7abc926c4e5c</p>
+</li>
+<li>
+<p>Re2: A Consistency-ensured Dataset for Full-stage Peer Review and Multi-turn Rebuttal Discussions (2025). Paper ID: 6f1cf87439bfd84a0ec302d5362f12075267fb81</p>
+</li>
+<li>
+<p>The AI Imperative: Scaling High-Quality Peer Review in Machine Learning (2025). Paper ID: 8be11f515f919f8073f9c6c82f675a7297196a98</p>
+</li>
+<li>
+<p>The AI Imperative: Scaling High-Quality Peer Review in Machine Learning (2025). Paper ID: 8be11f515f919f8073f9c6c82f675a7297196a98</p>
+</li>
+</ol>
+</body>
+</html>

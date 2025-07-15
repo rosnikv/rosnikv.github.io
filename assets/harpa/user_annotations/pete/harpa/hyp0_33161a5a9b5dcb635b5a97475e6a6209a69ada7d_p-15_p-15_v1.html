@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HARPA Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; }
+h2, h3, h4 { color: #007b5f; }
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>33161a5a9b5dcb635b5a97475e6a6209a69ada7d</p>
+<hr>
+<h2>Motivation</h2>
+<p>The source paper is "The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery" (231 citations, 2024, ID: 33161a5a9b5dcb635b5a97475e6a6209a69ada7d). This idea builds on a progression of related work [dfcb2c4c76aa283133258b4e7a36244ae79dddb6, 2b37107e99568d7ece09c888d7e67b2d369ccc45, 37841d9036313b43d2a4069bc3f1493e9dc598da, 9f3ae8055e227edb413c54417c9c216f1f554f52, 2e2b5d3589f31cdc5ca0bcd918b22794eb4fe5e4].</p>
+<p>The analysis reveals a progression from simulating research communities and enhancing collaborative idea generation to improving automated review processes and verification of scientific content. A key limitation identified is the lack of a comprehensive framework that integrates these advancements into a cohesive system for fully automated scientific discovery. The research idea should focus on creating a unified framework that combines multi-agent collaboration, automated review, and verification processes to enhance the reliability and creativity of AI-driven scientific discovery.</p>
+<hr>
+<h2>Hypothesis</h2>
+<p>Integrating the AI Co-Scientist framework's 'generate-debate-evolve' strategy with AI-assisted peer review processes will enhance both the novelty and reliability of AI-generated hypotheses in biomedical research compared to using the 'generate-debate-evolve' strategy alone.</p>
+<hr>
+<h2>Research Gap</h2>
+<p>Existing research has not extensively explored the combination of the AI Co-Scientist framework's 'generate-debate-evolve' strategy with AI-assisted peer review processes to enhance both the novelty and reliability of AI-generated scientific outputs in biomedical research. This gap is crucial as it could lead to more robust hypothesis generation and validation cycles, which are essential for advancing autonomous scientific research.</p>
+<hr>
+<h2>Hypothesis Elements</h2>
+<p>Independent variable: Integration of the AI Co-Scientist framework's 'generate-debate-evolve' strategy with AI-assisted peer review processes</p>
+<p>Dependent variable: Novelty and reliability of AI-generated hypotheses in biomedical research</p>
+<p>Comparison groups: Integrated system (AI Co-Scientist framework + AI-assisted peer review) vs. AI Co-Scientist framework alone</p>
+<p>Baseline/control: AI Co-Scientist framework with 'generate-debate-evolve' strategy alone</p>
+<p>Context/setting: Biomedical research, specifically in drug repurposing and novel target identification</p>
+<p>Assumptions: The AI Co-Scientist framework can effectively generate hypotheses; AI-assisted peer review can provide valid expert feedback; integration of these systems is technically feasible</p>
+<p>Relationship type: Causal (integration will enhance/improve outcomes)</p>
+<p>Population: AI-generated hypotheses in biomedical research</p>
+<p>Timeframe: Multiple iterations of hypothesis generation and refinement (varying based on experiment scale: 2-5 iterations)</p>
+<p>Measurement method: Expert novelty ratings (1-10 scale), scientific validity ratings (1-10 scale), potential impact ratings (1-10 scale), internal consistency scores, predicted experimental validation success rate, and number of logical flaws identified</p>
+<hr>
+<h2>Overview</h2>
+<p>This research aims to test the hypothesis that integrating the AI Co-Scientist framework's 'generate-debate-evolve' strategy with AI-assisted peer review processes will enhance the novelty and reliability of AI-generated hypotheses in biomedical research. The AI Co-Scientist framework, based on Gemini 2.0, employs a multi-agent system where agents autonomously generate, debate, and evolve hypotheses. This strategy has shown effectiveness in generating novel hypotheses in biomedical domains. However, its integration with AI-assisted peer review, which involves human experts evaluating the novelty and validity of research outputs, has not been extensively explored. The AI-assisted peer review process can provide expert feedback and validation, ensuring that the hypotheses generated are not only novel but also scientifically sound. By combining these two approaches, the research seeks to create a more robust and reliable system for hypothesis generation and validation. The expected outcome is that this integration will lead to higher expert novelty ratings and lower error rates in hypothesis validation, thereby advancing the field of autonomous scientific research.</p>
+<hr>
+<h2>Background</h2>
+<p><a href="https://www.semanticscholar.org/paper/5bd91191e7d82c3ec99c9d9c5e9cb9e00320c92d">AI Co-Scientist Framework</a>: The AI Co-Scientist framework employs a 'generate-debate-evolve' strategy, where multiple agents autonomously generate, debate, and refine hypotheses. This process is designed to mimic human scientific discourse, allowing for the refinement and enhancement of research ideas. The framework is particularly effective in biomedical domains, such as drug repurposing and novel target identification. The expected role of this variable is to generate novel and scientifically sound hypotheses, which will be further validated through AI-assisted peer review.</p>
+<p><a href="https://www.semanticscholar.org/paper/458cde32b03893c4fd7f2be74883bc0f156f5c51">AI-assisted Peer Review</a>: AI-assisted peer review involves using AI systems to assist human experts in reviewing and rating the novelty and validity of research outputs. The system identifies relevant experts using a knowledge graph and invites them to evaluate submissions. Reviewers interact with the submission via an interface, allowing them to query the study and provide feedback on novelty and other aspects. This process enhances the transparency and credibility of the review, with scores logged and attached to the knowledge entry. The expected role of this variable is to provide expert validation and feedback, ensuring that the generated hypotheses are scientifically sound and reliable.</p>
+<hr>
+<h2>Implementation</h2>
+<p>The hypothesis will be implemented by first setting up the AI Co-Scientist framework to generate hypotheses using its 'generate-debate-evolve' strategy. This involves configuring multiple agents to autonomously generate, debate, and refine hypotheses in the biomedical domain. Once a hypothesis is generated, it will be submitted to the AI-assisted peer review system. The peer review system will identify relevant experts using a knowledge graph and invite them to evaluate the hypothesis. Reviewers will interact with the hypothesis via an interface, querying aspects such as novelty and validity. The system will log the reviews and scores, providing feedback to the AI Co-Scientist framework for further refinement. This process will be repeated iteratively, with the AI Co-Scientist framework using the feedback to evolve the hypotheses further. The integration of these two systems is expected to enhance both the novelty and reliability of the generated hypotheses.</p>
+<hr>
+<h2>Operationalization Information</h2>
+
+    <div style="display: flex; gap: 2em;">
+    <div style="flex: 1;">
+    
+<p><p>Please build an experiment to test whether integrating the AI Co-Scientist framework's 'generate-debate-evolve' strategy with AI-assisted peer review processes enhances both the novelty and reliability of AI-generated hypotheses in biomedical research compared to using the 'generate-debate-evolve' strategy alone.</p></p>
+<p><p>The experiment should include the following global variables to control experiment scale:<br />
+- PILOT_MODE: A string variable with three possible settings: 'MINI_PILOT', 'PILOT', or 'FULL_EXPERIMENT'</p></p>
+<p><p>The experiment should have two conditions:<br />
+1. Baseline Condition: Use only the AI Co-Scientist framework with its 'generate-debate-evolve' strategy<br />
+2. Experimental Condition: Integrate the AI Co-Scientist framework with the AI-assisted peer review system</p></p>
+<p><p>For both conditions, focus on generating hypotheses in the biomedical domain, specifically in drug repurposing and novel target identification.</p></p>
+<p><p>Detailed Implementation Instructions:</p></p>
+<p><ol>
+<li>Set up the AI Co-Scientist Framework:</li>
+<li>Configure 3 AI agents to act as scientists with different expertise in biomedical research</li>
+<li>Each agent should have access to a knowledge base of biomedical literature</li>
+<li>Implement the 'generate-debate-evolve' process where:<ul>
+<li>Generate: Each agent independently generates hypotheses based on the knowledge base</li>
+<li>Debate: Agents critique each other's hypotheses, identifying strengths and weaknesses</li>
+<li>Evolve: Hypotheses are refined based on the debate</li>
+</ul>
+</li>
+</ol></p>
+<p><ol>
+<li>Set up the AI-assisted Peer Review System:</li>
+<li>Use the Knowledge Graph to identify relevant expert profiles for reviewing hypotheses</li>
+<li>Create a review interface that allows for evaluation of hypotheses on:<ul>
+<li>Novelty (1-10 scale)</li>
+<li>Scientific validity (1-10 scale)</li>
+<li>Potential impact (1-10 scale)</li>
+<li>Open-ended feedback</li>
+</ul>
+</li>
+<li>For the pilot, simulate expert reviewers using AI agents with different expertise profiles</li>
+</ol></p>
+<p><ol>
+<li>Integration Process (for Experimental Condition only):</li>
+<li>After each 'evolve' phase in the AI Co-Scientist framework, submit the refined hypothesis to the peer review system</li>
+<li>Collect ratings and feedback from the simulated expert reviewers</li>
+<li>Feed this review information back into the AI Co-Scientist framework for another iteration of refinement</li>
+<li>Track how hypotheses change after incorporating peer review feedback</li>
+</ol></p>
+</div><div style='flex: 1;'>
+<p><ol>
+<li>Experiment Scale based on PILOT_MODE:</li>
+<li>MINI_PILOT:<ul>
+<li>Generate 3 initial hypotheses</li>
+<li>Run 2 iterations of the generate-debate-evolve cycle for baseline</li>
+<li>For experimental condition, run 1 cycle of generate-debate-evolve, then 1 cycle of peer review and refinement</li>
+<li>Use a simplified knowledge base with 50 biomedical research papers</li>
+<li>Simulate 2 expert reviewers</li>
+</ul>
+</li>
+</ol></p>
+<p><ul>
+<li>PILOT:<ul>
+<li>Generate 10 initial hypotheses</li>
+<li>Run 3 iterations of the generate-debate-evolve cycle for baseline</li>
+<li>For experimental condition, run 2 cycles of generate-debate-evolve with peer review integration</li>
+<li>Use a knowledge base with 200 biomedical research papers</li>
+<li>Simulate 5 expert reviewers with different expertise profiles</li>
+</ul>
+</li>
+</ul></p>
+<p><ul>
+<li>FULL_EXPERIMENT:<ul>
+<li>Generate 30 initial hypotheses</li>
+<li>Run 5 iterations of the generate-debate-evolve cycle for baseline</li>
+<li>For experimental condition, run 3 full cycles of generate-debate-evolve with peer review integration</li>
+<li>Use a comprehensive knowledge base with 1000+ biomedical research papers</li>
+<li>Simulate 15 expert reviewers with diverse expertise profiles</li>
+</ul>
+</li>
+</ul></p>
+<p><ol>
+<li>Evaluation Metrics:</li>
+<li>Novelty: Average novelty ratings from simulated expert reviewers (1-10 scale)</li>
+<li>Reliability: Measured through:<ul>
+<li>Internal consistency scores (how well the hypothesis aligns with established knowledge)</li>
+<li>Predicted experimental validation success rate</li>
+<li>Number of logical flaws identified in the hypothesis</li>
+</ul>
+</li>
+<li>Track and compare these metrics between baseline and experimental conditions</li>
+<li>For each hypothesis, record:<ul>
+<li>Initial form</li>
+<li>Intermediate forms after each iteration</li>
+<li>Final form</li>
+<li>All evaluation metrics at each stage</li>
+</ul>
+</li>
+</ol></p>
+<p><ol>
+<li>Analysis:</li>
+<li>Calculate mean, median, and standard deviation for novelty and reliability metrics</li>
+<li>Perform statistical significance testing (t-tests or non-parametric alternatives) to compare baseline and experimental conditions</li>
+<li>Generate visualizations showing the progression of hypotheses quality over iterations</li>
+<li>Analyze the relationship between peer review feedback and hypothesis improvement</li>
+</ol></p>
+<p><ol>
+<li>Output and Reporting:</li>
+<li>Generate a detailed report with all hypotheses generated</li>
+<li>Include all evaluation metrics and statistical analyses</li>
+<li>Provide visualizations of the results</li>
+<li>Include a discussion of the findings and their implications</li>
+</ol></p>
+<p><p>The experiment should first run in MINI_PILOT mode. If everything looks good, proceed to PILOT mode. After the PILOT is complete, stop and do not run the FULL_EXPERIMENT (a human will manually verify the results and make the change to FULL_EXPERIMENT if appropriate).</p></p>
+<p><p>Please ensure all intermediate results are logged for analysis, including the full text of hypotheses at each stage, all debate points, peer review comments, and evaluation metrics.</p></p>
+</div></div>
+<hr>
+<h2>References</h2>
+<ol>
+<li>
+<p>The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery (2024). Paper ID: 33161a5a9b5dcb635b5a97475e6a6209a69ada7d</p>
+</li>
+<li>
+<p>ResearchTown: Simulator of Human Research Community (2024). Paper ID: 2b37107e99568d7ece09c888d7e67b2d369ccc45</p>
+</li>
+<li>
+<p>Many Heads Are Better Than One: Improved Scientific Idea Generation by A LLM-Based Multi-Agent System (2024). Paper ID: 2e2b5d3589f31cdc5ca0bcd918b22794eb4fe5e4</p>
+</li>
+<li>
+<p>Generative Adversarial Reviews: When LLMs Become the Critic (2024). Paper ID: 9f3ae8055e227edb413c54417c9c216f1f554f52</p>
+</li>
+<li>
+<p>Mind the Blind Spots: A Focus-Level Evaluation Framework for LLM Reviews (2025). Paper ID: 37841d9036313b43d2a4069bc3f1493e9dc598da</p>
+</li>
+<li>
+<p>When AI Co-Scientists Fail: SPOT-a Benchmark for Automated Verification of Scientific Research (2025). Paper ID: dfcb2c4c76aa283133258b4e7a36244ae79dddb6</p>
+</li>
+<li>
+<p>NovelSeek: When Agent Becomes the Scientist - Building Closed-Loop System from Hypothesis to Verification (2025). Paper ID: 5bd91191e7d82c3ec99c9d9c5e9cb9e00320c92d</p>
+</li>
+<li>
+<p>Agentic Publications: An LLM-Driven Framework for Interactive Scientific Publishing, Supplementing Traditional Papers with AI-Powered Knowledge Systems (2025). Paper ID: 458cde32b03893c4fd7f2be74883bc0f156f5c51</p>
+</li>
+</ol>
+</body>
+</html>
