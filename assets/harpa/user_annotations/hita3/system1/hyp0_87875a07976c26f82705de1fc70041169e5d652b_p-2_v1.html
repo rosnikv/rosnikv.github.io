@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HARPA Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; }
+h2, h3, h4 { color: #007b5f; }
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>87875a07976c26f82705de1fc70041169e5d652b</p>
+<hr>
+<h2>Motivation</h2>
+<p>The source paper is "LeanDojo: Theorem Proving with Retrieval-Augmented Language Models" (247 citations, 2023, ID: 87875a07976c26f82705de1fc70041169e5d652b). This idea builds on a progression of related work [96a9546fdb2f147ced3a03d4c98b6c900ecd1b8c, f8fbeb821ee7618cd478c46096960978b6ac6b2e, 55153268596cb50b223748b0a62789bbd6454b35, dd18782960f9ee4c66b79e1518b342ad3f8d19e7, 4f33c1ebe216cf7e560eaeccc1f20e6b6fd2e9d9, b16c7d45183b9d595ab64301be019741b1528860, 55820f684fcd592edfa013633e5704a41b176d23, ee71447d68f3d8666c974b8199e330e19aebf263, 4ba57555bef02f988f2ed3bab2f102733dc55221, a3dd7d33dfaa9e02e43d92e900cba01f52d8c4b9].</p>
+<p>The analysis reveals a progression from integrating language models into theorem-proving environments to enhancing their mathematical reasoning capabilities through various innovative approaches. The key challenges addressed include the need for finetuning, reliance on manual annotations, and the optimization of LLMs for mathematical tasks. The research idea should focus on further improving the efficiency and effectiveness of LLMs in theorem proving by addressing the limitations of current models, such as the need for extensive training data and computational resources, while building on the advancements made in automatic process supervision and hybrid instruction tuning.</p>
+<hr>
+<h2>Hypothesis</h2>
+<p>Integrating Monte Carlo Tree Search with the Context-Free Retrieval module will enhance the efficiency and accuracy of premise selection in retrieval-augmented language models compared to using the CFR module alone.</p>
+<hr>
+<h2>Research Gap</h2>
+<p>Existing research has not extensively explored the integration of Monte Carlo Tree Search (MCTS) with the Context-Free Retrieval (CFR) module to enhance premise selection efficiency in retrieval-augmented language models. This combination could potentially improve retrieval accuracy and reduce computational overhead, addressing limitations in current retrieval frameworks.</p>
+<hr>
+<h2>Hypothesis Elements</h2>
+<p>Independent variable: Integration of Monte Carlo Tree Search with the Context-Free Retrieval module</p>
+<p>Dependent variable: Efficiency and accuracy of premise selection in retrieval-augmented language models</p>
+<p>Comparison groups: MCTS-enhanced CFR module vs. standard CFR module alone</p>
+<p>Baseline/control: Standard Context-Free Retrieval (CFR) module that uses BERT embeddings</p>
+<p>Context/setting: Theorem proving tasks using the MiniF2F benchmark dataset</p>
+<p>Assumptions: BERT embeddings can effectively represent premises and proof states; MCTS can efficiently explore the search space of potential premises</p>
+<p>Relationship type: Causation (integration will enhance performance)</p>
+<p>Population: Retrieval-augmented language models for theorem proving</p>
+<p>Timeframe: Not specified</p>
+<p>Measurement method: Top-k recall rate, retrieval accuracy (precision, recall, F1 score), and computational efficiency metrics</p>
+<hr>
+<h2>Overview</h2>
+<p>The proposed research explores the integration of Monte Carlo Tree Search (MCTS) with the Context-Free Retrieval (CFR) module to enhance premise selection efficiency in retrieval-augmented language models. The CFR module, which uses BERT to derive embeddings for premises and proof states, will be augmented with MCTS to optimize the retrieval process. MCTS will be employed to identify the most relevant premises by efficiently exploring the search space, balancing positive and negative examples to ensure high-quality retrieval. This integration aims to improve retrieval accuracy and reduce computational overhead by leveraging MCTS's divide-and-conquer strategy. The expected outcome is a more efficient premise selection process that enhances the overall performance of retrieval-augmented language models. This approach addresses gaps in existing research by combining the strengths of MCTS and CFR, offering a novel solution to improve retrieval efficiency and accuracy.</p>
+<hr>
+<h2>Background</h2>
+<p><a href="https://www.semanticscholar.org/paper/ccd9eca10294fe822a25e1133d59deacab005860">Monte Carlo Tree Search (MCTS)</a>: MCTS is a search algorithm used to explore large decision spaces efficiently. In this research, MCTS will be integrated with the CFR module to optimize premise retrieval by identifying the most relevant premises. The algorithm will use a divide-and-conquer strategy to balance positive and negative examples, ensuring both efficiency and quality in the retrieval process. MCTS is chosen for its ability to efficiently explore complex search spaces, making it suitable for enhancing the CFR module's retrieval capabilities.</p>
+<p><a href="https://www.semanticscholar.org/paper/4fbe77f3d88425394a332e686c325cbff50b4982">Context-Free Retrieval (CFR) Module</a>: The CFR module is designed to derive embeddings for premises and proof states using BERT. It retrieves relevant premises based on their similarity to input proof states. In this research, the CFR module will be augmented with MCTS to improve retrieval accuracy and efficiency. The integration aims to enhance the module's ability to differentiate between relevant and irrelevant premises, thereby improving the overall efficiency of premise selection in retrieval-augmented language models.</p>
+<hr>
+<h2>Implementation</h2>
+<p>The hypothesis will be implemented by integrating the Monte Carlo Tree Search (MCTS) algorithm with the Context-Free Retrieval (CFR) module. The CFR module, which uses BERT to derive embeddings for premises and proof states, will be modified to include an MCTS-based search strategy. This strategy will explore the search space of potential premises, using a divide-and-conquer approach to identify the most relevant ones. The MCTS algorithm will balance positive and negative examples during the search process, ensuring high-quality retrieval. The integration will involve modifying the CFR module's retrieval logic to incorporate MCTS, allowing it to efficiently explore the search space and improve retrieval accuracy. The implementation will require building a new logic component that interfaces between the CFR module and MCTS, handling data flow and control logic. The expected outcome is an enhanced retrieval process that improves premise selection efficiency and accuracy in retrieval-augmented language models.</p>
+<hr>
+<h2>Operationalization Information</h2>
+
+    <div style="display: flex; gap: 2em;">
+    <div style="flex: 1;">
+    
+<p><p>Please implement an experiment to test whether integrating Monte Carlo Tree Search (MCTS) with a Context-Free Retrieval (CFR) module improves premise selection efficiency in retrieval-augmented language models for theorem proving tasks.</p></p>
+<p><h2>EXPERIMENT OVERVIEW</h2>
+<p>This experiment will compare two systems:<br />
+1. <strong>Baseline System</strong>: A standard Context-Free Retrieval (CFR) module that uses BERT embeddings to retrieve relevant premises for theorem proving<br />
+2. <strong>Experimental System</strong>: An enhanced CFR module that integrates Monte Carlo Tree Search (MCTS) to guide the premise selection process</p></p>
+<p><p>Both systems will be evaluated on the MiniF2F benchmark dataset for theorem proving tasks.</p></p>
+<p><h2>PILOT EXPERIMENT SETTINGS</h2>
+<p>Implement a global variable <code>PILOT_MODE</code> with three possible settings: <code>MINI_PILOT</code>, <code>PILOT</code>, or <code>FULL_EXPERIMENT</code>.</p></p>
+<p><ul>
+<li><strong>MINI_PILOT</strong>: Use only 10 theorem proving problems from the MiniF2F training set. This should run in under 10 minutes and is for code verification and debugging.</li>
+<li><strong>PILOT</strong>: Use 50 theorem proving problems from the MiniF2F training set for training/tuning and 25 problems from the validation set for evaluation. This should run in under 2 hours.</li>
+<li><strong>FULL_EXPERIMENT</strong>: Use the complete MiniF2F dataset with proper training/validation/test splits. Only run this after MINI_PILOT and PILOT have been verified.</li>
+</ul></p>
+<p><p>Start by running the MINI_PILOT, then if everything looks good, run the PILOT. Do not run the FULL_EXPERIMENT without explicit human verification and approval.</p></p>
+<p><h2>IMPLEMENTATION DETAILS</h2></p>
+<p><h3>1. Context-Free Retrieval (CFR) Module (Baseline)</h3>
+<p>Implement a CFR module that:<br />
+- Uses BERT to derive embeddings for premises and proof states<br />
+- Retrieves premises based on similarity to the current proof state<br />
+- Ranks premises by similarity score<br />
+- Returns the top-k most similar premises</p></p>
+<p><h3>2. MCTS-Enhanced CFR Module (Experimental)</h3>
+<p>Implement an enhanced CFR module that integrates MCTS to:<br />
+- Efficiently explore the search space of potential premises<br />
+- Use a divide-and-conquer approach to identify relevant premises<br />
+- Balance positive and negative examples during the search process<br />
+- Guide the retrieval process to improve accuracy</p></p>
+</div><div style='flex: 1;'>
+<p><p>The MCTS implementation should include:<br />
+- <strong>Node Structure</strong>: Each node represents a state in the premise selection process<br />
+- <strong>Selection</strong>: Use UCB1 formula to balance exploration and exploitation<br />
+- <strong>Expansion</strong>: Create child nodes for unexplored premise combinations<br />
+- <strong>Simulation</strong>: Evaluate premise relevance using BERT embeddings<br />
+- <strong>Backpropagation</strong>: Update node statistics based on simulation results</p></p>
+<p><h3>3. Integration Component</h3>
+<p>Create a component that:<br />
+- Interfaces between the CFR module and MCTS algorithm<br />
+- Handles data flow between components<br />
+- Manages the control logic for the integrated system</p></p>
+<p><h3>4. Evaluation Framework</h3>
+<p>Implement an evaluation framework that measures:<br />
+- <strong>Primary Metric</strong>: Top-k recall rate (proportion of relevant premises retrieved in top k results)<br />
+- <strong>Secondary Metrics</strong>:<br />
+  - Retrieval accuracy (precision, recall, F1 score)<br />
+  - Computational efficiency (time taken for retrieval)<br />
+  - Memory usage</p></p>
+<p><h2>DATA PROCESSING</h2>
+<ol>
+<li>Load the MiniF2F benchmark dataset</li>
+<li>Preprocess the theorems and premises for BERT embedding</li>
+<li>Split the data into appropriate sets based on the PILOT_MODE</li>
+</ol></p>
+<p><h2>EXPERIMENT PROCEDURE</h2>
+<ol>
+<li>For each theorem proving problem in the dataset:</li>
+<li>Run the baseline CFR module to retrieve premises</li>
+<li>Run the MCTS-enhanced CFR module to retrieve premises</li>
+<li>Record the results for both systems</li>
+</ol></p>
+<p><ol>
+<li>Calculate the evaluation metrics for both systems</li>
+<li>Compare the performance of the baseline and experimental systems</li>
+<li>Generate visualizations of the results</li>
+</ol></p>
+<p><h2>REPORTING</h2>
+<p>Generate a comprehensive report that includes:<br />
+1. Experiment setup and methodology<br />
+2. Performance metrics for both systems<br />
+3. Statistical analysis of the results (including significance testing)<br />
+4. Visualizations comparing the systems<br />
+5. Discussion of the findings<br />
+6. Limitations and future work</p></p>
+<p><h2>ADDITIONAL REQUIREMENTS</h2>
+<ul>
+<li>Implement proper logging throughout the experiment</li>
+<li>Include error handling and debugging information</li>
+<li>Ensure reproducibility by setting random seeds</li>
+<li>Save intermediate results to allow for experiment resumption</li>
+<li>Document all code thoroughly</li>
+</ul></p>
+<p><p>Please run the MINI_PILOT first, then if everything looks good, run the PILOT. After the PILOT completes, stop and wait for human verification before proceeding to the FULL_EXPERIMENT.</p></p>
+</div></div>
+<hr>
+<h2>References</h2>
+<ol>
+<li>
+<p>LeanDojo: Theorem Proving with Retrieval-Augmented Language Models (2023). Paper ID: 87875a07976c26f82705de1fc70041169e5d652b</p>
+</li>
+<li>
+<p>An In-Context Learning Agent for Formal Theorem-Proving (2023). Paper ID: ee71447d68f3d8666c974b8199e330e19aebf263</p>
+</li>
+<li>
+<p>LLMSTEP: LLM proofstep suggestions in Lean (2023). Paper ID: 96a9546fdb2f147ced3a03d4c98b6c900ecd1b8c</p>
+</li>
+<li>
+<p>Llemma: An Open Language Model For Mathematics (2023). Paper ID: b16c7d45183b9d595ab64301be019741b1528860</p>
+</li>
+<li>
+<p>Math-Shepherd: Verify and Reinforce LLMs Step-by-step without Human Annotations (2023). Paper ID: 4ba57555bef02f988f2ed3bab2f102733dc55221</p>
+</li>
+<li>
+<p>WizardMath: Empowering Mathematical Reasoning for Large Language Models via Reinforced Evol-Instruct (2023). Paper ID: dd18782960f9ee4c66b79e1518b342ad3f8d19e7</p>
+</li>
+<li>
+<p>MAmmoTH: Building Math Generalist Models through Hybrid Instruction Tuning (2023). Paper ID: a3dd7d33dfaa9e02e43d92e900cba01f52d8c4b9</p>
+</li>
+<li>
+<p>Boosting LLM Reasoning: Push the Limits of Few-shot Learning with Reinforced In-Context Pruning (2023). Paper ID: 55820f684fcd592edfa013633e5704a41b176d23</p>
+</li>
+<li>
+<p>An Efficient Recipe for Long Context Extension via Middle-Focused Positional Encoding (2024). Paper ID: f8fbeb821ee7618cd478c46096960978b6ac6b2e</p>
+</li>
+<li>
+<p>LongReD: Mitigating Short-Text Degradation of Long-Context Large Language Models via Restoration Distillation (2025). Paper ID: 55153268596cb50b223748b0a62789bbd6454b35</p>
+</li>
+<li>
+<p>SoLoPO: Unlocking Long-Context Capabilities in LLMs via Short-to-Long Preference Optimization (2025). Paper ID: 4f33c1ebe216cf7e560eaeccc1f20e6b6fd2e9d9</p>
+</li>
+<li>
+<p>Reasoning Beyond Limits: Advances and Open Problems for LLMs (2025). Paper ID: ccd9eca10294fe822a25e1133d59deacab005860</p>
+</li>
+<li>
+<p>Assisting Mathematical Formalization with A Learning-based Premise Retriever (2025). Paper ID: 4fbe77f3d88425394a332e686c325cbff50b4982</p>
+</li>
+</ol>
+</body>
+</html>

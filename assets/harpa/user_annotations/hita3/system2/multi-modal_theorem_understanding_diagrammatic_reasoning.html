@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>JSON to HTML</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; max-width: 1000px; }
+h2 { color: #007b5f; margin-top: 2em; }
+p { margin-bottom: 1em; }
+</style>
+</head>
+<body>
+<h2>Paper ID</h2>
+<p>87875a07976c26f82705de1fc70041169e5d652b</p>
+<h2> </h2>
+<p><strong>Title</strong></p><p>Multi-Modal Theorem Proving: Enhancing Geometric Reasoning in Language Models</p><p><strong>Problem Statement</strong></p><p>Current language model-based theorem provers struggle with geometric and visual reasoning tasks, which are crucial in many mathematical domains. Most existing methods focus solely on textual representations of theorems and proofs, limiting their ability to leverage visual intuition that humans often use in geometric reasoning.</p><p><strong>Motivation</strong></p><p>Humans frequently employ diagrams and visual intuition to comprehend and prove geometric theorems. Incorporating this capability into automated theorem provers could significantly enhance their performance on a wide range of mathematical problems. By combining textual and visual reasoning, we aim to create a more robust and intuitive theorem proving system that can better mimic human-like problem-solving in geometry.</p><p><strong>Proposed Method</strong></p><p>We propose a multi-modal theorem proving system that combines textual and visual reasoning. Our system consists of three main components: 1) A diagram generator that takes text and produces a relevant geometric diagram using a vision-language model fine-tuned on mathematical figures. 2) A visual reasoning module based on a transformer architecture that processes both the textual theorem and the generated diagram, extracting relevant geometric relationships and invariants. 3) A proof synthesis module that integrates insights from the visual reasoning module with traditional language model-based theorem proving. This module uses a novel attention mechanism to selectively weight visual and textual information throughout the proof generation process.</p><p><strong>Step-by-Step Experiment Plan</strong></p><p><strong>Step 1: Data Preparation</strong></p><p>Augment the LeanDojo dataset with geometric theorems and their corresponding diagrams. This will involve collecting or generating appropriate diagrams for a subset of geometric theorems in the dataset.</p><p><strong>Step 2: Diagram Generator</strong></p><p>Fine-tune a vision-language model (e.g., DALL-E or Stable Diffusion) on a dataset of mathematical figures and their textual descriptions. Use prompts like 'Generate a diagram for the theorem: {theorem_text}' to create geometric visualizations.</p><p><strong>Step 3: Visual Reasoning Module</strong></p><p>Implement a transformer-based model that takes both the textual theorem and the generated diagram as input. Use a pre-trained vision transformer (e.g., ViT) for image encoding and a language model for text encoding. Combine these encodings using cross-attention layers.</p><p><strong>Step 4: Proof Synthesis Module</strong></p><p>Implement a language model-based proof generator that incorporates the output from the visual reasoning module. Use a novel attention mechanism that allows the model to selectively focus on visual or textual information during proof generation.</p><p><strong>Step 5: Training</strong></p><p>Train the entire system end-to-end on the augmented LeanDojo dataset. Use a loss function that combines proof correctness and visual relevance metrics.</p><p><strong>Step 6: Evaluation</strong></p><p>Create a new benchmark of geometry theorems in Lean, ensuring a mix of problems that benefit from visual reasoning. Evaluate the system on this benchmark, measuring proof success rate and proof quality. Compare against text-only baselines and ablate different components of the system.</p><p><strong>Step 7: Analysis</strong></p><p>Conduct a qualitative analysis of the generated proofs and diagrams to assess their interpretability and intuitiveness. Examine cases where visual reasoning significantly improved or hindered the proof process.</p><p><strong>Test Case Examples</strong></p><p><strong>Baseline Prompt Input</strong></p><p>Prove that the sum of the angles in a triangle is 180 degrees.</p><p><strong>Baseline Prompt Expected Output</strong></p><p>Theorem: The sum of the angles in a triangle is 180 degrees.<br />
+Proof:<br />
+1. Consider an arbitrary triangle ABC.<br />
+2. Extend one side of the triangle, say BC, to form a straight line.<br />
+3. Draw a line through point A parallel to BC.<br />
+4. The alternate angles formed by the parallel line are equal.<br />
+5. The sum of the angles on a straight line is 180 degrees.<br />
+6. Therefore, the sum of the three angles of the triangle is equal to 180 degrees.<br />
+QED</p><p><strong>Proposed Prompt Input</strong></p><p>Prove that the sum of the angles in a triangle is 180 degrees.</p><p><strong>Proposed Prompt Expected Output</strong></p><p>[Diagram: A triangle ABC with an extended base BC and a parallel line through A]<br />
+Theorem: The sum of the angles in a triangle is 180 degrees.<br />
+Visual Reasoning:<br />
+1. The diagram shows a triangle ABC with its base BC extended.<br />
+2. A parallel line to BC is drawn through point A.<br />
+3. This creates alternate angles and angles on a straight line.<br />
+Proof:<br />
+1. In the diagram, we see that angle BAC of the triangle is equal to the alternate angle formed by the parallel line (let's call this angle x).<br />
+2. Similarly, angle ABC is equal to the alternate angle formed by the parallel line (let's call this angle y).<br />
+3. The angle BCA of the triangle, along with x and y, form a straight line.<br />
+4. We know that angles on a straight line sum to 180 degrees.<br />
+5. Therefore, angle BCA + x + y = 180 degrees.<br />
+6. But x and y are equal to angles BAC and ABC respectively.<br />
+7. Thus, angle BAC + angle ABC + angle BCA = 180 degrees.<br />
+8. This proves that the sum of the angles in triangle ABC is 180 degrees.<br />
+QED</p><p><strong>explanation</strong></p><p>The proposed method generates a relevant diagram and uses visual reasoning to guide the proof process. This approach provides a more intuitive and geometrically grounded proof compared to the purely textual baseline.</p><p><strong>Fallback Plan</strong></p><p>If the proposed multi-modal approach doesn't significantly improve theorem proving performance, we can pivot to an analysis of where and why visual reasoning fails in automated theorem proving. We could investigate: 1) The quality and relevance of generated diagrams, potentially improving the diagram generator. 2) The integration of visual and textual information in the reasoning process, possibly exploring alternative fusion techniques. 3) The types of geometric problems that benefit most from visual reasoning versus those that don't, providing insights into the limitations and potential of visual reasoning in automated theorem proving. This analysis could lead to a paper on the challenges and opportunities of incorporating visual reasoning in language model-based theorem provers.</p>
+</body></html>

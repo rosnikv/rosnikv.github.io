@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>JSON to HTML</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; max-width: 1000px; }
+h2 { color: #007b5f; margin-top: 2em; }
+p { margin-bottom: 1em; }
+</style>
+</head>
+<body>
+<h2>Paper ID</h2>
+<p>87875a07976c26f82705de1fc70041169e5d652b</p>
+<h2> </h2>
+<p><strong>Title</strong></p><p>Hierarchical Retrieval-Augmented Proving: Leveraging Theorem Dependencies for Improved Mathematical Reasoning</p><p><strong>Problem Statement</strong></p><p>Current retrieval-augmented theorem provers struggle to effectively select relevant premises from large mathematical libraries, leading to suboptimal performance on complex theorems. This challenge stems from the inability to efficiently navigate the vast theorem space while maintaining semantic understanding of mathematical concepts and their relationships.</p><p><strong>Motivation</strong></p><p>Existing methods typically use flat retrieval approaches or simple embedding-based similarity to select premises, which fail to capture the inherent hierarchical structure and dependencies between theorems in mathematical knowledge. By leveraging this structure, we can dramatically improve premise selection and theorem proving performance. Our approach is inspired by how mathematicians approach complex proofs, first identifying high-level relevant concepts and then drilling down into specific theorems and lemmas.</p><p><strong>Proposed Method</strong></p><p>We propose a novel hierarchical premise retrieval system that combines graph neural networks (GNNs) and language models. The method consists of the following steps:<br />
+1. Construct a directed acyclic graph representing theorem dependencies from the LeanDojo dataset.<br />
+2. Train a GNN to learn representations of theorems based on their position and connections in this graph.<br />
+3. For a given target theorem, use the GNN to identify a small set of potentially relevant higher-level theorems.<br />
+4. Employ a fine-tuned language model to perform targeted retrieval within the subgraphs of these higher-level theorems, selecting the most pertinent low-level premises.<br />
+5. Integrate the retrieved premises with a language model-based prover, using them to guide proof generation.</p><p><strong>Step-by-Step Experiment Plan</strong></p><p><strong>Step 1: Data Preparation</strong></p><p>Use the LeanDojo dataset to construct a directed acyclic graph (DAG) representing theorem dependencies. Each node represents a theorem, and edges represent dependencies between theorems.</p><p><strong>Step 2: GNN Training</strong></p><p>Train a Graph Neural Network (GNN) on the theorem dependency DAG. Use node features derived from theorem statements and edge features based on dependency types. The objective is to learn representations that capture the hierarchical structure of mathematical knowledge.</p><p><strong>Step 3: Language Model Fine-tuning</strong></p><p>Fine-tune a pre-trained language model (e.g., GPT-3.5) on the LeanDojo dataset for the task of premise relevance ranking. The model should take a pair of theorems as input and output a relevance score.</p><p><strong>Step 4: Hierarchical Retrieval</strong></p><p>Implement the two-stage retrieval process: (1) Use the trained GNN to identify top-k relevant high-level theorems for a given target theorem. (2) Use the fine-tuned language model to perform targeted retrieval within the subgraphs of these high-level theorems.</p><p><strong>Step 5: Prover Integration</strong></p><p>Integrate the retrieved premises with a language model-based prover. Prompt the model with the target theorem and retrieved premises to generate proof steps.</p><p><strong>Step 6: Evaluation</strong></p><p>Evaluate the method on the LeanDojo benchmark. Compare against baselines like ReProver and flat retrieval approaches. Measure proof success rate, proof length, and retrieval precision/recall. Analyze performance on theorems of varying difficulty and from different mathematical domains.</p><p><strong>Step 7: Ablation Studies</strong></p><p>Conduct ablation studies to assess the impact of different components: (1) GNN vs. flat embedding for high-level retrieval, (2) Targeted vs. global retrieval for low-level premises, (3) Different GNN architectures and language models.</p><p><strong>Test Case Examples</strong></p><p><strong>Baseline Prompt Input (Flat Retrieval)</strong></p><p>Prove: For any real numbers a and b, if a &lt; b, then there exists a rational number r such that a &lt; r &lt; b.</p><p><strong>Baseline Prompt Expected Output (Flat Retrieval)</strong></p><p>Retrieved Premises:<br />
+1. Definition of real numbers<br />
+2. Properties of inequalities<br />
+3. Density of rational numbers in real numbers</p>
+<p>Proof: Let a and b be real numbers such that a &lt; b. We know that the set of rational numbers is dense in the real numbers. This means that between any two distinct real numbers, there exists a rational number. Therefore, there must exist a rational number r such that a &lt; r &lt; b.</p><p><strong>Proposed Prompt Input (Hierarchical Retrieval)</strong></p><p>Prove: For any real numbers a and b, if a &lt; b, then there exists a rational number r such that a &lt; r &lt; b.</p><p><strong>Proposed Prompt Expected Output (Hierarchical Retrieval)</strong></p><p>High-level Theorems Retrieved:<br />
+1. Completeness of Real Numbers<br />
+2. Density of Rational Numbers</p>
+<p>Low-level Premises Retrieved:<br />
+1. Archimedean property of real numbers<br />
+2. Existence of rational numbers between any two distinct real numbers<br />
+3. Transitivity of inequalities</p>
+<p>Proof:<br />
+1. Let a and b be real numbers such that a &lt; b.<br />
+2. Consider the difference d = b - a. By the Archimedean property, there exists a positive integer n such that n * d &gt; 1.<br />
+3. Let q = 1/n. Then 0 &lt; q &lt; b - a.<br />
+4. Now, consider the set S = {k * q | k is an integer and k * q ≤ a}.<br />
+5. S is non-empty (contains negative integers) and bounded above by a, so by the completeness of real numbers, it has a least upper bound, call it s.<br />
+6. We claim that a ≤ s &lt; b.<br />
+   - If s &lt; a, then s + q &lt; a, contradicting that s is the least upper bound of S.<br />
+   - If s ≥ b, then s - q ≥ a (otherwise s would not be the least upper bound), but this means s - q is in S and s - q ≥ b - q &gt; a, contradicting s being the least upper bound.<br />
+7. Therefore, a ≤ s &lt; s + q ≤ b.<br />
+8. By the density of rational numbers, there exists a rational number r such that s &lt; r &lt; s + q.<br />
+9. By transitivity of inequalities, we have a &lt; r &lt; b.</p>
+<p>Thus, we have constructed a rational number r such that a &lt; r &lt; b, completing the proof.</p><p><strong>Explanation</strong></p><p>The hierarchical retrieval method first identifies high-level theorems relevant to the problem (completeness and density), then retrieves specific low-level premises needed for the proof. This allows for a more structured and comprehensive proof compared to the flat retrieval baseline, which may miss important intermediate steps or relevant theorems.</p><p><strong>Fallback Plan</strong></p><p>If the proposed hierarchical retrieval method doesn't significantly outperform baselines, we can explore several alternative directions:<br />
+1. Analyze the GNN's learned representations to understand if it's effectively capturing the theorem hierarchy. If not, we could experiment with more sophisticated GNN architectures or alternative graph construction methods.<br />
+2. Investigate the quality of the language model's premise rankings. We might need to improve the fine-tuning process or explore few-shot learning approaches for better relevance assessment.<br />
+3. Examine cases where our method fails and categorize the types of errors (e.g., missing crucial premises, retrieving irrelevant information). This analysis could inform targeted improvements to our retrieval strategy.<br />
+4. Consider a hybrid approach that combines our hierarchical method with traditional symbolic reasoning techniques, potentially leveraging the strengths of both paradigms.<br />
+5. Explore the use of reinforcement learning to optimize the retrieval process, where the reward could be based on the success and efficiency of the resulting proofs.<br />
+6. If these approaches don't yield significant improvements, we could pivot to an analysis paper, offering insights into the challenges of applying hierarchical retrieval to theorem proving and suggesting future research directions in this area.</p>
+</body></html>

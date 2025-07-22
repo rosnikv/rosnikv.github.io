@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HARPA Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; }
+h2, h3, h4 { color: #007b5f; }
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>87875a07976c26f82705de1fc70041169e5d652b</p>
+<hr>
+<h2>Motivation</h2>
+<p>The source paper is "LeanDojo: Theorem Proving with Retrieval-Augmented Language Models" (247 citations, 2023, ID: 87875a07976c26f82705de1fc70041169e5d652b). This idea builds on a progression of related work [96a9546fdb2f147ced3a03d4c98b6c900ecd1b8c, dd18782960f9ee4c66b79e1518b342ad3f8d19e7, 98b607e7cb84e1a5c87c8a49562ae35435e6722d, cddb552f6c3464a54a02b0b64b2d1af56c086606, b16c7d45183b9d595ab64301be019741b1528860, f8b5ee53c3410f20049e7def47bd52403fa388e3, 0b419e86492123e7c9634855ff4edf2d2de4562a, ee71447d68f3d8666c974b8199e330e19aebf263, 4ba57555bef02f988f2ed3bab2f102733dc55221, 4ed896f45e143b31dca465b2153fc7fc93ca3fdf].</p>
+<p>The analysis reveals a progression in enhancing the capabilities of LLMs for theorem proving and mathematical reasoning. The source paper introduced LeanDojo, which provided an open-source platform for theorem proving with retrieval-augmented LLMs. Subsequent papers built on this by addressing limitations such as fixed theorem libraries, integrating in-context learning, and enhancing interaction with proof environments. They also explored process-oriented models and reinforcement learning to improve reasoning accuracy. A research idea that advances this field could focus on combining these advancements to develop a comprehensive framework that integrates modular skill libraries, in-context learning, and process-oriented reinforcement learning for theorem proving.</p>
+<hr>
+<h2>Hypothesis</h2>
+<p>Integrating Dynamic Skill Addition with Subgoal-based Demonstration Learning will improve the accuracy and efficiency of LLMs in theorem proving tasks compared to using either approach independently.</p>
+<hr>
+<h2>Research Gap</h2>
+<p>Existing research has not extensively explored the combination of Dynamic Skill Addition and Subgoal-based Demonstration Learning to enhance the efficiency and accuracy of theorem proving in LLMs. This gap is crucial as it could lead to more efficient use of computational resources and improved theorem proving capabilities.</p>
+<hr>
+<h2>Hypothesis Elements</h2>
+<p>Independent variable: Integration of Dynamic Skill Addition with Subgoal-based Demonstration Learning</p>
+<p>Dependent variable: Accuracy (success rate in proving theorems) and efficiency (time taken to complete proofs) of LLMs in theorem proving tasks</p>
+<p>Comparison groups: Three systems: 1) Dynamic Skill Addition (DSA) only, 2) Subgoal-based Demonstration Learning (SDL) only, 3) Integrated system combining DSA and SDL</p>
+<p>Baseline/control: Systems using either Dynamic Skill Addition or Subgoal-based Demonstration Learning independently</p>
+<p>Context/setting: Theorem proving tasks using the miniF2F dataset</p>
+<p>Assumptions: Dynamic Skill Addition enhances adaptability by enriching the skill library; Subgoal-based Demonstration Learning improves efficiency by breaking down tasks into manageable subgoals</p>
+<p>Relationship type: Causation (integration will improve performance)</p>
+<p>Population: Large Language Models (LLMs)</p>
+<p>Timeframe: Not specified</p>
+<p>Measurement method: Accuracy measured by success rate on the miniF2F dataset; efficiency measured by time taken to complete theorem proving tasks</p>
+<hr>
+<h2>Overview</h2>
+<p>The research aims to test the hypothesis that integrating Dynamic Skill Addition with Subgoal-based Demonstration Learning can significantly enhance the accuracy and efficiency of LLMs in theorem proving tasks. Dynamic Skill Addition allows the system to evolve its skill library by adding new, validated skills during the proving process, thereby expanding its capabilities over time. Subgoal-based Demonstration Learning, on the other hand, breaks down complex theorem proving tasks into smaller, manageable subgoals, facilitating more efficient learning and problem-solving. By combining these two approaches, the system is expected to leverage the strengths of both: the adaptability and growth of the skill library from Dynamic Skill Addition, and the structured, efficient problem-solving strategy from Subgoal-based Demonstration Learning. This combination addresses the gap in existing research by providing a novel approach that could lead to more efficient use of computational resources and improved theorem proving capabilities. The expected outcome is a system that not only proves theorems more accurately but also does so in a time-efficient manner, making it a valuable tool for formal mathematics and automated reasoning.</p>
+<hr>
+<h2>Background</h2>
+<p><a href="https://www.semanticscholar.org/paper/f8b5ee53c3410f20049e7def47bd52403fa388e3">Dynamic Skill Addition</a>: Dynamic Skill Addition involves the continuous evolution of the skill library by adding new skills during the theorem proving process. This is achieved by prompting an LLM to generate new skills, which are then validated and stored in the library. This approach allows the system to tackle increasingly complex problems by enriching the library with reusable skills. The expected role of Dynamic Skill Addition is to enhance the system's adaptability and problem-solving capabilities by providing a growing repository of skills that can be leveraged during the proving process.</p>
+<p><a href="https://www.semanticscholar.org/paper/b8fe9d7b5762f7c9c3789cff2bdbe968ff0f0ed6">Subgoal-based Demonstration Learning</a>: Subgoal-based Demonstration Learning restructures complex theorem proving tasks into smaller, manageable subgoals. This approach improves learning efficiency by allowing the system to focus on individual components of a problem, thereby facilitating more effective problem-solving. The expected role of this variable is to enhance the system's efficiency by providing a structured framework for tackling complex proofs, reducing the computational overhead and time required to complete theorem proving tasks.</p>
+<hr>
+<h2>Implementation</h2>
+<p>The hypothesis will be implemented by integrating Dynamic Skill Addition and Subgoal-based Demonstration Learning into a unified framework for theorem proving. The Dynamic Skill Addition module will prompt the LLM to generate new skills during the proving process, which will be validated and added to the skill library. This module will be responsible for expanding the system's capabilities by continuously enriching the library with new, reusable skills. The Subgoal-based Demonstration Learning module will decompose complex theorem proving tasks into smaller subgoals, allowing the system to tackle each subgoal individually. This module will provide a structured framework for proof generation, enhancing the system's efficiency by reducing the computational overhead associated with complex proofs. The integration of these modules will occur at the logic level, where the outputs of the Dynamic Skill Addition module will be used by the Subgoal-based Demonstration Learning module to inform the selection and execution of subgoals. The data flow will involve the LLM generating new skills, which are validated and stored in the library, and then used to guide the subgoal-based proof generation process. The expected outcome is a system that can prove theorems more accurately and efficiently by leveraging the strengths of both Dynamic Skill Addition and Subgoal-based Demonstration Learning.</p>
+<hr>
+<h2>Operationalization Information</h2>
+
+    <div style="display: flex; gap: 2em;">
+    <div style="flex: 1;">
+    
+<p><p>Please implement an experiment to test the hypothesis that integrating Dynamic Skill Addition with Subgoal-based Demonstration Learning will improve the accuracy and efficiency of LLMs in theorem proving tasks compared to using either approach independently.</p></p>
+<p><h2>Experiment Overview</h2>
+<p>This experiment will compare three systems for theorem proving using LLMs:<br />
+1. Baseline 1: Dynamic Skill Addition (DSA) only<br />
+2. Baseline 2: Subgoal-based Demonstration Learning (SDL) only<br />
+3. Experimental: Integrated system combining DSA and SDL</p></p>
+<p><p>The experiment will evaluate these systems on the miniF2F dataset, measuring both accuracy (success rate in proving theorems) and efficiency (time taken to complete proofs).</p></p>
+<p><h2>Implementation Requirements</h2></p>
+<p><h3>Pilot Mode Configuration</h3>
+<p>Implement a global variable <code>PILOT_MODE</code> with three possible settings:<br />
+- <code>MINI_PILOT</code>: Use only 5 theorems from the miniF2F training set for quick debugging<br />
+- <code>PILOT</code>: Use 50 theorems from the training set and 20 from the validation set<br />
+- <code>FULL_EXPERIMENT</code>: Use the complete miniF2F dataset (training, validation, and test sets)</p></p>
+<p><p>Start by running the <code>MINI_PILOT</code>, then if successful, run the <code>PILOT</code>. Do not run the <code>FULL_EXPERIMENT</code> automatically - this will be manually triggered after human verification of the pilot results.</p></p>
+<p><h3>Data Preparation</h3>
+<ol>
+<li>Download and prepare the miniF2F dataset</li>
+<li>Create appropriate splits for the different pilot modes</li>
+<li>Implement functions to load and preprocess theorems for the LLM</li>
+</ol></p>
+<p><h3>Core Modules</h3></p>
+<p><h4>1. Dynamic Skill Addition (DSA) Module</h4>
+<ul>
+<li>Implement a skill library data structure to store reusable skills/tactics</li>
+<li>Create a mechanism for the LLM to generate new skills during theorem proving</li>
+<li>Implement validation logic to verify generated skills before adding them to the library</li>
+<li>Design a retrieval mechanism to access relevant skills from the library during proving</li>
+</ul></p>
+<p><h4>2. Subgoal-based Demonstration Learning (SDL) Module</h4>
+<ul>
+<li>Implement logic to decompose theorem proving tasks into smaller subgoals</li>
+<li>Create a mechanism for the LLM to identify and generate appropriate subgoals</li>
+<li>Implement tracking of subgoal progress and dependencies</li>
+<li>Design a framework for learning from demonstrations at the subgoal level</li>
+</ul></p>
+</div><div style='flex: 1;'>
+<p><h4>3. Integrated System</h4>
+<ul>
+<li>Implement the integration of DSA and SDL modules</li>
+<li>Design the data flow where skills from DSA inform subgoal selection and execution in SDL</li>
+<li>Ensure that new skills can be generated based on subgoal requirements</li>
+<li>Implement mechanisms for subgoals to leverage the skill library effectively</li>
+</ul></p>
+<p><h3>LLM Integration</h3>
+<ul>
+<li>Use an appropriate LLM (e.g., GPT-4) for theorem proving</li>
+<li>Implement appropriate prompting strategies for each system variant</li>
+<li>Ensure consistent LLM usage across all three systems for fair comparison</li>
+</ul></p>
+<p><h3>Evaluation Framework</h3>
+<ul>
+<li>Implement metrics for accuracy (success rate on proving theorems)</li>
+<li>Implement metrics for efficiency (time taken to complete proofs)</li>
+<li>Create a logging system to record detailed information about each proof attempt</li>
+<li>Implement statistical analysis to compare the three systems (including bootstrap resampling for significance testing)</li>
+</ul></p>
+<p><h2>Experiment Execution</h2></p>
+<p><h3>For each pilot mode:</h3>
+<ol>
+<li>Run all three systems (DSA only, SDL only, Integrated) on the same set of theorems</li>
+<li>Record success rates, time taken, and other relevant metrics</li>
+<li>Generate detailed logs of the proving process for each system</li>
+<li>Perform statistical analysis to compare the performance of the three systems</li>
+</ol></p>
+<p><h3>Reporting</h3>
+<ul>
+<li>Generate a comprehensive report with the following sections:</li>
+<li>Summary of results (success rates, average time per theorem)</li>
+<li>Comparative analysis of the three systems</li>
+<li>Statistical significance of differences</li>
+<li>Detailed case studies of specific theorems where the integrated system performed notably better or worse</li>
+<li>Analysis of the skill library growth and utilization</li>
+<li>Analysis of subgoal generation and completion</li>
+</ul></p>
+<p><h2>Technical Details</h2></p>
+<p><h3>DSA Module Specifics</h3>
+<ul>
+<li>Skills should be stored as structured data with:</li>
+<li>Skill name/identifier</li>
+<li>Skill description/implementation</li>
+<li>Applicable contexts/conditions</li>
+<li>Success metrics/history</li>
+<li>The validation process should verify that generated skills are:</li>
+<li>Syntactically correct</li>
+<li>Logically sound</li>
+<li>Novel compared to existing skills</li>
+<li>Useful for the current or future theorem proving tasks</li>
+</ul></p>
+<p><h3>SDL Module Specifics</h3>
+<ul>
+<li>Subgoals should be represented with:</li>
+<li>Subgoal description/statement</li>
+<li>Dependencies on other subgoals</li>
+<li>Status (pending, in-progress, completed, failed)</li>
+<li>Proof steps/tactics used</li>
+<li>The subgoal decomposition should be dynamic and adaptive based on the theorem complexity</li>
+</ul></p>
+<p><h3>Integration Specifics</h3>
+<ul>
+<li>The integrated system should:</li>
+<li>Use subgoal decomposition to guide the theorem proving process</li>
+<li>Leverage the skill library to address specific subgoals</li>
+<li>Generate new skills when existing skills are insufficient for a subgoal</li>
+<li>Update the skill library based on successful subgoal completions</li>
+</ul></p>
+<p><p>Please implement this experiment with clean, modular code and comprehensive documentation. Ensure that all results are reproducible and that the experiment can be easily extended for future research.</p></p>
+</div></div>
+<hr>
+<h2>References</h2>
+<ol>
+<li>
+<p>LeanDojo: Theorem Proving with Retrieval-Augmented Language Models (2023). Paper ID: 87875a07976c26f82705de1fc70041169e5d652b</p>
+</li>
+<li>
+<p>LEGO-Prover: Neural Theorem Proving with Growing Libraries (2023). Paper ID: f8b5ee53c3410f20049e7def47bd52403fa388e3</p>
+</li>
+<li>
+<p>An In-Context Learning Agent for Formal Theorem-Proving (2023). Paper ID: ee71447d68f3d8666c974b8199e330e19aebf263</p>
+</li>
+<li>
+<p>LLMSTEP: LLM proofstep suggestions in Lean (2023). Paper ID: 96a9546fdb2f147ced3a03d4c98b6c900ecd1b8c</p>
+</li>
+<li>
+<p>Llemma: An Open Language Model For Mathematics (2023). Paper ID: b16c7d45183b9d595ab64301be019741b1528860</p>
+</li>
+<li>
+<p>Math-Shepherd: Verify and Reinforce LLMs Step-by-step without Human Annotations (2023). Paper ID: 4ba57555bef02f988f2ed3bab2f102733dc55221</p>
+</li>
+<li>
+<p>WizardMath: Empowering Mathematical Reasoning for Large Language Models via Reinforced Evol-Instruct (2023). Paper ID: dd18782960f9ee4c66b79e1518b342ad3f8d19e7</p>
+</li>
+<li>
+<p>MathCoder: Seamless Code Integration in LLMs for Enhanced Mathematical Reasoning (2023). Paper ID: cddb552f6c3464a54a02b0b64b2d1af56c086606</p>
+</li>
+<li>
+<p>Learning From Mistakes Makes LLM Better Reasoner (2023). Paper ID: 98b607e7cb84e1a5c87c8a49562ae35435e6722d</p>
+</li>
+<li>
+<p>Temporal Knowledge Question Answering via Abstract Reasoning Induction (2023). Paper ID: 4ed896f45e143b31dca465b2153fc7fc93ca3fdf</p>
+</li>
+<li>
+<p>On the Temporal Question-Answering Capabilities of Large Language Models Over Anonymized Data (2025). Paper ID: 0b419e86492123e7c9634855ff4edf2d2de4562a</p>
+</li>
+<li>
+<p>Decomposing the Enigma: Subgoal-based Demonstration Learning for Formal Theorem Proving (2023). Paper ID: b8fe9d7b5762f7c9c3789cff2bdbe968ff0f0ed6</p>
+</li>
+</ol>
+</body>
+</html>
