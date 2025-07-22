@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HARPA Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; }
+h2, h3, h4 { color: #007b5f; }
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>0b7cc0e510ef05ad394a36d9cee9ddf5f2ae912f</p>
+<hr>
+<h2>Motivation</h2>
+<p>The source paper is "Modeling Information Change in Science Communication with Semantically Matched Paraphrases" (16 citations, 2022, ID: 0b7cc0e510ef05ad394a36d9cee9ddf5f2ae912f). This idea builds on a progression of related work [7bf9a0c6370fb7f6343f621a6772ee80e5e54b35, dfa99d27caea44861c9783bb48ef4c18f06debb6].</p>
+<p>The analysis reveals that the source paper and Paper 0 both focus on aspects of paraphrase generation and detection, with the source paper introducing a dataset for analyzing information change and Paper 0 proposing a method to enhance paraphrase generation. A promising research idea would be to explore how the method proposed in Paper 0 can be integrated with the SPICED dataset to improve the detection of information change in scientific communication. This could address the limitation of generating diverse paraphrases, which is crucial for accurately modeling information change.</p>
+<hr>
+<h2>Hypothesis</h2>
+<p>Integrating Tree Depth Control and Semantic Similarity Tokens in transformer-based paraphrase generation models will improve the accuracy of information change detection in scientific communication, as measured by F1-score on the SPICED dataset.</p>
+<hr>
+<h2>Research Gap</h2>
+<p>Existing research has not extensively explored the integration of syntactic control tokens like Tree Depth Control with semantic control tokens such as Semantic Similarity Tokens in transformer-based paraphrase generation models. This combination could enhance the model's ability to maintain semantic fidelity while varying syntactic complexity, which is crucial for accurate information change detection in scientific communication.</p>
+<hr>
+<h2>Hypothesis Elements</h2>
+<p>Independent variable: Integration of Tree Depth Control and Semantic Similarity Tokens in transformer-based paraphrase generation models</p>
+<p>Dependent variable: Accuracy of information change detection in scientific communication, as measured by F1-score</p>
+<p>Comparison groups: Four conditions: Baseline T5-paraphraser without control tokens, T5-paraphraser with Tree Depth Control Tokens only, T5-paraphraser with Semantic Similarity Tokens only, and T5-paraphraser with both Tree Depth Control and Semantic Similarity Tokens integrated</p>
+<p>Baseline/control: Standard T5-paraphraser (Parrot) model without any control tokens</p>
+<p>Context/setting: Scientific communication context using the SPICED dataset</p>
+<p>Assumptions: Tree Depth Control and Semantic Similarity Tokens can effectively guide paraphrase generation; syntactic variation and semantic preservation are important factors in information change detection</p>
+<p>Relationship type: Causal (integration of tokens will improve accuracy)</p>
+<p>Population: Sentence pairs with subtle information changes from the SPICED dataset</p>
+<p>Timeframe: Varies by experimental mode: MINI_PILOT (2 epochs), PILOT (5 epochs), FULL_EXPERIMENT (10 epochs with early stopping)</p>
+<p>Measurement method: F1-score on the SPICED dataset, with precision and recall as secondary metrics</p>
+<hr>
+<h2>Overview</h2>
+<p>This research explores the integration of Tree Depth Control and Semantic Similarity Tokens in transformer-based paraphrase generation models to enhance the accuracy of information change detection in scientific communication. Tree Depth Control uses tokens to specify desired syntactic tree depth, allowing the model to adjust the complexity of the syntactic structure in generated paraphrases. Semantic Similarity Tokens ensure that the generated paraphrases maintain a high degree of semantic similarity to the original text. By combining these two control mechanisms, the model can generate paraphrases that vary syntactically while preserving semantic fidelity. This approach addresses the gap in existing research by offering a novel method to improve the accuracy of information change detection, which is crucial for maintaining the integrity of scientific communication. The hypothesis will be tested using the SPICED dataset, with the F1-score as the primary evaluation metric. This combination is expected to synergistically enhance the model's ability to detect subtle information changes by balancing syntactic variation and semantic preservation.</p>
+<hr>
+<h2>Background</h2>
+<p><a href="https://www.semanticscholar.org/paper/a2a03a8fff4d818ecee4bc07d218f716d7e49696">Tree Depth Control</a>: Tree Depth Control involves tagging input sequences with tokens specifying the desired syntactic tree depth of the output. This method influences the complexity of the syntactic structure in the generated paraphrase. It is particularly effective in tasks where syntactic complexity needs adjustment, such as simplifying complex sentences or ensuring paraphrases maintain a certain level of syntactic depth. In this experiment, Tree Depth Control will guide the model to produce outputs that conform to specified syntactic constraints, allowing for controlled variation in syntactic complexity.</p>
+<p><a href="https://www.semanticscholar.org/paper/dfa99d27caea44861c9783bb48ef4c18f06debb6">Semantic Similarity Token</a>: Semantic Similarity Tokens are used to ensure that the generated paraphrase maintains a high degree of semantic similarity to the original text. These tokens guide the model to produce outputs that are semantically equivalent but lexically varied. The implementation involves tagging input sequences with similarity tokens and training the model to generate paraphrases that closely match the semantic content of the input. This approach is critical for applications like scientific communication, where the accuracy of information is paramount.</p>
+<hr>
+<h2>Implementation</h2>
+<p>The hypothesis will be implemented using a transformer-based paraphrase generation model, such as the T5-paraphraser Parrot. The model will be trained with Tree Depth Control and Semantic Similarity Tokens. Tree Depth Control tokens will be used to specify the desired syntactic tree depth, guiding the model to adjust the complexity of the syntactic structure in generated paraphrases. Semantic Similarity Tokens will ensure that the generated paraphrases maintain a high degree of semantic similarity to the original text. The model will be evaluated using the SPICED dataset, with the F1-score as the primary metric. The implementation will involve tagging input sequences with the appropriate control tokens, training the model to recognize and respond to these tokens, and evaluating the generated paraphrases for syntactic variation and semantic fidelity. The integration of these control mechanisms is expected to enhance the model's ability to detect subtle information changes by balancing syntactic variation and semantic preservation.</p>
+<hr>
+<h2>Operationalization Information</h2>
+
+    <div style="display: flex; gap: 2em;">
+    <div style="flex: 1;">
+    
+<p><p>Please implement an experiment to test whether integrating Tree Depth Control and Semantic Similarity Tokens in transformer-based paraphrase generation models improves the accuracy of information change detection in scientific communication. The experiment should compare three conditions:</p></p>
+<p><ol>
+<li>Baseline: A standard T5-paraphraser (Parrot) model without any control tokens</li>
+<li>Experimental Condition 1: T5-paraphraser with Tree Depth Control Tokens only</li>
+<li>Experimental Condition 2: T5-paraphraser with Semantic Similarity Tokens only</li>
+<li>Experimental Condition 3: T5-paraphraser with both Tree Depth Control and Semantic Similarity Tokens integrated</li>
+</ol></p>
+<p><p>The experiment should be structured as a pilot study with three possible settings controlled by a global variable PILOT_MODE which can be set to 'MINI_PILOT', 'PILOT', or 'FULL_EXPERIMENT'. Please implement and run the MINI_PILOT first, then if everything looks good, run the PILOT. Do not run the FULL_EXPERIMENT as this will be manually verified and initiated by a human.</p></p>
+<p><h2>Dataset</h2>
+<p>Use the SPICED dataset for evaluation, which contains pairs of sentences with subtle information changes. For the MINI_PILOT, use only 10 sentence pairs from the training set. For the PILOT, use 200 sentence pairs from the training set for fine-tuning and 100 pairs from the validation set for evaluation. For the FULL_EXPERIMENT, use the entire training set for fine-tuning and the entire test set for final evaluation.</p></p>
+<p><h2>Implementation Details</h2></p>
+<p><h3>Tree Depth Control Tokens</h3>
+<ol>
+<li>Use spaCy to analyze the syntactic tree depth of sentences in the dataset</li>
+<li>Create special tokens representing different tree depth levels (e.g., &lt;depth_1&gt;, &lt;depth_2&gt;, etc., up to a reasonable maximum like &lt;depth_10&gt;)</li>
+<li>Prepend these tokens to input sequences during fine-tuning to guide the model to generate paraphrases with the specified syntactic complexity</li>
+<li>Implement a function to calculate the syntactic tree depth of generated paraphrases to verify the effectiveness of the control tokens</li>
+</ol></p>
+<p><h3>Semantic Similarity Tokens</h3>
+<ol>
+<li>Create special tokens representing different levels of semantic similarity (e.g., &lt;sim_0.7&gt;, &lt;sim_0.8&gt;, &lt;sim_0.9&gt;, &lt;sim_1.0&gt;)</li>
+<li>Calculate semantic similarity between original sentences and their paraphrases using a sentence embedding model (e.g., SentenceBERT)</li>
+<li>Prepend these tokens to input sequences during fine-tuning to guide the model to maintain the specified level of semantic similarity</li>
+<li>Implement a function to calculate the semantic similarity of generated paraphrases to verify the effectiveness of the control tokens</li>
+</ol></p>
+</div><div style='flex: 1;'>
+<p><h3>Model Training</h3>
+<ol>
+<li>Start with a pre-trained T5-paraphraser (Parrot) model</li>
+<li>Fine-tune four versions of the model:</li>
+<li>Baseline: No control tokens</li>
+<li>Tree Depth Control: Only tree depth tokens</li>
+<li>Semantic Similarity: Only semantic similarity tokens</li>
+<li>Integrated: Both tree depth and semantic similarity tokens</li>
+<li>For the MINI_PILOT, train for 2 epochs</li>
+<li>For the PILOT, train for 5 epochs</li>
+<li>For the FULL_EXPERIMENT, train for 10 epochs with early stopping based on validation performance</li>
+</ol></p>
+<p><h3>Information Change Detection</h3>
+<ol>
+<li>For each sentence pair in the evaluation set, generate paraphrases using all four model versions</li>
+<li>Implement an information change detection classifier that takes the original sentence and its paraphrase as input and predicts whether there is an information change</li>
+<li>Train this classifier on the SPICED dataset (using the appropriate subset based on PILOT_MODE)</li>
+<li>Evaluate the classifier's performance using F1-score, precision, and recall</li>
+</ol></p>
+<p><h2>Evaluation Metrics</h2>
+<ol>
+<li>Primary metric: F1-score for information change detection</li>
+<li>Secondary metrics:</li>
+<li>Precision and recall for information change detection</li>
+<li>Syntactic tree depth difference between original and paraphrased sentences</li>
+<li>Semantic similarity between original and paraphrased sentences</li>
+<li>BLEU score to measure lexical diversity</li>
+</ol></p>
+<p><h2>Analysis</h2>
+<ol>
+<li>Compare the F1-scores of all four conditions using bootstrap resampling to determine statistical significance</li>
+<li>Analyze the relationship between syntactic tree depth, semantic similarity, and information change detection accuracy</li>
+<li>Perform error analysis on cases where the integrated model fails to detect information changes</li>
+<li>Generate visualizations showing the distribution of syntactic tree depths and semantic similarities across the four conditions</li>
+</ol></p>
+<p><h2>Expected Outputs</h2>
+<ol>
+<li>Trained models for all four conditions</li>
+<li>Evaluation results including F1-score, precision, and recall for each condition</li>
+<li>Statistical analysis of the differences between conditions</li>
+<li>Visualizations of the results</li>
+<li>A detailed report summarizing the findings</li>
+</ol></p>
+<p><p>Please implement this experiment with proper logging, error handling, and documentation. The code should be modular and reusable for future experiments. Make sure to save checkpoints during training and implement a mechanism to resume training from checkpoints if needed.</p></p>
+<p><p>Remember to run the MINI_PILOT first, then the PILOT, and stop before running the FULL_EXPERIMENT.</p></p>
+</div></div>
+<hr>
+<h2>References</h2>
+<ol>
+<li>
+<p>Modeling Information Change in Science Communication with Semantically Matched Paraphrases (2022). Paper ID: 0b7cc0e510ef05ad394a36d9cee9ddf5f2ae912f</p>
+</li>
+<li>
+<p>Guiding Zero-Shot Paraphrase Generation with Fine-Grained Control Tokens (2023). Paper ID: dfa99d27caea44861c9783bb48ef4c18f06debb6</p>
+</li>
+<li>
+<p>SYSTRAN @ WMT24 Non-Repetitive Translation Task (2024). Paper ID: 7bf9a0c6370fb7f6343f621a6772ee80e5e54b35</p>
+</li>
+<li>
+<p>Controllable Sentence Simplification (2019). Paper ID: a2a03a8fff4d818ecee4bc07d218f716d7e49696</p>
+</li>
+</ol>
+</body>
+</html>

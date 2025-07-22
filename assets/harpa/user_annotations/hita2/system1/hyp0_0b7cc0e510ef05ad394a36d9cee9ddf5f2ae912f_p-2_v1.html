@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HARPA Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; }
+h2, h3, h4 { color: #007b5f; }
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>0b7cc0e510ef05ad394a36d9cee9ddf5f2ae912f</p>
+<hr>
+<h2>Motivation</h2>
+<p>The source paper is "Modeling Information Change in Science Communication with Semantically Matched Paraphrases" (16 citations, 2022, ID: 0b7cc0e510ef05ad394a36d9cee9ddf5f2ae912f). This idea builds on a progression of related work [9de9fa60a786ca23f924f5521326b2a264c22228, 61a3d27beacc14303d3500ac647122fd32329b35, cfce709a65f90312d2bdc1a6cf0380c19becf694, 6f75e8b61f13562237851d8119cb2f9d49e073fb, 52269391f48885ad440809962f27b9022d3ee4ba, 0133c1128f2036ecb6b65ab15c562b71bf4f18a0, 9f424c20deca24f854ea2e8484b00aef888037ca].</p>
+<p>The analysis reveals a progression from the source paper's focus on paraphrase detection and fact-checking to broader themes of misinformation and hallucination detection in LLMs. Papers 2, 3, and 4 specifically address hallucinations, a form of misinformation, building upon the source paper's findings. Papers 5 and 6 extend the evaluation of LLM outputs in contextual and dynamic scenarios. A research idea that advances the field could focus on developing a comprehensive framework for detecting both paraphrase-based misinformation and hallucinations in LLMs, leveraging insights from the SPICED dataset and recent advancements in hallucination detection models.</p>
+<hr>
+<h2>Hypothesis</h2>
+<p>Integrating ensemble methods with logit-based probability scoring will improve the precision and recall of misinformation and hallucination detection in large language models within healthcare and finance domains.</p>
+<hr>
+<h2>Research Gap</h2>
+<p>Existing research has not extensively explored the combination of ensemble methods with logit-based probability scoring for misinformation and hallucination detection in healthcare and finance domains. This combination could potentially enhance detection accuracy by leveraging the strengths of both approaches in a novel way.</p>
+<hr>
+<h2>Hypothesis Elements</h2>
+<p>Independent variable: Integration of ensemble methods with logit-based probability scoring</p>
+<p>Dependent variable: Precision and recall of misinformation and hallucination detection</p>
+<p>Comparison groups: Three approaches: Individual detection models (Baseline 1), Simple ensemble method (Baseline 2), and Integrated approach (Experimental)</p>
+<p>Baseline/control: Individual detection models (FactCC, SummaC, and SelfCheckGPT) and simple ensemble method using majority voting</p>
+<p>Context/setting: Healthcare and finance domains</p>
+<p>Assumptions: Ensemble methods reduce false positives and negatives; logit-based scoring provides precise measure of confidence in predictions</p>
+<p>Relationship type: Causation (integration will improve detection metrics)</p>
+<p>Population: Large language models</p>
+<p>Timeframe: Not specified</p>
+<p>Measurement method: Precision, recall, F1 Score, and ROC-AUC metrics evaluated on domain-specific datasets (MedQA and FinancialQA)</p>
+<hr>
+<h2>Overview</h2>
+<p>This research explores the integration of ensemble methods with logit-based probability scoring to enhance the detection of misinformation and hallucinations in large language models, specifically within the healthcare and finance domains. Ensemble methods, which aggregate predictions from multiple models, are known for their robustness and ability to reduce false positives and negatives. Logit-based probability scoring, on the other hand, provides a quantitative measure of content reliability by analyzing the distribution of logits from language models. By combining these two approaches, the research aims to leverage the strengths of ensemble methods in handling variability and complexity with the precise token-level analysis provided by logit-based scoring. This integration is expected to improve both precision and recall metrics, crucial for domains where accuracy is paramount. The hypothesis will be tested using datasets specific to healthcare and finance, such as medical QA pairs and financial reports, ensuring that the models are evaluated in contexts where misinformation and hallucination detection is critical. The expected outcome is an improved detection system that balances precision and recall, reducing the risk of false positives and negatives while maintaining high accuracy in identifying true misinformation and hallucinations.</p>
+<hr>
+<h2>Background</h2>
+<p><a href="https://www.semanticscholar.org/paper/7e78b3a78c78de22a08bbb7fa82ddb68054800a4">Ensemble Methods</a>: Ensemble methods involve combining multiple detection models to enhance robustness and reduce false positives and negatives. This approach aggregates predictions from different models like FactSumm, Smart, SummaC, and Selfcheckgpt. Implementation typically involves running each model independently on the same input data and then using a voting mechanism or weighted averaging to determine the final prediction. This strategy can be particularly effective in domains requiring high accuracy, such as healthcare and finance, where the cost of misinformation is significant. The ensemble method may also involve hyperparameter tuning to optimize the contribution of each model to the final decision.</p>
+<p><a href="https://www.semanticscholar.org/paper/7e78b3a78c78de22a08bbb7fa82ddb68054800a4">Logit-Based Probability Scoring</a>: Logit-based probability scoring utilizes the logit outputs from language models to assess the accuracy of specific tokens or phrases. This method involves analyzing the distribution of logits to determine the trustworthiness and consistency of generated text. In practice, this could involve setting a threshold for logit scores, below which content is flagged as potentially hallucinated or misinformative. This approach can be integrated into existing detection models as an additional layer of verification, providing a quantitative measure of content reliability. It is particularly useful in scenarios where precise token-level analysis is required, such as in legal or medical documents.</p>
+<hr>
+<h2>Implementation</h2>
+<p>The hypothesis will be implemented by first setting up an ensemble framework that integrates multiple misinformation and hallucination detection models, such as FactSumm, Smart, SummaC, and Selfcheckgpt. Each model will independently process the same input data, and their predictions will be aggregated using a voting mechanism or weighted averaging to produce a final decision. Simultaneously, logit-based probability scoring will be applied to the outputs of these models. The logits from each model will be analyzed to assess the confidence of each prediction, with a threshold set to flag potentially unreliable content. This dual-layer approach will be tested on domain-specific datasets, such as medical QA pairs and financial reports, to evaluate its effectiveness in improving precision and recall metrics. The integration logic will involve a pipeline where the ensemble method provides an initial prediction, which is then refined by the logit-based scoring to ensure high confidence in the final output. The expected outcome is a more accurate detection system that reduces false positives and negatives while maintaining high precision and recall.</p>
+<hr>
+<h2>Operationalization Information</h2>
+
+    <div style="display: flex; gap: 2em;">
+    <div style="flex: 1;">
+    
+<p><p>Please implement an experiment to test whether integrating ensemble methods with logit-based probability scoring improves misinformation and hallucination detection in large language models, specifically for healthcare and finance domains.</p></p>
+<p><h2>Experiment Overview</h2>
+<p>This experiment will compare three approaches to misinformation detection:<br />
+1. <strong>Baseline 1</strong>: Individual detection models (FactCC, SummaC, and SelfCheckGPT) used separately<br />
+2. <strong>Baseline 2</strong>: A simple ensemble method that uses majority voting from the individual models<br />
+3. <strong>Experimental</strong>: An integrated approach that combines ensemble methods with logit-based probability scoring</p></p>
+<p><h2>Pilot Settings</h2>
+<p>Implement a global variable <code>PILOT_MODE</code> with three possible settings: <code>MINI_PILOT</code>, <code>PILOT</code>, or <code>FULL_EXPERIMENT</code>.</p></p>
+<p><ul>
+<li><strong>MINI_PILOT</strong>: Use only 10 examples from each domain (healthcare and finance) for quick debugging. Run each detection model on these examples and evaluate the results.</li>
+<li><strong>PILOT</strong>: Use 100 examples from each domain. This should be sufficient to see if there are promising differences between the baseline and experimental approaches.</li>
+<li><strong>FULL_EXPERIMENT</strong>: Use the complete datasets for both domains, with proper train/validation/test splits.</li>
+</ul></p>
+<p><p>Start by running the MINI_PILOT. If everything looks good, proceed to the PILOT. After the PILOT completes, stop and do not run the FULL_EXPERIMENT (a human will manually verify the results and make the change to FULL_EXPERIMENT if appropriate).</p></p>
+<p><h2>Datasets</h2>
+<ol>
+<li><strong>Healthcare Dataset</strong>: Use the MedQA dataset for medical question-answer pairs. For the MINI_PILOT, select 10 QA pairs. For the PILOT, use 100 QA pairs. For the FULL_EXPERIMENT, use the complete dataset with proper splits.</li>
+<li><strong>Financial Dataset</strong>: Use the FinancialQA dataset containing financial statements and reports. Apply the same sampling strategy as for the healthcare dataset.</li>
+</ol></p>
+<p><p>For both datasets, create a ground truth annotation of whether each answer contains misinformation or hallucinations. If these annotations don't exist, you'll need to create them using a combination of expert knowledge and model-based verification.</p></p>
+<p><h2>Implementation Details</h2></p>
+<p><h3>1. Individual Detection Models (Baseline 1)</h3>
+<p>Implement or adapt the following detection models:<br />
+- <strong>FactCC</strong>: A model that checks factual consistency between source and generated text<br />
+- <strong>SummaC</strong>: A model that evaluates consistency in summarization<br />
+- <strong>SelfCheckGPT</strong>: A model that uses self-consistency to detect hallucinations</p></p>
+<p><p>Each model should output a binary classification (misinformation/hallucination detected or not) and a confidence score for each input.</p></p>
+<p><h3>2. Simple Ensemble Method (Baseline 2)</h3>
+<p>Implement a majority voting system that aggregates the binary classifications from the individual models. If at least two out of three models flag content as misinformation/hallucination, the ensemble flags it as well.</p></p>
+<p><h3>3. Integrated Approach (Experimental)</h3>
+<p>Implement the integrated approach with these components:</p></p>
+</div><div style='flex: 1;'>
+<p><h4>Ensemble Framework</h4>
+<p>Create a framework that:<br />
+- Runs all three detection models on the same input<br />
+- Collects both binary classifications and confidence scores<br />
+- Implements weighted voting based on model confidence<br />
+- Outputs an initial classification and confidence score</p></p>
+<p><h4>Logit-Based Scoring Module</h4>
+<p>Create a module that:<br />
+- Extracts logit distributions from the language models for each token in the generated text<br />
+- Analyzes the distribution to identify tokens with low confidence (potential hallucinations)<br />
+- Sets a threshold for flagging content based on logit scores<br />
+- Refines the ensemble's initial classification using logit-based evidence</p></p>
+<p><h4>Integration Logic</h4>
+<p>Implement a pipeline where:<br />
+1. The ensemble framework provides an initial classification<br />
+2. The logit-based scoring module refines this classification<br />
+3. The final decision incorporates both ensemble consensus and token-level confidence</p></p>
+<p><h2>Evaluation</h2>
+<p>Evaluate all three approaches (Individual Models, Simple Ensemble, Integrated Approach) using:</p></p>
+<p><ol>
+<li><strong>Precision</strong>: The proportion of true positive identifications out of all positive identifications</li>
+<li><strong>Recall</strong>: The proportion of true positive identifications out of all actual positives</li>
+<li><strong>F1 Score</strong>: The harmonic mean of precision and recall</li>
+<li><strong>ROC-AUC</strong>: The area under the receiver operating characteristic curve</li>
+</ol></p>
+<p><p>Report these metrics separately for healthcare and finance domains, and also as an overall average.</p></p>
+<p><h2>Statistical Analysis</h2>
+<p>Perform statistical significance testing to determine if the differences between approaches are statistically significant:</p></p>
+<p><ol>
+<li>Use bootstrap resampling to generate confidence intervals for each metric</li>
+<li>Perform paired t-tests or Wilcoxon signed-rank tests to compare approaches</li>
+<li>Report p-values and effect sizes</li>
+</ol></p>
+<p><h2>Output and Visualization</h2>
+<p>Generate the following outputs:</p></p>
+<p><ol>
+<li>Tables showing precision, recall, F1, and ROC-AUC for each approach across domains</li>
+<li>Confusion matrices for each approach</li>
+<li>ROC curves comparing the three approaches</li>
+<li>Precision-Recall curves comparing the three approaches</li>
+<li>Examples of correctly and incorrectly classified instances for each approach</li>
+</ol></p>
+<p><h2>Implementation Notes</h2>
+<ul>
+<li>Use numpy for numerical operations and pandas for data manipulation</li>
+<li>Implement proper logging to track experiment progress and results</li>
+<li>Save intermediate results to allow for resuming experiments if needed</li>
+<li>Use a random seed for reproducibility</li>
+<li>Document all hyperparameters and design choices</li>
+</ul></p>
+<p><p>Please run the MINI_PILOT first, then if everything looks good, proceed to the PILOT. After the PILOT completes, stop and await human verification before running the FULL_EXPERIMENT.</p></p>
+</div></div>
+<hr>
+<h2>References</h2>
+<ol>
+<li>
+<p>Modeling Information Change in Science Communication with Semantically Matched Paraphrases (2022). Paper ID: 0b7cc0e510ef05ad394a36d9cee9ddf5f2ae912f</p>
+</li>
+<li>
+<p>Scientific Fact-Checking: A Survey of Resources and Approaches (2023). Paper ID: 0133c1128f2036ecb6b65ab15c562b71bf4f18a0</p>
+</li>
+<li>
+<p>Can LLM-Generated Misinformation Be Detected? (2023). Paper ID: 6f75e8b61f13562237851d8119cb2f9d49e073fb</p>
+</li>
+<li>
+<p>RAGTruth: A Hallucination Corpus for Developing Trustworthy Retrieval-Augmented Language Models (2023). Paper ID: cfce709a65f90312d2bdc1a6cf0380c19becf694</p>
+</li>
+<li>
+<p>Lynx: An Open Source Hallucination Evaluation Model (2024). Paper ID: 9de9fa60a786ca23f924f5521326b2a264c22228</p>
+</li>
+<li>
+<p>VERITAS: A Unified Approach to Reliability Evaluation (2024). Paper ID: 52269391f48885ad440809962f27b9022d3ee4ba</p>
+</li>
+<li>
+<p>Does Context Matter? ContextualJudgeBench for Evaluating LLM-based Judges in Contextual Settings (2025). Paper ID: 9f424c20deca24f854ea2e8484b00aef888037ca</p>
+</li>
+<li>
+<p>TALE: A Tool-Augmented Framework for Reference-Free Evaluation of Large Language Models (2025). Paper ID: 61a3d27beacc14303d3500ac647122fd32329b35</p>
+</li>
+<li>
+<p>Securing Large Language Models: Addressing Bias, Misinformation, and Prompt Attacks (2024). Paper ID: 7e78b3a78c78de22a08bbb7fa82ddb68054800a4</p>
+</li>
+<li>
+<p>Securing Large Language Models: Addressing Bias, Misinformation, and Prompt Attacks (2024). Paper ID: 7e78b3a78c78de22a08bbb7fa82ddb68054800a4</p>
+</li>
+</ol>
+</body>
+</html>

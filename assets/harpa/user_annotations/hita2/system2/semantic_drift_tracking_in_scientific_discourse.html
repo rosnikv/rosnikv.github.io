@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>JSON to HTML</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; max-width: 1000px; }
+h2 { color: #007b5f; margin-top: 2em; }
+p { margin-bottom: 1em; }
+</style>
+</head>
+<body>
+<h2>Paper ID</h2>
+<p>0b7cc0e510ef05ad394a36d9cee9ddf5f2ae912f</p>
+<h2> </h2>
+<p><strong>Title</strong></p><p>SciShift: Tracking Semantic Evolution in Scientific Communication with Contrastive Learning</p><p><strong>Problem Statement</strong></p><p>Accurately tracking how scientific concepts and findings evolve as they are communicated across different channels (e.g., academic papers, press releases, news articles, social media) remains challenging for current language models. Existing approaches often rely on lexical overlap or simple semantic similarity metrics, which fail to capture nuanced changes in meaning or framing.</p><p><strong>Motivation</strong></p><p>Recent advances in contrastive learning and multi-task pretraining offer promising avenues for creating models that can better identify subtle semantic shifts while maintaining domain knowledge. By leveraging these techniques, we can develop a model that is more sensitive to changes in scientific communication across different mediums and audiences. This approach could provide valuable insights into how scientific information is transformed and potentially distorted as it moves from academic circles to the general public.</p><p><strong>Proposed Method</strong></p><p>We propose SciShift, a novel architecture that combines a scientific domain-specific encoder with a general-purpose semantic change detector. The scientific encoder will be initialized with weights from a large language model (e.g., RoBERTa) and further pretrained on a corpus of scientific papers using masked language modeling and citation prediction tasks. The semantic change detector will be trained using contrastive learning on a curated dataset of scientific concept paraphrases with varying degrees of information change. During inference, SciShift will encode pairs of statements (e.g., original research finding and news article summary) and compute a multi-dimensional semantic shift vector. This vector will capture changes along different aspects like certainty, generalizability, and practical implications. To handle longer texts, we will use a hierarchical attention mechanism that first encodes sentence-level representations before aggregating them into document-level embeddings.</p><p><strong>Step-by-Step Experiment Plan</strong></p><p><strong>Step 1: Data Collection and Preprocessing</strong></p><ol>
+<li>Collect a large corpus of scientific papers from arXiv and PubMed Central for pretraining the scientific encoder.</li>
+<li>Create the SciEvol dataset by collecting chains of statements about scientific findings traced from original papers through various communication channels (press releases, news articles, social media posts).</li>
+<li>Use GPT-4 to generate paraphrases of scientific statements with controlled degrees of semantic shift along different dimensions (certainty, generalizability, implications).</li>
+<li>Use GPT-4 to annotate the degree and nature of semantic shifts in the SciEvol dataset.</li>
+</ol><p><strong>Step 2: Model Architecture</strong></p><ol>
+<li>Initialize the scientific encoder with RoBERTa-large weights.</li>
+<li>Implement the hierarchical attention mechanism for handling longer texts.</li>
+<li>Design the semantic change detector module using a siamese network architecture.</li>
+</ol><p><strong>Step 3: Pretraining</strong></p><ol>
+<li>Pretrain the scientific encoder on the collected corpus of scientific papers using masked language modeling and citation prediction tasks.</li>
+<li>Use the HuggingFace Transformers library for efficient implementation.</li>
+</ol><p><strong>Step 4: Contrastive Learning</strong></p><ol>
+<li>Implement contrastive learning for the semantic change detector using the generated paraphrases.</li>
+<li>Use InfoNCE loss to train the model to distinguish between different degrees of semantic shift.</li>
+</ol><p><strong>Step 5: Fine-tuning</strong></p><ol>
+<li>Fine-tune the entire SciShift model on the SciEvol dataset.</li>
+<li>Experiment with different learning rates and batch sizes to optimize performance.</li>
+</ol><p><strong>Step 6: Evaluation</strong></p><ol>
+<li>Evaluate SciShift against baselines (BERT, RoBERTa, SciBERT) fine-tuned for paraphrase detection.</li>
+<li>Use correlation with human judgments on semantic shift magnitude as the primary metric.</li>
+<li>Assess classification accuracy for the type of semantic change (e.g., increase/decrease in certainty, generalizability).</li>
+<li>Conduct ablation studies to measure the impact of each component (scientific encoder, hierarchical attention, contrastive learning).</li>
+</ol><p><strong>Step 7: Case Studies</strong></p><ol>
+<li>Apply SciShift to real-world science communication case studies (e.g., COVID-19 research communication).</li>
+<li>Analyze how scientific findings evolve across different media and audiences.</li>
+<li>Visualize semantic shift vectors to provide interpretable insights.</li>
+</ol><p><strong>Test Case Examples</strong></p><p><strong>Baseline Prompt Input</strong></p><p>Original: 'Our study suggests a potential link between coffee consumption and reduced risk of type 2 diabetes.'<br />
+Paraphrase: 'Scientists prove that drinking coffee prevents diabetes.'</p><p><strong>Baseline Prompt Expected Output</strong></p><p>High similarity (0.85)</p><p><strong>Proposed Prompt Input</strong></p><p>Original: 'Our study suggests a potential link between coffee consumption and reduced risk of type 2 diabetes.'<br />
+Paraphrase: 'Scientists prove that drinking coffee prevents diabetes.'</p><p><strong>Proposed Prompt Expected Output</strong></p><p>Semantic shift detected:<br />
+- Certainty: Increased (0.7)<br />
+- Generalizability: Increased (0.6)<br />
+- Practical implications: Increased (0.8)<br />
+Overall shift magnitude: 0.7</p><p><strong>Explanation</strong></p><p>The baseline method fails to capture the significant changes in certainty and generalizability between the original statement and the paraphrase. SciShift, on the other hand, provides a more nuanced analysis of the semantic shifts along multiple dimensions, offering a more accurate representation of how the scientific finding has been transformed.</p><p><strong>Fallback Plan</strong></p><p>If SciShift does not significantly outperform baselines, we can pivot the project to focus on analyzing patterns of information change in scientific communication. We would use the collected SciEvol dataset to conduct a large-scale analysis of how scientific findings are typically transformed across different media. This could involve clustering semantic shift vectors to identify common patterns of distortion or simplification. We could also investigate which types of scientific findings are most prone to misrepresentation and at which stages of the communication chain the most significant shifts occur. Additionally, we could explore using SciShift's intermediate representations to develop an interpretable tool for science communicators, helping them identify potential areas of misunderstanding or misrepresentation in their writing.</p>
+</body></html>
