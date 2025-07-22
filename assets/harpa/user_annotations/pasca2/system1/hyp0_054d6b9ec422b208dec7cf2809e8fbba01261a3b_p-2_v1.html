@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HARPA Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; }
+h2, h3, h4 { color: #007b5f; }
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>054d6b9ec422b208dec7cf2809e8fbba01261a3b</p>
+<hr>
+<h2>Motivation</h2>
+<p>The source paper is "Clinical diagnostics in human genetics with semantic similarity searches in ontologies." (507 citations, 2009, ID: 054d6b9ec422b208dec7cf2809e8fbba01261a3b). This idea builds on a progression of related work [8148f8fdf388edf8dede420ef807e210c4a3db12, e7ff5fc4a3bf8827859094f147b71dafc3d4e31c, 8a4d775c60b826b45b6a5f1bec3e277772ee2047, 7b801f783c802d84243091be5d796a67cdfc432a, 674c6db413fad0ae9f023d2eecb9a3cc2de42d15, f529991f73a51a3330b908a56eb6356240a6d3a9, 72ffae05a01c51952ceec2ffe31a4b9f46cb8676, d87be8d0966aa6b50af984c1d1e7abf39be433cc, 2f0943d87722dd048f710f4adbb3827b4da0b74b].</p>
+<p>The progression of research from the source paper to the related papers shows a clear trajectory from the use of ontologies in genetic diagnostics to the exploration of transcriptional networks, gene regulation, and cancer progression. Each paper builds on the previous ones by adding layers of complexity and specificity, such as the role of specific genes and proteins in cancer. A research idea that advances this field could focus on integrating semantic similarity searches with the detailed molecular insights gained from these studies to identify novel diagnostic markers or therapeutic targets in cancer.</p>
+<hr>
+<h2>Hypothesis</h2>
+<p>Integrating Lin's Measure with Ontology-Based Annotation will enhance the identification of gene expression patterns associated with metastasis, providing more precise diagnostic markers and therapeutic targets compared to traditional methods.</p>
+<hr>
+<h2>Research Gap</h2>
+<p>Existing studies have explored semantic similarity measures in gene ontology for clustering and function prediction, but the specific combination of Lin's Measure with Ontology-Based Annotation for identifying gene expression patterns related to metastasis has not been extensively tested. This gap is crucial as it may reveal novel diagnostic markers or therapeutic targets by leveraging the unique strengths of Lin's Measure in capturing both commonality and specificity of terms.</p>
+<hr>
+<h2>Hypothesis Elements</h2>
+<p>Independent variable: Integration of Lin's Measure with Ontology-Based Annotation</p>
+<p>Dependent variable: Identification of gene expression patterns associated with metastasis</p>
+<p>Comparison groups: Integrated approach (Lin's Measure with Ontology-Based Annotation) vs. traditional clustering methods</p>
+<p>Baseline/control: Traditional clustering methods without semantic similarity measures</p>
+<p>Context/setting: Cancer research focusing on metastasis-related gene expression</p>
+<p>Assumptions: Lin's Measure can effectively capture semantic similarity between genes; Gene Ontology terms accurately represent biological processes related to metastasis</p>
+<p>Relationship type: Causation (integration will enhance identification)</p>
+<p>Population: Gene expression data from cancer samples (metastatic and non-metastatic)</p>
+<p>Timeframe: Not specified</p>
+<p>Measurement method: Cluster coherence, silhouette score, biological enrichment of metastasis-related GO terms, and identification of known metastasis markers</p>
+<hr>
+<h2>Overview</h2>
+<p>This research aims to integrate Lin's Measure, a semantic similarity metric, with Ontology-Based Annotation to identify novel gene expression patterns associated with metastasis in cancer. Lin's Measure is chosen for its ability to normalize similarity scores between 0 and 1, effectively capturing both the commonality and specificity of terms. Ontology-Based Annotation will provide a structured framework to classify biological activities and associations of genes. The combination is expected to improve the precision of identifying metastasis-related gene expression patterns by leveraging Lin's Measure's strength in hierarchical clustering and Ontology-Based Annotation's ability to represent biological knowledge. This approach addresses the gap in existing research by exploring a novel combination of semantic similarity measures and ontology-based methods, which has not been extensively tested in the context of metastasis. The expected outcome is the identification of more accurate diagnostic markers and therapeutic targets, contributing to personalized cancer therapy.</p>
+<hr>
+<h2>Background</h2>
+<p><a href="https://www.semanticscholar.org/paper/3b790140c150b39c5f3725892336d4b608662f59">Lin's Measure</a>: Lin's Measure calculates semantic similarity by combining the information content of the common ancestor with the information content of the individual terms. It provides a normalized similarity score between 0 and 1, where 1 indicates identical terms. This measure is advantageous for its ability to account for both commonality and specificity of terms, making it suitable for applications in hierarchical clustering and gene coexpression analysis. In this experiment, Lin's Measure will be used to calculate the semantic similarity between genes annotated with Gene Ontology terms, focusing on biological processes and molecular functions related to metastasis. The expected outcome is a more precise clustering of genes, enhancing the identification of metastasis-related gene expression patterns.</p>
+<p><a href="https://www.semanticscholar.org/paper/ba00005ab004255b4303c11493d993d90fb76dbd">Ontology-Based Annotation</a>: Ontology-Based Annotation involves associating biological entities with classes from an ontology, along with metadata about the source and evidence for the association. In this experiment, it will be used to classify the biological activities and associations of genes related to metastasis. This structured representation of biological knowledge will facilitate the analysis of gene functions and their potential roles in cancer processes. The expected outcome is a more comprehensive understanding of gene expression patterns, enabling the identification of novel diagnostic markers and therapeutic targets.</p>
+<hr>
+<h2>Implementation</h2>
+<p>The hypothesis will be implemented by integrating Lin's Measure with Ontology-Based Annotation in a Python-based experiment. The process begins with the extraction of gene expression data related to metastasis from a database like Oncomine. Lin's Measure will be applied to calculate the semantic similarity between genes annotated with Gene Ontology terms. This involves computing the information content of the common ancestor and the individual terms, followed by calculating the normalized similarity score. Ontology-Based Annotation will be used to classify the biological activities and associations of these genes, providing a structured framework for analysis. The integration occurs at the data processing stage, where the similarity scores from Lin's Measure are used to refine the ontology-based annotations, enhancing the precision of gene clustering. The output will be a set of gene clusters with high semantic similarity scores, indicating potential diagnostic markers or therapeutic targets. The experiment will be conducted using existing codeblocks for semantic similarity calculation and ontology-based annotation, with minor modifications to integrate the two components. The expected outcome is the identification of novel gene expression patterns associated with metastasis, contributing to personalized cancer therapy.</p>
+<hr>
+<h2>Operationalization Information</h2>
+
+    <div style="display: flex; gap: 2em;">
+    <div style="flex: 1;">
+    
+<p><p>Please implement an experiment to test whether integrating Lin's Measure with Ontology-Based Annotation enhances the identification of gene expression patterns associated with metastasis in cancer. The experiment should compare this integrated approach (experimental condition) against traditional clustering methods without semantic similarity measures (baseline condition).</p></p>
+<p><h2>Experiment Overview</h2>
+<p>This experiment will integrate Lin's Measure (a semantic similarity metric) with Ontology-Based Annotation to identify gene expression patterns associated with metastasis. Lin's Measure calculates semantic similarity by combining the information content of common ancestors with individual terms, providing normalized scores between 0 and 1. Ontology-Based Annotation provides a structured framework for classifying biological activities of genes. The integration should enhance gene clustering precision for identifying metastasis-related patterns.</p></p>
+<p><h2>Pilot Mode Settings</h2>
+<p>Implement a global variable <code>PILOT_MODE</code> with three possible settings: <code>MINI_PILOT</code>, <code>PILOT</code>, or <code>FULL_EXPERIMENT</code>.</p></p>
+<p><ul>
+<li><strong>MINI_PILOT</strong>: Use only 20 genes and a small subset of Gene Ontology terms related to metastasis. Run on a very small dataset (e.g., one cancer type with 10-20 samples) for quick debugging and verification.</li>
+</ul></p>
+<p><ul>
+<li><strong>PILOT</strong>: Use 100-200 genes and a moderate set of Gene Ontology terms. Run on 2-3 cancer types with 50-100 samples each to assess if the experimental approach shows promising differences from the baseline.</li>
+</ul></p>
+<p><ul>
+<li><strong>FULL_EXPERIMENT</strong>: Use the complete gene set and all relevant Gene Ontology terms. Run on multiple cancer types with all available samples for comprehensive analysis.</li>
+</ul></p>
+<p><p>The experiment should first run in MINI_PILOT mode, then PILOT mode if successful. Do not run the FULL_EXPERIMENT mode automatically (this will be manually triggered after human verification).</p></p>
+<p><h2>Data Acquisition and Preprocessing</h2>
+<ol>
+<li>For the pilot experiments, use publicly available gene expression datasets related to metastasis from GEO (Gene Expression Omnibus) or TCGA (The Cancer Genome Atlas) instead of Oncomine (to avoid access issues).</li>
+<li>Download Gene Ontology (GO) terms and annotations from the Gene Ontology Consortium.</li>
+<li>Preprocess the gene expression data:</li>
+<li>Normalize expression values</li>
+<li>Filter for genes with significant differential expression between metastatic and non-metastatic samples</li>
+<li>Map genes to their corresponding GO terms</li>
+</ol></p>
+<p><h2>Experimental Implementation</h2></p>
+<p><h3>Baseline Condition</h3>
+<p>Implement a traditional clustering approach:<br />
+1. Apply hierarchical clustering to gene expression data without semantic similarity measures<br />
+2. Use standard distance metrics (e.g., Euclidean, Pearson correlation)<br />
+3. Identify gene clusters<br />
+4. Evaluate cluster quality using silhouette score and biological relevance to metastasis</p></p>
+</div><div style='flex: 1;'>
+<p><h3>Experimental Condition</h3>
+<p>Implement the integrated approach:<br />
+1. Calculate Lin's Measure for semantic similarity between genes:<br />
+   - Compute information content (IC) for each GO term using the formula: IC(t) = -log(p(t)), where p(t) is the probability of encountering term t<br />
+   - For each gene pair, find their annotated GO terms<br />
+   - Calculate Lin's similarity between terms: sim_Lin(t1,t2) = (2 × IC(MICA)) / (IC(t1) + IC(t2)), where MICA is the most informative common ancestor<br />
+   - Aggregate term similarities to obtain gene-level similarity</p></p>
+<p><ol>
+<li>Integrate with Ontology-Based Annotation:</li>
+<li>Use GO annotations to classify genes by biological processes and molecular functions</li>
+<li>Weight the annotations based on their relevance to metastasis</li>
+<li>Refine gene clusters using Lin's similarity scores to adjust cluster boundaries</li>
+</ol></p>
+<p><ol>
+<li>Generate integrated gene clusters that incorporate both expression data and semantic similarity</li>
+</ol></p>
+<p><h2>Evaluation Metrics</h2>
+<ol>
+<li>Primary metrics:</li>
+<li>Cluster coherence: Measure how consistently genes within clusters share metastasis-related annotations</li>
+<li>Silhouette score: Evaluate cluster separation and cohesion</li>
+<li>Biological enrichment: Calculate enrichment of metastasis-related GO terms in clusters</li>
+</ol></p>
+<p><ol>
+<li>Secondary metrics:</li>
+<li>Identification of known metastasis markers: Compare identified genes with literature-documented markers</li>
+<li>Novel candidate discovery: Identify genes not previously associated with metastasis but showing strong clustering with known markers</li>
+</ol></p>
+<p><h2>Comparative Analysis</h2>
+<ol>
+<li>Compare the baseline and experimental conditions using:</li>
+<li>Statistical significance tests (t-test or Wilcoxon rank-sum) on cluster quality metrics</li>
+<li>Precision and recall in identifying known metastasis-related genes</li>
+<li>Visualization of cluster differences using dimensionality reduction (PCA, t-SNE)</li>
+</ol></p>
+<p><ol>
+<li>Perform bootstrap resampling (1000 iterations) to assess the statistical significance of differences between the baseline and experimental approaches</li>
+</ol></p>
+<p><h2>Output and Reporting</h2>
+<ol>
+<li>Generate visualizations:</li>
+<li>Heatmaps of gene expression clusters</li>
+<li>Network graphs showing gene relationships based on semantic similarity</li>
+<li>GO term enrichment plots for identified clusters</li>
+</ol></p>
+<p><ol>
+<li>Create detailed reports including:</li>
+<li>Comparison of cluster quality metrics between baseline and experimental conditions</li>
+<li>Lists of genes identified as potential metastasis markers</li>
+<li>Statistical significance of findings</li>
+<li>Runtime performance metrics</li>
+</ol></p>
+<p><ol>
+<li>Save all intermediate data and results for reproducibility</li>
+</ol></p>
+<p><p>Please implement this experiment with clear documentation and modular code structure. Start with the MINI_PILOT mode to verify functionality, then proceed to PILOT mode if successful. The code should be designed to easily transition to FULL_EXPERIMENT mode after human verification.</p></p>
+</div></div>
+<hr>
+<h2>References</h2>
+<ol>
+<li>
+<p>Clinical diagnostics in human genetics with semantic similarity searches in ontologies. (2009). Paper ID: 054d6b9ec422b208dec7cf2809e8fbba01261a3b</p>
+</li>
+<li>
+<p>The RIKEN integrated database of mammals (2010). Paper ID: 7b801f783c802d84243091be5d796a67cdfc432a</p>
+</li>
+<li>
+<p>Update of the FANTOM web resource: from mammalian transcriptional landscape to its dynamic regulation (2010). Paper ID: 8148f8fdf388edf8dede420ef807e210c4a3db12</p>
+</li>
+<li>
+<p>Genome-wide mapping of Myc binding and gene regulation in serum-stimulated fibroblasts (2011). Paper ID: e7ff5fc4a3bf8827859094f147b71dafc3d4e31c</p>
+</li>
+<li>
+<p>RanGTPase: a candidate for Myc-mediated cancer progression. (2013). Paper ID: 8a4d775c60b826b45b6a5f1bec3e277772ee2047</p>
+</li>
+<li>
+<p>Ran GTPase induces EMT and enhances invasion in non-small cell lung cancer cells through activation of PI3K-AKT pathway. (2014). Paper ID: 674c6db413fad0ae9f023d2eecb9a3cc2de42d15</p>
+</li>
+<li>
+<p>Proteolytic and non-proteolytic regulation of collective cell invasion: tuning by ECM density and organization (2016). Paper ID: 72ffae05a01c51952ceec2ffe31a4b9f46cb8676</p>
+</li>
+<li>
+<p>MMP proteolytic activity regulates cancer invasiveness by modulating integrins (2017). Paper ID: f529991f73a51a3330b908a56eb6356240a6d3a9</p>
+</li>
+<li>
+<p>Microsphere-Based Nanoindentation for the Monitoring of Cellular Cortical Stiffness Regulated by MT1-MMP. (2018). Paper ID: d87be8d0966aa6b50af984c1d1e7abf39be433cc</p>
+</li>
+<li>
+<p>Intracellular lipophilic network transformation induced by protease-specific endocytosis of fluorescent Au nanoclusters (2023). Paper ID: 2f0943d87722dd048f710f4adbb3827b4da0b74b</p>
+</li>
+<li>
+<p>Seeing the forest for the trees: using the Gene Ontology to restructure hierarchical clustering (2009). Paper ID: 3b790140c150b39c5f3725892336d4b608662f59</p>
+</li>
+<li>
+<p>Onto2Vec: joint vector-based representation of biological entities and their ontology-based annotations (2018). Paper ID: ba00005ab004255b4303c11493d993d90fb76dbd</p>
+</li>
+</ol>
+</body>
+</html>

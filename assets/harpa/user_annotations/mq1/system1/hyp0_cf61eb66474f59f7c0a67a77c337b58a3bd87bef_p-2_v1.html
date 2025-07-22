@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HARPA Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; }
+h2, h3, h4 { color: #007b5f; }
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>cf61eb66474f59f7c0a67a77c337b58a3bd87bef</p>
+<hr>
+<h2>Motivation</h2>
+<p>The source paper is "Finding Invariants of Distributed Systems: It's a Small (Enough) World After All" (50 citations, 2021, ID: cf61eb66474f59f7c0a67a77c337b58a3bd87bef). This idea builds on a progression of related work [e0b284fa49cea94043b8d7a551c273ed115d4d95, bb2d555172c18d637e485ccea9d8174832be5a5a].</p>
+<p>The progression of research from the source paper to the related papers highlights a continuous effort to improve the scalability and efficiency of invariant synthesis in distributed systems. Paper 0 addresses scalability issues by introducing a novel algorithmic approach, while Paper 1 explores a different method using semidefinite programming to tackle similar challenges. A promising research idea would involve integrating these approaches to develop a hybrid method that combines the strengths of both PDR/IC3 and SDP techniques. This could potentially offer a more robust solution to the invariant synthesis problem, addressing limitations such as search space explosion and non-convex constraint solving.</p>
+<hr>
+<h2>Hypothesis</h2>
+<p>A hybrid invariant synthesis method combining parallelized PDR/IC3 with lemma sharing and SOS relaxation will improve scalability and efficiency in discovering invariants for complex distributed systems compared to using each method independently.</p>
+<hr>
+<h2>Research Gap</h2>
+<p>Existing research on invariant synthesis methods for hybrid systems has focused on individual techniques like SOS relaxation or PDR/IC3, but there is limited exploration of combining parallelized PDR/IC3 with lemma sharing and SOS relaxation for improving scalability and efficiency in complex distributed systems.</p>
+<hr>
+<h2>Hypothesis Elements</h2>
+<p>Independent variable: Hybrid invariant synthesis method combining parallelized PDR/IC3 with lemma sharing and SOS relaxation</p>
+<p>Dependent variable: Scalability and efficiency in discovering invariants for complex distributed systems</p>
+<p>Comparison groups: Hybrid method vs. standalone PDR/IC3 vs. standalone SOS relaxation</p>
+<p>Baseline/control: Using each method (PDR/IC3 and SOS relaxation) independently</p>
+<p>Context/setting: Complex distributed systems</p>
+<p>Assumptions: Integration of PDR/IC3 and SOS relaxation can be effectively implemented at the data flow level; Lemma sharing reduces redundant computations; SOS relaxation ensures mathematical rigor in invariant generation</p>
+<p>Relationship type: Causation (the hybrid method will improve performance)</p>
+<p>Population: Complex distributed systems with varying numbers of states and transitions</p>
+<p>Timeframe: Not specified</p>
+<p>Measurement method: Number of invariants discovered, time complexity (total time taken for synthesis process), and computational resources used (CPU cycles and memory usage)</p>
+<hr>
+<h2>Overview</h2>
+<p>This research explores a novel hybrid invariant synthesis method that combines parallelized PDR/IC3 with lemma sharing and SOS relaxation. The goal is to enhance scalability and efficiency in discovering invariants for complex distributed systems. Parallelized PDR/IC3 with lemma sharing allows for efficient exploration of the search space by distributing the workload across multiple processors, which is crucial for handling large-scale systems with numerous states and transitions. SOS relaxation, on the other hand, provides a robust framework for solving parametric polynomial optimization problems, ensuring the generation of exact invariants. By integrating these two methods, the research aims to leverage the strengths of both approaches: the parallel processing capabilities of PDR/IC3 and the mathematical rigor of SOS relaxation. This combination is expected to address the limitations of existing methods, such as high computational complexity and unsoundness due to numerical errors. The hypothesis will be tested using benchmark tasks involving complex distributed systems, with metrics focusing on the number of invariants discovered, time complexity, and computational resources used. The expected outcome is a significant improvement in scalability and efficiency, providing a more practical solution for invariant synthesis in real-world applications.</p>
+<hr>
+<h2>Background</h2>
+<p><a href="https://www.semanticscholar.org/paper/e0b284fa49cea94043b8d7a551c273ed115d4d95">Hybrid Invariant Synthesis Method</a>: This variable represents the integration of parallelized PDR/IC3 with lemma sharing and SOS relaxation. Parallelized PDR/IC3 involves distributing the inductive generalization process across multiple processors, enhancing scalability by allowing simultaneous exploration of different proof goals. Lemma sharing further optimizes this process by enabling the reuse of intermediate results across different processors. SOS relaxation is used to solve parametric polynomial optimization problems, ensuring the generation of exact invariants by transforming them into semidefinite programming problems. This hybrid approach is expected to improve both the scalability and efficiency of invariant synthesis by combining the strengths of parallel processing and mathematical rigor.</p>
+<p><a href="https://www.semanticscholar.org/paper/78cbd8162307831dc5a35b157f8376d9622aa730">Number of Invariants Discovered</a>: This variable measures the effectiveness of the hybrid method in generating invariants. It is assessed by counting the number of valid invariants discovered during the synthesis process. The expectation is that the hybrid method will discover more invariants compared to using PDR/IC3 or SOS relaxation independently, due to the combined strengths of parallel processing and robust optimization techniques.</p>
+<p><a href="https://www.semanticscholar.org/paper/a98daf0c36156ec328b5173169df3eb2b6dee58f">Time Complexity</a>: This variable assesses the computational efficiency of the hybrid method. It is measured by the time taken to complete the invariant synthesis process. The hypothesis predicts a reduction in time complexity due to the parallel processing capabilities of PDR/IC3 and the efficient problem-solving framework provided by SOS relaxation.</p>
+<p><a href="https://www.semanticscholar.org/paper/310fb50cc2a03457952b0c27020db468fbdafcd2">Computational Resources Used</a>: This variable evaluates the resource efficiency of the hybrid method. It is measured by the CPU cycles and memory usage during the synthesis process. The expectation is that the hybrid method will use fewer computational resources compared to traditional methods, due to the optimized processing and problem-solving strategies employed.</p>
+<hr>
+<h2>Implementation</h2>
+<p>The implementation involves setting up a parallelized PDR/IC3 framework with lemma sharing, integrated with SOS relaxation for solving polynomial optimization problems. The process begins with distributing the invariant synthesis task across multiple processors using PDR/IC3, where each processor focuses on different proof goals. Lemma sharing is implemented to allow processors to exchange intermediate results, reducing redundant computations. Simultaneously, SOS relaxation is applied to transform the polynomial optimization problems into semidefinite programming problems, which are solved to generate exact invariants. The integration occurs at the data flow level, where outputs from the PDR/IC3 process are used as inputs for the SOS relaxation, and vice versa. The system is designed to handle complex distributed systems characterized by numerous states and transitions, ensuring scalability and efficiency. The expected outcome is a significant improvement in the number of invariants discovered, reduced time complexity, and optimized computational resource usage.</p>
+<hr>
+<h2>Operationalization Information</h2>
+
+    <div style="display: flex; gap: 2em;">
+    <div style="flex: 1;">
+    
+<p><p>Please implement and evaluate a hybrid invariant synthesis method that combines parallelized PDR/IC3 with lemma sharing and SOS relaxation for discovering invariants in complex distributed systems. The experiment should compare this hybrid approach against two baselines: standalone PDR/IC3 and standalone SOS relaxation.</p></p>
+<p><h2>Experiment Overview</h2>
+<p>The experiment tests the hypothesis that a hybrid invariant synthesis method combining parallelized PDR/IC3 with lemma sharing and SOS relaxation will improve scalability and efficiency in discovering invariants for complex distributed systems compared to using each method independently.</p></p>
+<p><h2>Implementation Requirements</h2></p>
+<p><ol>
+<li><strong>Hybrid Method Implementation</strong>:</li>
+<li>Implement a parallelized PDR/IC3 framework with lemma sharing capability</li>
+<li>Integrate the PDR/IC3 framework with a SOS relaxation solver</li>
+<li>Implement a data flow mechanism where outputs from PDR/IC3 (intermediate lemmas) are used as inputs for SOS relaxation, and vice versa</li>
+<li>The integration should occur at the data flow level, with PDR/IC3 handling the parallel exploration of the state space and SOS relaxation ensuring mathematical rigor in invariant generation</li>
+</ol></p>
+<p><ol>
+<li><strong>Baseline Implementations</strong>:</li>
+<li>Baseline 1: Standalone PDR/IC3 implementation (without SOS relaxation)</li>
+<li>Baseline 2: Standalone SOS relaxation implementation (without PDR/IC3)</li>
+</ol></p>
+<p><ol>
+<li><strong>Benchmark Systems</strong>:</li>
+<li>Use a set of benchmark distributed systems of varying complexity</li>
+<li>Each system should be represented as a transition system with states and transitions</li>
+<li>Include systems with polynomial constraints where possible</li>
+</ol></p>
+<p><h2>Evaluation Metrics</h2></p>
+<p><ol>
+<li><strong>Number of Invariants Discovered</strong>: Count the number of valid invariants discovered by each method</li>
+<li><strong>Time Complexity</strong>: Measure the total time taken for the synthesis process</li>
+<li><strong>Computational Resources</strong>: Monitor CPU cycles and memory usage during execution</li>
+</ol></p>
+<p><h2>Pilot Experiment Settings</h2></p>
+<p><p>Implement a global variable <code>PILOT_MODE</code> with three possible settings: <code>MINI_PILOT</code>, <code>PILOT</code>, or <code>FULL_EXPERIMENT</code>.</p></p>
+<p><ol>
+<li><strong>MINI_PILOT</strong>:</li>
+<li>Use 2-3 small distributed systems (with 5-10 states and simple transitions)</li>
+<li>Limit execution time to 5 minutes per system</li>
+<li>Run on a single machine with 2-4 cores for parallelization</li>
+<li>Primary goal: Verify code correctness and basic functionality</li>
+</ol></p>
+</div><div style='flex: 1;'>
+<p><ol>
+<li><strong>PILOT</strong>:</li>
+<li>Use 5-7 medium-sized distributed systems (with 20-50 states and moderate complexity)</li>
+<li>Limit execution time to 20 minutes per system</li>
+<li>Run on a single machine with 4-8 cores for parallelization</li>
+<li>Primary goal: Verify if the results show promising differences between methods</li>
+</ol></p>
+<p><ol>
+<li><strong>FULL_EXPERIMENT</strong>:</li>
+<li>Use 10-15 distributed systems of varying complexity (including large systems with 100+ states)</li>
+<li>No time limit per system (but implement a reasonable timeout)</li>
+<li>Run on a multi-core server with 16+ cores for full parallelization</li>
+<li>Primary goal: Comprehensive evaluation of the hypothesis</li>
+</ol></p>
+<p><p>The experiment should first run the MINI_PILOT. If everything looks good, proceed to the PILOT. After the PILOT completes, stop and do not run the FULL_EXPERIMENT (a human will manually verify the results and make the change to FULL_EXPERIMENT if appropriate).</p></p>
+<p><h2>Implementation Details</h2></p>
+<p><ol>
+<li><strong>Parallelized PDR/IC3 Framework</strong>:</li>
+<li>Implement a multi-threaded PDR/IC3 algorithm</li>
+<li>Each thread should focus on different proof goals</li>
+<li>Implement a shared memory structure for lemma sharing between threads</li>
+<li>Use a thread-safe queue for distributing tasks</li>
+<li>Implement mechanisms to avoid redundant computations</li>
+</ol></p>
+<p><ol>
+<li><strong>SOS Relaxation Integration</strong>:</li>
+<li>Use the SOS relaxation solver to transform polynomial constraints into semidefinite programming problems</li>
+<li>Implement a mechanism to convert PDR/IC3 intermediate results into inputs for SOS relaxation</li>
+<li>Implement a feedback loop where SOS relaxation results refine PDR/IC3 search</li>
+</ol></p>
+<p><ol>
+<li><strong>Data Collection and Analysis</strong>:</li>
+<li>Log all metrics (invariants discovered, time, CPU/memory usage) for each method on each benchmark</li>
+<li>Generate comparative visualizations (bar charts, line graphs) of the metrics</li>
+<li>Perform statistical significance testing (t-tests or non-parametric alternatives) to compare methods</li>
+<li>Calculate speedup and efficiency metrics relative to baselines</li>
+</ol></p>
+<p><h2>Expected Output</h2></p>
+<p><ol>
+<li>A detailed report comparing the three methods (hybrid, PDR/IC3 only, SOS relaxation only) across all benchmarks</li>
+<li>Visualizations of the performance metrics</li>
+<li>Statistical analysis of the results</li>
+<li>Discussion of the findings in relation to the hypothesis</li>
+<li>Source code for all implementations</li>
+</ol></p>
+<p><h2>Technical Requirements</h2></p>
+<p><ol>
+<li>Implement the code in a language suitable for parallel processing (e.g., C++, Java, or Python with appropriate parallelization libraries)</li>
+<li>Use MATLAB for the SOS relaxation solver component</li>
+<li>Ensure proper synchronization mechanisms for parallel execution</li>
+<li>Implement appropriate logging and error handling</li>
+<li>Include a README with instructions for running the experiment</li>
+</ol></p>
+<p><p>Please start by implementing the MINI_PILOT version to verify the basic functionality of all components before proceeding to the PILOT version.</p></p>
+</div></div>
+<hr>
+<h2>References</h2>
+<ol>
+<li>
+<p>Finding Invariants of Distributed Systems: It's a Small (Enough) World After All (2021). Paper ID: cf61eb66474f59f7c0a67a77c337b58a3bd87bef</p>
+</li>
+<li>
+<p>Inferring Invariants with Quantifier Alternations: Taming the Search Space Explosion (2021). Paper ID: e0b284fa49cea94043b8d7a551c273ed115d4d95</p>
+</li>
+<li>
+<p>Synthesizing Invariants for Polynomial Programs by Semidefinite Programming (2023). Paper ID: bb2d555172c18d637e485ccea9d8174832be5a5a</p>
+</li>
+<li>
+<p>Synthesizing Switching Controllers for Hybrid Systems by Continuous Invariant Generation (2013). Paper ID: 78cbd8162307831dc5a35b157f8376d9622aa730</p>
+</li>
+<li>
+<p>Exact Safety Verification of Hybrid Systems Based on Bilinear SOS Representation (2012). Paper ID: a98daf0c36156ec328b5173169df3eb2b6dee58f</p>
+</li>
+<li>
+<p>Invariant Clusters for Hybrid Systems (2016). Paper ID: 310fb50cc2a03457952b0c27020db468fbdafcd2</p>
+</li>
+</ol>
+</body>
+</html>

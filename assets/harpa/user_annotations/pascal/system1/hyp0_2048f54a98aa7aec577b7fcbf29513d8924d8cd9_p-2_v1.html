@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HARPA Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; }
+h2, h3, h4 { color: #007b5f; }
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>2048f54a98aa7aec577b7fcbf29513d8924d8cd9</p>
+<hr>
+<h2>Motivation</h2>
+<p>The source paper is "RareBench: Can LLMs Serve as Rare Diseases Specialists?" (25 citations, 2024, ID: 2048f54a98aa7aec577b7fcbf29513d8924d8cd9). This idea builds on a progression of related work [25a5f70b1077f81380f092637644e2d78100121c].</p>
+<p>The analysis highlights that while the source paper establishes a benchmark for evaluating LLMs in diagnosing rare diseases, it does not address the interpretability of the diagnostic process. Paper 0 advances this by proposing a framework for interpretable differential diagnosis, which is crucial for clinical acceptance and trust in LLMs. However, both papers focus primarily on the diagnostic accuracy and interpretability without exploring the potential for LLMs to assist in the ongoing management and treatment of rare diseases. A research idea that extends beyond diagnosis to include treatment recommendations could significantly advance the field, providing a more comprehensive tool for clinicians dealing with rare diseases.</p>
+<hr>
+<h2>Hypothesis</h2>
+<p>Integrating Chain-of-Thought prompting with Retrieve Augmented Generation will significantly improve the accuracy of treatment recommendations for rare diseases by LLMs, compared to using static prompts and limited knowledge bases.</p>
+<hr>
+<h2>Research Gap</h2>
+<p>Existing research has explored dynamic few-shot prompting and knowledge graph integration separately, but the specific combination of Chain-of-Thought (CoT) prompting with Retrieve Augmented Generation (RAG) for improving rare disease treatment recommendations has not been extensively tested. This combination could enhance the reasoning and factual accuracy of LLMs by leveraging both structured reasoning and real-time data retrieval.</p>
+<hr>
+<h2>Hypothesis Elements</h2>
+<p>Independent variable: Integration of Chain-of-Thought prompting with Retrieve Augmented Generation</p>
+<p>Dependent variable: Accuracy of treatment recommendations for rare diseases (measured by F1 score)</p>
+<p>Comparison groups: Four conditions: Static Prompt (Baseline 1), CoT Only (Baseline 2), RAG Only (Baseline 3), and CoT+RAG (Experimental)</p>
+<p>Baseline/control: Using static prompts and limited knowledge bases</p>
+<p>Context/setting: Large Language Models generating treatment recommendations for rare diseases</p>
+<p>Assumptions: Chain-of-Thought prompting enhances reasoning by structuring thought processes; RAG improves factual accuracy by integrating up-to-date medical knowledge</p>
+<p>Relationship type: Causal (integration of CoT and RAG will cause improvement in accuracy)</p>
+<p>Population: Rare disease cases from datasets such as Orphanet</p>
+<p>Timeframe: Not specified</p>
+<p>Measurement method: F1 score calculation combining precision and recall of treatment recommendations compared to gold-standard treatments</p>
+<hr>
+<h2>Overview</h2>
+<p>This research investigates the synergistic effect of combining Chain-of-Thought (CoT) prompting with Retrieve Augmented Generation (RAG) to enhance the accuracy of treatment recommendations for rare diseases using large language models (LLMs). CoT prompting encourages LLMs to generate a sequence of intermediate reasoning steps, improving their ability to solve complex diagnostic tasks by structuring their thought processes. Meanwhile, RAG dynamically integrates external, up-to-date medical knowledge into the LLM's responses, enhancing factual accuracy and contextual relevance. By combining these two approaches, the LLM can leverage structured reasoning and real-time data retrieval to provide more accurate and contextually relevant treatment recommendations. This hypothesis addresses the gap in existing research where the individual benefits of CoT and RAG have been explored, but their combined effect in the context of rare disease treatment has not been extensively tested. The expected outcome is a significant improvement in the F1 score of treatment recommendations, indicating better alignment with expert guidelines and reduced false positives and negatives. This approach is particularly relevant for rare diseases, where accurate diagnosis and treatment are challenging due to limited data and complex symptomatology.</p>
+<hr>
+<h2>Background</h2>
+<p><a href="https://www.semanticscholar.org/paper/cbd4012c8934c97fda6afd96ab56f0d115ec1840">Chain-of-Thought Prompting</a>: Chain-of-Thought (CoT) prompting involves guiding the LLM to generate a series of intermediate reasoning steps before arriving at a final decision. This method helps the model break down complex problems into smaller, manageable parts, enhancing its reasoning capabilities. In this experiment, CoT prompting will be implemented by designing prompts that instruct the LLM to think 'step-by-step', ensuring logical consistency and thoroughness in its diagnostic process. This approach is expected to improve the model's ability to handle the intricate symptomatology of rare diseases, leading to more accurate treatment recommendations.</p>
+<p><a href="https://www.semanticscholar.org/paper/11832d2a5115980dd7eac4cdd2fc4b82a3e6e3c8">Retrieve Augmented Generation</a>: Retrieve Augmented Generation (RAG) integrates external knowledge sources into the LLM's response generation process. By dynamically retrieving relevant medical information from databases and incorporating it into the prompts, RAG enhances the factual accuracy and contextual relevance of the LLM's outputs. In this experiment, RAG will be used to access up-to-date medical knowledge, ensuring that the LLM's recommendations are informed by the latest research and clinical guidelines. This approach is crucial for rare diseases, where new discoveries and treatment options are constantly emerging.</p>
+<hr>
+<h2>Implementation</h2>
+<p>The hypothesis will be implemented by integrating Chain-of-Thought (CoT) prompting with Retrieve Augmented Generation (RAG) in a modular LLM framework. The CoT module will be responsible for structuring the LLM's reasoning process. It will generate intermediate reasoning steps by breaking down the diagnostic task into smaller, logical components. This will be achieved by designing prompts that explicitly instruct the LLM to think 'step-by-step', ensuring that each reasoning step is based on relevant medical knowledge. The RAG module will dynamically retrieve external medical information from databases such as PubMed and Orphanet. This module will use a retrieval mechanism to query these databases in real-time, incorporating the retrieved information into the LLM's prompts. The integration of these modules will occur at the prompt generation stage, where the CoT-generated reasoning steps will be enriched with RAG-retrieved data. The LLM will then use this enriched prompt to generate treatment recommendations. The expected outcome is an improvement in the F1 score of the LLM's recommendations, indicating better alignment with expert guidelines. The experiment will be conducted using a dataset of rare disease cases, with the LLM's performance compared to a baseline model using static prompts and limited knowledge bases.</p>
+<hr>
+<h2>Operationalization Information</h2>
+
+    <div style="display: flex; gap: 2em;">
+    <div style="flex: 1;">
+    
+<p><p>Please build an experiment to test whether integrating Chain-of-Thought (CoT) prompting with Retrieve Augmented Generation (RAG) improves the accuracy of treatment recommendations for rare diseases by Large Language Models (LLMs).</p></p>
+<p><h2>Experiment Overview</h2>
+<p>This experiment will compare three conditions:<br />
+1. <strong>Baseline 1 (Static Prompt)</strong>: Using a standard prompt template without CoT or RAG<br />
+2. <strong>Baseline 2 (CoT Only)</strong>: Using Chain-of-Thought prompting without RAG<br />
+3. <strong>Baseline 3 (RAG Only)</strong>: Using RAG without explicit CoT prompting<br />
+4. <strong>Experimental (CoT+RAG)</strong>: Integrating Chain-of-Thought prompting with RAG</p></p>
+<p><p>The hypothesis is that the experimental condition (CoT+RAG) will significantly outperform all baseline conditions in terms of F1 score for rare disease treatment recommendations.</p></p>
+<p><h2>Pilot Mode Implementation</h2>
+<p>Implement a global variable <code>PILOT_MODE</code> with three possible settings: <code>MINI_PILOT</code>, <code>PILOT</code>, or <code>FULL_EXPERIMENT</code>. The code should check this variable and adjust the experiment scale accordingly:</p></p>
+<p><ul>
+<li><strong>MINI_PILOT</strong>: Use only 10 rare disease cases from the training set. Run each condition once. This should complete in under 10 minutes and is for code verification only.</li>
+<li><strong>PILOT</strong>: Use 50 rare disease cases from the training set for any training/tuning needed, and 25 cases from the development set for evaluation. This should complete in under 2 hours.</li>
+<li><strong>FULL_EXPERIMENT</strong>: Use the complete dataset with proper training/development/test splits. Training data should come from the training set. Any hyperparameters should be tuned on the development set. Final evaluation should be on the test set.</li>
+</ul></p>
+<p><p>Start by running the MINI_PILOT first. If everything looks good, proceed to the PILOT. After the PILOT completes, stop and do not run the FULL_EXPERIMENT (a human will manually verify the results and make the change to FULL_EXPERIMENT if needed).</p></p>
+<p><h2>Data Requirements</h2>
+<ol>
+<li>Obtain a dataset of rare disease cases. Each case should include:</li>
+<li>Patient symptoms and medical history</li>
+<li>Correct diagnosis</li>
+<li>Gold-standard treatment recommendations</li>
+<li>If possible, use the Orphanet dataset or a similar rare disease dataset</li>
+</ol></p>
+<p><ol>
+<li>Split the dataset into training, development, and test sets (70%/15%/15%).</li>
+</ol></p>
+<p><h2>System Components</h2></p>
+<p><h3>1. Chain-of-Thought (CoT) Prompting Module</h3>
+<p>Implement a module that generates prompts encouraging step-by-step reasoning:<br />
+- Design a prompt template that explicitly instructs the LLM to think through the diagnostic process step-by-step<br />
+- The prompt should guide the LLM to:<br />
+  a. First analyze the symptoms and patient history<br />
+  b. Consider possible diagnoses based on the symptoms<br />
+  c. Narrow down to the most likely diagnosis<br />
+  d. Recommend treatments based on the diagnosis<br />
+- Example prompt structure: "Given the following patient information, think step-by-step to determine the most appropriate treatment recommendations. First, analyze the key symptoms and patient history. Second, consider possible diagnoses that match these symptoms. Third, determine the most likely diagnosis. Finally, recommend appropriate treatments for this diagnosis."</p></p>
+</div><div style='flex: 1;'>
+<p><h3>2. Retrieve Augmented Generation (RAG) Module</h3>
+<p>Implement a module that retrieves relevant medical information and integrates it into the prompt:<br />
+- Create a vector database of medical knowledge from PubMed and Orphanet<br />
+- Implement a retrieval mechanism that:<br />
+  a. Extracts key terms from the patient case<br />
+  b. Queries the vector database for relevant medical information<br />
+  c. Selects the most relevant documents<br />
+  d. Formats the retrieved information for inclusion in the prompt<br />
+- The retrieved information should include disease descriptions, diagnostic criteria, and treatment guidelines</p></p>
+<p><h3>3. Integration Module</h3>
+<p>Implement a module that integrates CoT prompting with RAG:<br />
+- Design a system that:<br />
+  a. First applies the CoT prompt structure to guide reasoning<br />
+  b. At each reasoning step, enriches the context with relevant retrieved information<br />
+  c. Ensures that the retrieved information is specifically relevant to the current reasoning step<br />
+- The integration should happen at the prompt generation stage, where CoT-generated reasoning steps are enriched with RAG-retrieved data</p></p>
+<p><h3>4. Evaluation Module</h3>
+<p>Implement a module that evaluates the performance of each condition:<br />
+- Calculate precision, recall, and F1 score for treatment recommendations<br />
+- Precision: proportion of recommended treatments that match gold-standard treatments<br />
+- Recall: proportion of gold-standard treatments that were recommended<br />
+- F1 score: harmonic mean of precision and recall<br />
+- Implement statistical significance testing (bootstrap resampling) to compare conditions</p></p>
+<p><h2>Experiment Procedure</h2>
+<ol>
+<li>For each condition (Static Prompt, CoT Only, RAG Only, CoT+RAG):<br />
+   a. Process each case in the dataset<br />
+   b. Generate treatment recommendations<br />
+   c. Calculate precision, recall, and F1 score against gold-standard treatments<br />
+   d. Log all prompts, responses, and evaluation metrics</li>
+</ol></p>
+<p><ol>
+<li>Compare the performance of all conditions:<br />
+   a. Calculate mean and standard deviation of F1 scores for each condition<br />
+   b. Perform statistical significance testing to determine if the experimental condition (CoT+RAG) significantly outperforms the baselines<br />
+   c. Generate visualizations comparing the performance of each condition</li>
+</ol></p>
+<p><h2>Implementation Details</h2></p>
+<p><h3>LLM Configuration</h3>
+<ul>
+<li>Use GPT-4 or a similar advanced LLM</li>
+<li>Ensure consistent temperature and other parameters across all conditions</li>
+<li>Set temperature to 0.2 for deterministic outputs</li>
+<li>Set max_tokens appropriately to accommodate the reasoning process</li>
+</ul></p>
+<p><h3>RAG Configuration</h3>
+<ul>
+<li>Use a vector database (e.g., FAISS, Pinecone) for efficient retrieval</li>
+<li>Embed documents using an appropriate embedding model</li>
+<li>Retrieve the top-k most relevant documents (start with k=3)</li>
+<li>Implement a relevance threshold to filter out irrelevant documents</li>
+</ul></p>
+<p><h3>Logging and Output</h3>
+<ul>
+<li>Log all prompts, responses, and evaluation metrics</li>
+<li>Generate a comprehensive report including:<br />
+  a. Performance metrics for each condition<br />
+  b. Statistical significance testing results<br />
+  c. Example cases where CoT+RAG performed better or worse than baselines<br />
+  d. Visualizations comparing the performance of each condition</li>
+</ul></p>
+<p><h2>Expected Deliverables</h2>
+<ol>
+<li>Complete codebase implementing all modules</li>
+<li>Dataset of rare disease cases with gold-standard treatments</li>
+<li>Vector database of medical knowledge</li>
+<li>Comprehensive evaluation report</li>
+<li>All logs and raw results</li>
+</ol></p>
+<p><p>Please implement this experiment with careful attention to the integration of CoT prompting and RAG, as this is the key innovation being tested.</p></p>
+</div></div>
+<hr>
+<h2>References</h2>
+<ol>
+<li>
+<p>RareBench: Can LLMs Serve as Rare Diseases Specialists? (2024). Paper ID: 2048f54a98aa7aec577b7fcbf29513d8924d8cd9</p>
+</li>
+<li>
+<p>Interpretable Differential Diagnosis with Dual-Inference Large Language Models (2024). Paper ID: 25a5f70b1077f81380f092637644e2d78100121c</p>
+</li>
+<li>
+<p>Evaluating GPT- and Reasoning-based Large Language Models on Physics Olympiad Problems: Surpassing Human Performance and Implications for Educational Assessment (2025). Paper ID: cbd4012c8934c97fda6afd96ab56f0d115ec1840</p>
+</li>
+<li>
+<p>GAP: Graph-Assisted Prompts for Dialogue-based Medication Recommendation (2025). Paper ID: 11832d2a5115980dd7eac4cdd2fc4b82a3e6e3c8</p>
+</li>
+</ol>
+</body>
+</html>

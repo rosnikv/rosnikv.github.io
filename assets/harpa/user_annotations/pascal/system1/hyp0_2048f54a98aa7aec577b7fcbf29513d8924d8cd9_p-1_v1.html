@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HARPA Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; }
+h2, h3, h4 { color: #007b5f; }
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>2048f54a98aa7aec577b7fcbf29513d8924d8cd9</p>
+<hr>
+<h2>Motivation</h2>
+<p>The source paper is "RareBench: Can LLMs Serve as Rare Diseases Specialists?" (25 citations, 2024, ID: 2048f54a98aa7aec577b7fcbf29513d8924d8cd9). This idea builds on a progression of related work [bf5a6922cf3085de5d5fa3f8e20d70af0a735392, bee332355f99ea618a461e554fd2effd7a4bb6e1].</p>
+<p>The progression of research from the source paper to the related papers shows a clear trajectory of enhancing the diagnostic capabilities of AI in the context of rare diseases. The source paper introduces a benchmark for evaluating LLMs, while Paper 0 extends this by creating a multi-disciplinary team of LLM agents, and Paper 1 explores hybrid AI models for improved diagnosis. The existing works focus on leveraging LLMs and hybrid models to address diagnostic challenges, but there remains a gap in exploring the integration of these models with real-time patient data and feedback mechanisms to further enhance diagnostic accuracy and adaptability. A research idea that addresses this gap could significantly advance the field.</p>
+<hr>
+<h2>Hypothesis</h2>
+<p>Integrating federated learning for genomic data with adaptive learning mechanisms for clinical data will significantly improve diagnostic accuracy and reduce time to diagnosis for rare diseases compared to traditional AI models.</p>
+<hr>
+<h2>Research Gap</h2>
+<p>Existing research has extensively explored the integration of genomic and clinical data into AI models for rare disease diagnosis, but there is limited investigation into the combined use of federated learning for genomic data and adaptive learning mechanisms for clinical data to enhance diagnostic accuracy and reduce time to diagnosis while maintaining data privacy.</p>
+<hr>
+<h2>Hypothesis Elements</h2>
+<p>Independent variable: Integration of federated learning for genomic data with adaptive learning mechanisms for clinical data</p>
+<p>Dependent variable: Diagnostic accuracy and time to diagnosis for rare diseases</p>
+<p>Comparison groups: Federated-Adaptive integrated model versus traditional AI models</p>
+<p>Baseline/control: Traditional centralized machine learning model</p>
+<p>Context/setting: Rare disease diagnosis across multiple institutions</p>
+<p>Assumptions: Federated learning maintains privacy while leveraging diverse datasets; Adaptive learning enables continuous refinement through real-time updates</p>
+<p>Relationship type: Causal (will significantly improve)</p>
+<p>Population: Patients with rare diseases across multiple institutions</p>
+<p>Timeframe: Multiple federated rounds and adaptive learning updates (5-30 rounds depending on pilot mode)</p>
+<p>Measurement method: Diagnostic accuracy, sensitivity, specificity, F1 score, time to diagnosis, model convergence rate, and privacy preservation metrics</p>
+<hr>
+<h2>Overview</h2>
+<p>This research explores the novel integration of federated learning for genomic data with adaptive learning mechanisms for clinical data to enhance the diagnostic process for rare diseases. Federated learning allows AI models to be trained on genomic data across multiple institutions without sharing raw data, thus maintaining privacy and compliance with regulations. Adaptive learning mechanisms enable AI models to continuously refine their decision-making processes by incorporating new clinical data and feedback. This combination is expected to improve diagnostic accuracy by leveraging diverse datasets while reducing time to diagnosis through real-time updates. The integration addresses the gap in existing research by providing a privacy-preserving, adaptive framework that enhances the robustness and adaptability of AI models in diagnosing rare diseases. The hypothesis will be tested using datasets from multiple institutions, evaluating the model's performance in terms of accuracy, sensitivity, specificity, and time to diagnosis. This approach is particularly relevant for rare diseases, where data is often scarce and distributed, making federated learning a suitable method for model training. The expected outcome is a significant improvement in diagnostic accuracy and a reduction in time to diagnosis, providing a more efficient and effective diagnostic tool for rare diseases.</p>
+<hr>
+<h2>Background</h2>
+<p><a href="https://www.semanticscholar.org/paper/8a0edc510cb210094a249c6bbe5ab156d074f73b">Federated Learning for Genomic Data</a>: Federated learning enables collaborative machine learning across multiple institutions without sharing raw genomic data. This approach is implemented by training AI models locally on genomic data at each institution and aggregating model updates centrally. The advantage of this method is its ability to maintain data privacy while leveraging diverse datasets for model training. It is particularly relevant for rare diseases, where data is scarce and distributed. The expected role of federated learning is to enhance the robustness and adaptability of AI models in diagnosing rare diseases by providing access to a broader range of data without compromising privacy.</p>
+<p><a href="https://www.semanticscholar.org/paper/0c4a2eb101e7582e1a5e64f3549cbb834ee80693">Adaptive Learning Mechanisms</a>: Adaptive learning mechanisms involve continuously updating AI models with new clinical data and feedback from clinical interactions. This is implemented by setting up a feedback loop where AI models are regularly updated with new patient data, allowing them to adapt to evolving patient demographics and emerging trends. The advantage of adaptive learning is its ability to personalize responses and improve diagnostic accuracy over time. It is particularly effective in environments where patient data is frequently updated, such as electronic health records (EHRs). The expected role of adaptive learning is to enhance the AI's ability to provide accurate and timely diagnostic recommendations by dynamically incorporating new information.</p>
+<hr>
+<h2>Implementation</h2>
+<p>The hypothesis will be implemented using the ASD Agent's capabilities by developing a federated learning framework for genomic data and integrating adaptive learning mechanisms for clinical data. The federated learning framework will involve setting up secure communication protocols and aggregation algorithms to ensure effective model updates across multiple institutions. Each institution will train AI models locally on their genomic data, and only model updates will be shared with a central server for aggregation. This process will maintain data privacy and compliance with regulations. For adaptive learning, a feedback loop will be established where AI models are regularly updated with new clinical data from EHRs and patient feedback. This will involve developing a system to dynamically adjust diagnostic recommendations based on real-time data inputs. The integration of these components will occur at the data processing level, where genomic data processed through federated learning will be combined with clinical data processed through adaptive learning. The outputs from each component will be linked through a centralized decision-making module that synthesizes insights from both data types to generate diagnostic recommendations. The implementation will include setting up the necessary infrastructure for federated learning, developing algorithms for adaptive learning, and ensuring seamless integration of genomic and clinical data.</p>
+<hr>
+<h2>Operationalization Information</h2>
+
+    <div style="display: flex; gap: 2em;">
+    <div style="flex: 1;">
+    
+<p><p>Please implement a pilot experiment to test the hypothesis that integrating federated learning for genomic data with adaptive learning mechanisms for clinical data will significantly improve diagnostic accuracy and reduce time to diagnosis for rare diseases compared to traditional AI models.</p></p>
+<p><h2>Experiment Overview</h2>
+<p>This experiment will simulate a federated learning environment with multiple institutions (clients) that have local genomic datasets, and implement an adaptive learning mechanism for clinical data. The goal is to compare this integrated approach against a traditional centralized machine learning model for rare disease diagnosis.</p></p>
+<p><h2>Pilot Mode Settings</h2>
+<p>Implement a global variable <code>PILOT_MODE</code> with three possible settings: <code>MINI_PILOT</code>, <code>PILOT</code>, or <code>FULL_EXPERIMENT</code>.</p></p>
+<p><ul>
+<li><strong>MINI_PILOT</strong>: Use 3 simulated institutions with 20 patient records each. Run for 5 federated rounds and 3 adaptive learning updates. This should complete in under 10 minutes and is for code verification only.</li>
+<li><strong>PILOT</strong>: Use 5 simulated institutions with 100 patient records each. Run for 10 federated rounds and 5 adaptive learning updates. This should complete in under 2 hours and will help determine if the approach shows promise.</li>
+<li><strong>FULL_EXPERIMENT</strong>: Use 10 simulated institutions with the full dataset (1000+ patient records each). Run for 30 federated rounds and 15 adaptive learning updates.</li>
+</ul></p>
+<p><p>Start by running the MINI_PILOT first, then if everything looks good, run the PILOT. After the pilot completes, stop and do not run the FULL_EXPERIMENT (a human will manually verify the results and make the change to FULL_EXPERIMENT if appropriate).</p></p>
+<p><h2>Data Generation and Preparation</h2>
+<ol>
+<li>Generate synthetic genomic data for rare diseases across multiple simulated institutions. Each institution should have slightly different data distributions to simulate real-world scenarios.</li>
+<li>Generate synthetic clinical data (symptoms, lab results, demographic information) for the same patients.</li>
+<li>Create a ground truth mapping of genomic patterns and clinical features to specific rare disease diagnoses.</li>
+<li>Split the data into training (70%), validation (15%), and test (15%) sets.</li>
+</ol></p>
+<p><h2>Baseline Implementation (Traditional AI Model)</h2>
+<p>Implement a traditional centralized machine learning model that:<br />
+1. Combines all genomic and clinical data in a central repository (simulating data sharing between institutions).<br />
+2. Trains a neural network model on this combined dataset.<br />
+3. Makes predictions on the test set.<br />
+4. Records accuracy, sensitivity, specificity, and time to diagnosis.</p></p>
+<p><h2>Experimental Implementation (Federated-Adaptive Integration)</h2>
+<p>Implement the experimental system with the following components:</p></p>
+</div><div style='flex: 1;'>
+<p><h3>Federated Learning Component for Genomic Data</h3>
+<ol>
+<li>Set up a federated learning server that coordinates model updates.</li>
+<li>Implement client-side training on local genomic data at each institution.</li>
+<li>Aggregate model updates at the server without sharing raw data.</li>
+<li>Distribute the updated global model back to clients.</li>
+</ol></p>
+<p><h3>Adaptive Learning Component for Clinical Data</h3>
+<ol>
+<li>Implement an adaptive learning mechanism that continuously updates based on new clinical data.</li>
+<li>Create a feedback loop where the model adjusts its parameters based on recent diagnostic outcomes.</li>
+<li>Implement a mechanism to incorporate clinician feedback (simulated in this experiment).</li>
+</ol></p>
+<p><h3>Integration Module</h3>
+<ol>
+<li>Create a centralized decision-making module that combines outputs from both the federated genomic model and the adaptive clinical model.</li>
+<li>Implement a weighted ensemble approach to generate final diagnostic recommendations.</li>
+<li>Track how the weights evolve over time as more data becomes available.</li>
+</ol></p>
+<p><h2>Evaluation Metrics</h2>
+<p>For both baseline and experimental systems, calculate and report:<br />
+1. Diagnostic accuracy (proportion of correct diagnoses)<br />
+2. Sensitivity (true positive rate)<br />
+3. Specificity (true negative rate)<br />
+4. F1 score<br />
+5. Time to diagnosis (measured in computational steps from data input to diagnostic output)<br />
+6. Model convergence rate<br />
+7. Privacy preservation metrics (data not directly shared between institutions)</p></p>
+<p><h2>Experiment Execution</h2>
+<ol>
+<li>Run the baseline model on the test dataset and record all metrics.</li>
+<li>Run the experimental federated-adaptive model on the same test dataset and record all metrics.</li>
+<li>Perform statistical analysis to determine if differences between the two approaches are significant:</li>
+<li>Use bootstrap resampling to calculate confidence intervals</li>
+<li>Perform paired t-tests on the performance metrics</li>
+</ol></p>
+<p><h2>Visualization and Reporting</h2>
+<ol>
+<li>Generate learning curves for both approaches showing performance over time/iterations.</li>
+<li>Create visualizations comparing the performance metrics between baseline and experimental systems.</li>
+<li>Generate heatmaps showing the contribution of different data types to the final diagnosis.</li>
+<li>Create a detailed report with all findings, statistical analyses, and visualizations.</li>
+</ol></p>
+<p><h2>Additional Requirements</h2>
+<ol>
+<li>Implement proper logging throughout the experiment to track model updates, performance metrics, and system behavior.</li>
+<li>Ensure reproducibility by setting random seeds and documenting all hyperparameters.</li>
+<li>Implement early stopping based on validation performance to prevent overfitting.</li>
+<li>Track and report computational resources used by both approaches.</li>
+</ol></p>
+<p><p>The experiment should clearly demonstrate whether the integrated federated-adaptive approach provides significant improvements in diagnostic accuracy and time to diagnosis compared to the traditional centralized approach.</p></p>
+</div></div>
+<hr>
+<h2>References</h2>
+<ol>
+<li>
+<p>RareBench: Can LLMs Serve as Rare Diseases Specialists? (2024). Paper ID: 2048f54a98aa7aec577b7fcbf29513d8924d8cd9</p>
+</li>
+<li>
+<p>RareAgents: Autonomous Multi-disciplinary Team for Rare Disease Diagnosis and Treatment (2024). Paper ID: bee332355f99ea618a461e554fd2effd7a4bb6e1</p>
+</li>
+<li>
+<p>Hybrid AI Models for Rare Disease Diagnosis (2025). Paper ID: bf5a6922cf3085de5d5fa3f8e20d70af0a735392</p>
+</li>
+<li>
+<p>Charting a course for global progress in PIDs by 2030 — proceedings from the IPOPI global multi-stakeholders’ summit (September 2023) (2024). Paper ID: 8a0edc510cb210094a249c6bbe5ab156d074f73b</p>
+</li>
+<li>
+<p>Balancing accuracy and user satisfaction: the role of prompt engineering in AI-driven healthcare solutions (2025). Paper ID: 0c4a2eb101e7582e1a5e64f3549cbb834ee80693</p>
+</li>
+</ol>
+</body>
+</html>
