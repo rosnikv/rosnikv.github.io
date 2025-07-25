@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; max-width: 1000px; }
+h1, h2, h3, h4 { color: #007b5f; margin-top: 1.5em; }
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+ul { margin-left: 1.5em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+section { margin-top: 2em; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>3be2bd86c399e5fdc2dd64662c52ee46443ca758</p>
+<hr>
+<section><h2>Title</h2>
+<p>Adaptive Domain Prompting: Enhancing Robustness and Transparency in Cross-Domain Language Models</p>
+</section>
+<hr>
+<section><h2>Introduction</h2>
+<h3>Problem Statement</h3>
+<p>Domain-specific language models often struggle to generalize across diverse domains, leading to inconsistent performance and reduced transparency in data analysis tasks. This problem is particularly acute when models are required to adapt to new domains or handle multi-domain queries without extensive retraining or fine-tuning.</p>
+<h3>Motivation</h3>
+<p>Current approaches typically involve fine-tuning on domain-specific datasets or using few-shot learning techniques, which can be resource-intensive and may not generalize well to unseen domains. Inspired by the concept of multiverse analysis, we propose leveraging the model's ability to adapt to different domains dynamically during inference. This approach aims to enhance both performance and interpretability across diverse domains without the need for domain-specific model variants.</p>
+</section>
+<hr>
+<section><h2>Proposed Method</h2>
+<p>We introduce Adaptive Domain Prompting (ADP), a novel technique that generates domain-specific prompts on-the-fly. ADP operates in three main steps: 1) Domain Identification: Analyze the input data to identify key domain characteristics. 2) Prompt Construction: Use this information to construct a tailored prompt that includes domain-specific terminology, relevant examples, and appropriate analytical frameworks. 3) Iterative Refinement: The prompt is iteratively refined based on the model's initial outputs, creating a feedback loop that enhances domain adaptation. Additionally, ADP incorporates a transparency module that generates explanations for its domain-specific decisions, enhancing interpretability.</p>
+</section>
+<hr>
+<section><h2>Experiments Plan</h2>
+<h3>Step-by-Step Experiment Plan</h3>
+<p><strong>Step 1: Dataset Preparation</strong></p><p>Collect datasets from multiple domains (e.g., finance, healthcare, social media). Use existing benchmarks like GLUE for general language understanding, MedQA for healthcare, FinQA for finance, and SocialIQA for social reasoning.</p><p><strong>Step 2: Baseline Model Selection</strong></p><p>Choose a large language model (e.g., GPT-3.5 or GPT-4) as the base model for all experiments. Implement standard fine-tuning and few-shot learning baselines for comparison.</p><p><strong>Step 3: ADP Implementation</strong></p><p>Develop the ADP system with the following components: a) Domain Identifier: Train a classifier to identify the domain of the input. b) Prompt Generator: Create a module that constructs domain-specific prompts based on the identified domain. c) Refinement Module: Implement an iterative process to refine prompts based on initial model outputs. d) Transparency Module: Develop a system to generate explanations for domain-specific decisions.</p><p><strong>Step 4: Experiment Design</strong></p><p>Design experiments to compare ADP against baselines across multiple domains. Include cross-domain generalization tests where models are evaluated on domains not seen during training or prompt construction.</p><p><strong>Step 5: Evaluation Metrics</strong></p><p>Implement task-specific metrics (e.g., F1-score for classification tasks) and a novel Domain Adaptation Score (DAS) that quantifies cross-domain generalization. For transparency, use human evaluation of the generated explanations.</p><p><strong>Step 6: Ablation Studies</strong></p><p>Conduct ablation studies to assess the impact of each component of ADP (e.g., with/without iterative refinement, with/without transparency module).</p><p><strong>Step 7: Analysis</strong></p><p>Analyze results to determine the effectiveness of ADP in improving cross-domain performance and transparency. Compare against baselines and across different domains.</p>
+<h3>Test Case Examples</h3>
+<p><strong>Baseline Prompt Input</strong></p><p>Analyze the following financial statement: 'Company X reported a net income of $10 million in Q2 2023, up from $8 million in Q1 2023.'</p><p><strong>Baseline Prompt Expected Output</strong></p><p>Based on the financial statement, Company X has shown an improvement in its net income from Q1 2023 to Q2 2023. The net income increased from $8 million to $10 million, which represents a 25% increase. This could indicate improved operational efficiency, increased sales, or reduced costs. However, more information would be needed to determine the specific factors contributing to this growth.</p><p><strong>Proposed Prompt Input (ADP Step 1: Domain Identification)</strong></p><p>Identify the domain of the following query: 'Analyze the following financial statement: Company X reported a net income of $10 million in Q2 2023, up from $8 million in Q1 2023.'</p><p><strong>Proposed Prompt Expected Output (ADP Step 1: Domain Identification)</strong></p><p>The domain of this query is Finance, specifically related to financial statement analysis and corporate earnings reporting.</p><p><strong>Proposed Prompt Input (ADP Step 2: Prompt Construction)</strong></p><p>Construct a domain-specific prompt for analyzing financial statements, including relevant terminology and analytical frameworks.</p><p><strong>Proposed Prompt Expected Output (ADP Step 2: Prompt Construction)</strong></p><p>As a financial analyst, examine the given financial statement using the following framework: 1) Identify key financial metrics (e.g., net income, revenue, profit margin). 2) Calculate period-over-period growth rates. 3) Consider potential factors influencing the changes (e.g., market conditions, company-specific events). 4) Assess the implications for the company's financial health and future prospects. Use financial terminology and ratios where appropriate.</p><p><strong>Proposed Prompt Input (ADP Step 3: Analysis with Constructed Prompt)</strong></p><p>As a financial analyst, examine the following financial statement using the provided framework: 'Company X reported a net income of $10 million in Q2 2023, up from $8 million in Q1 2023.'</p><p><strong>Proposed Prompt Expected Output (ADP Step 3: Analysis with Constructed Prompt)</strong></p><p>1) Key financial metric identified: Net income<br />
+2) Period-over-period growth rate: (10 million - 8 million) / 8 million = 25% increase<br />
+3) Potential factors influencing the change:<br />
+   - Increased revenue<br />
+   - Improved operational efficiency<br />
+   - Cost reduction measures<br />
+   - Favorable market conditions<br />
+4) Implications:<br />
+   - Positive trend in profitability<br />
+   - Potential for increased shareholder value<br />
+   - Improved capacity for reinvestment or debt reduction</p>
+<p>The 25% quarter-over-quarter increase in net income suggests strong financial performance for Company X. This growth rate is significant and could indicate effective management strategies or favorable market conditions. However, it's important to note that this analysis is based on limited information. A more comprehensive assessment would require additional financial metrics such as revenue, operating expenses, and cash flow, as well as comparison to industry benchmarks and consideration of any one-time events that might have influenced the results.</p><p><strong>Proposed Prompt Input (ADP Step 4: Transparency Module)</strong></p><p>Explain the reasoning behind the financial analysis provided for Company X's statement.</p><p><strong>Proposed Prompt Expected Output (ADP Step 4: Transparency Module)</strong></p><p>The analysis focused on net income as the key financial metric because it was the only data point provided in the statement. The 25% growth rate was calculated to quantify the improvement from Q1 to Q2. Potential factors influencing this change were suggested based on common drivers of net income growth in businesses. The implications were derived from the positive trend in profitability, which typically leads to increased shareholder value and financial flexibility. The analysis emphasized the limited nature of the available information to highlight the need for more comprehensive data for a fuller assessment. This approach aligns with standard financial analysis practices, which involve identifying trends, calculating growth rates, and considering broader implications while acknowledging data limitations.</p><p><strong>Explanation</strong></p><p>The ADP method provides a more structured and domain-specific analysis compared to the baseline. It incorporates financial terminology and analytical frameworks, calculates specific growth rates, and considers multiple factors and implications. The transparency module further enhances the interpretability of the analysis by explaining the reasoning process.</p>
+<h3>Fallback Plan</h3>
+<p>If the proposed ADP method doesn't significantly outperform baselines, we can pivot the project to focus on analyzing why domain-specific prompting may not be as effective as hypothesized. This could involve: 1) Conducting a detailed error analysis to identify patterns in cases where ADP fails to improve performance. 2) Investigating the quality and relevance of the generated domain-specific prompts. 3) Analyzing the model's responses to determine if there are specific types of queries or domains where ADP is more or less effective. 4) Exploring the impact of different prompt construction strategies on model performance. 5) Assessing whether the transparency module provides valuable insights even when performance improvements are minimal. This analysis could lead to insights about the limitations of prompt-based domain adaptation and potentially inform new approaches for enhancing cross-domain performance in language models.</p>
+</section>
+<hr>
+<section><h2>References</h2>
+<ol>
+<li>SENTIMENT ANALYSIS IN SOCIAL MEDIA: HOW DATA SCIENCE IMPACTS PUBLIC OPINION KNOWLEDGE INTEGRATES NATURAL LANGUAGE PROCESSING (NLP) WITH ARTIFICIAL INTELLIGENCE (AI) (2025). Paper ID: cb6528c4810e3c0cf1503b9ed3a507f7054cf2b2</li>
+<li>Data analysis and robust modelling of the impact of renewable generation on long term security of supply and demand (2015). Paper ID: 9e93388a756b889df3be70a0b7f9956c71467cfc</li>
+<li>Hypothesis Formalization: Empirical Findings, Software Limitations, and Design Implications (2021). Paper ID: 58a254f570e07f4673c826ac158cfea130da884d</li>
+<li>Principle Assumptions of Regression Analysis: Testing, Techniques, and Statistical Reporting of Imperfect Data Sets (2019). Paper ID: c55a705fa6013d399649bb8742bd22945242458c</li>
+<li>Assessment of assumptions of statistical analysis methods in randomised clinical trials: the what and how (2020). Paper ID: ceef9177627ad5d5d8f0e6f05cd0f4a13f4ea6e7</li>
+<li>Analyzing data from a pretest-posttest control group design: The importance of statistical assumptions (2016). Paper ID: 0a0158a0aea479df2713d40abd662a8bed6b7245</li>
+<li>Correction of unexpected distributions of P values from analysis of whole genome arrays by rectifying violation of statistical assumptions (2013). Paper ID: 5c84fdcd74ef8fa724e9cb91fd8488145c669a93</li>
+<li>Exploratory, Omniscient, and Multiverse Diagnostics in Debuggers for Non-Deterministic Languages (2025). Paper ID: 92dc68d124a47750dd7cabddae0b06fe29f0ba64</li>
+<li>Tea: A High-level Language and Runtime System for Automating Statistical Analysis (2019). Paper ID: 925fa819231a3c4cde4a81076905ae03f6fe736c</li>
+<li>Tisane: Authoring Statistical Models via Formal Reasoning from Conceptual and Data Relationships (2022). Paper ID: e5cadfc28d598b316b0c914c4d20999fa624f6be</li>
+</ol>
+</section>
+</body></html>

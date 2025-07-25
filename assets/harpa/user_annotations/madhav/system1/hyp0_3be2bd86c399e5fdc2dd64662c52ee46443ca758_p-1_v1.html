@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; }
+h2, h3, h4 { color: #007b5f; }
+.custom-heading {color: black;font-weight: bold;}
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>3be2bd86c399e5fdc2dd64662c52ee46443ca758</p>
+<hr>
+<h2>Title</h2>
+<p>Integrating Boba DSL and decision sensitivity analysis to enhance precision and consistency in trading decisions.</p>
+<hr>
+<h2>Introduction</h2>
+<h3>Motivation</h3>
+<p>The source paper is "Boba: Authoring and Visualizing Multiverse Analyses" (49 citations, 2020, ID: 3be2bd86c399e5fdc2dd64662c52ee46443ca758). This idea builds on a progression of related work [438df99e5fc745d13cfc2c14c7bfdb6e5cb1d872].</p>
+<p>The analysis of the source paper and related paper reveals that while the multiverse analysis method has been effectively applied in educational settings, there remains an opportunity to explore its application in other domains. The source paper introduces a robust framework for conducting multiverse analyses, and the related paper demonstrates its educational utility. However, there is a gap in understanding how multiverse analysis can be applied in real-time decision-making scenarios, where rapid assessments are crucial. By addressing this gap, we can further advance the field by expanding the applicability of multiverse analysis to dynamic environments, thereby enhancing its practical utility and relevance.</p>
+<h3>Hypothesis</h3>
+<p>The integration of Boba DSL for multiverse specification with decision sensitivity analysis will lead to improved precision and reduced variance in decision outcomes in financial trading environments compared to traditional singular analysis approaches.</p>
+<h3>Research Gap</h3>
+<p>Existing research has not extensively explored the integration of Boba DSL for multiverse specification with decision sensitivity analysis in financial trading environments to assess the robustness of decision outcomes, particularly in terms of precision and variance. This gap is crucial as it addresses the need for a systematic approach to evaluate the impact of various decision paths on trading performance metrics, which is often overlooked in traditional singular analysis approaches.</p>
+<h3>Hypothesis Elements</h3>
+<p>Independent variable: Integration of Boba DSL for multiverse specification with decision sensitivity analysis</p>
+<p>Dependent variable: Precision and variance in decision outcomes</p>
+<p>Comparison groups: Integrated approach (Boba DSL + decision sensitivity analysis) vs. traditional singular analysis approach</p>
+<p>Baseline/control: Traditional singular analysis approach with a single decision path (moving average crossover strategy with fixed parameters)</p>
+<p>Context/setting: Financial trading environments</p>
+<p>Assumptions: Boba DSL can effectively enumerate decision paths; decision sensitivity analysis can identify high-impact decisions; precision and variance are appropriate metrics for trading performance</p>
+<p>Relationship type: Causal (will lead to improved precision and reduced variance)</p>
+<p>Population: S&amp;P 500 index and its constituent stocks</p>
+<p>Timeframe: Varying from 30 days (mini-pilot) to 1 year (full experiment) of historical data</p>
+<p>Measurement method: Precision calculated as (true positives) / (true positives + false positives); variance calculated as the degree of spread in decision outcomes across different analysis paths</p>
+<hr>
+<h2>Proposed Method</h2>
+<h3>Overview</h3>
+<p>This research aims to explore the integration of Boba DSL for multiverse specification with decision sensitivity analysis in financial trading environments. The hypothesis posits that this integration will lead to improved precision and reduced variance in decision outcomes compared to traditional singular analysis approaches. Boba DSL allows for the systematic exploration of decision paths by specifying shared portions of analysis code alongside local variations. This enables the enumeration of all compatible decision combinations, facilitating a comprehensive multiverse analysis. Decision sensitivity analysis further evaluates the impact of different decision paths on outcomes, identifying high-impact decisions and ensuring transparency by reporting the full range of possible outcomes. In financial trading, precision is crucial as it measures the accuracy of decision outcomes, particularly in scenarios where false positives can lead to significant financial losses. By integrating Boba DSL and decision sensitivity analysis, this research seeks to provide a more robust framework for evaluating the precision and variance of decision outcomes in trading environments. The expected outcome is a more reliable and transparent decision-making process that enhances trading performance by systematically assessing the impact of various decision paths.</p>
+<h3>Background</h3>
+<p><a href="https://www.semanticscholar.org/paper/3be2bd86c399e5fdc2dd64662c52ee46443ca758">Boba DSL for Multiverse Specification</a>: Boba DSL is a domain-specific language designed to facilitate the authoring and interpretation of multiverse analyses. It allows users to specify the shared portion of the analysis code once, alongside local variations defining alternative analysis decisions. The Boba compiler enumerates all compatible combinations of decisions and synthesizes individual analysis scripts for each path. This system is particularly useful for systematically exploring decision sensitivity and model fit quality. In this research, Boba DSL will be used to create a multiverse of decision paths in financial trading environments, enabling a comprehensive evaluation of decision outcomes. The expected role of Boba DSL is to provide a structured framework for exploring the impact of different decision combinations on trading performance metrics, particularly precision and variance.</p>
+<p><a href="https://www.semanticscholar.org/paper/4e42a49f80799ff9973ba164b0d19c566424da40">Decision Sensitivity Analysis</a>: Decision sensitivity analysis involves evaluating the impact of different decision paths on outcomes. This is achieved by executing an end-to-end script for each combination of decisions and interpreting the results collectively. The analysis helps identify which decisions have a large impact on results and ensures transparency by reporting the full range of possible outcomes. In this research, decision sensitivity analysis will be used to assess the robustness of decision outcomes in financial trading environments. The expected role of decision sensitivity analysis is to identify high-impact decisions and provide a transparent evaluation of decision paths, ultimately leading to improved precision and reduced variance in trading performance metrics.</p>
+<h3>Implementation</h3>
+<p>The hypothesis will be implemented using the ASD Agent's capabilities to automate the execution of multiverse analyses in financial trading environments. The process begins with the use of Boba DSL to specify the shared portion of the analysis code and local variations defining alternative analysis decisions. The Boba compiler will enumerate all compatible combinations of decisions, generating individual analysis scripts for each path. These scripts will be executed in parallel using the ASD Agent's containerized environment, allowing for efficient processing of multiple decision paths. Decision sensitivity analysis will be conducted by evaluating the impact of each decision path on the precision and variance of decision outcomes. This involves calculating precision as the ratio of true positive predictions to the total number of positive predictions made, and variance as the degree of spread in decision outcomes across different analysis paths. The results will be aggregated and visualized using the Boba Visualizer, providing a comprehensive view of the impact of decision paths on trading performance metrics. The integration of Boba DSL and decision sensitivity analysis is expected to enhance the robustness and transparency of decision-making processes in financial trading environments.</p>
+<hr>
+<h2>Experiments Plan</h2>
+<h3>Operationalization Information</h3>
+
+<div style="display: flex; gap: 2em;">
+<div style="flex: 1;">
+
+<p><p>Please implement an experiment to test whether integrating Boba DSL for multiverse specification with decision sensitivity analysis improves precision and reduces variance in financial trading decisions compared to traditional singular analysis approaches.</p></p>
+<p><h4 class="custom-heading"><strong>EXPERIMENT OVERVIEW</strong></h4>
+<p>This experiment will compare two approaches to financial trading decision-making:<br />
+1. <strong>Baseline</strong>: A traditional singular analysis approach that uses a single decision path for trading decisions<br />
+2. <strong>Experimental</strong>: An integrated approach using Boba DSL to generate multiple decision paths and decision sensitivity analysis to evaluate their impact</p></p>
+<p><p>The experiment should include a global variable <code>PILOT_MODE</code> with three possible settings: <code>MINI_PILOT</code>, <code>PILOT</code>, or <code>FULL_EXPERIMENT</code>. Start with <code>MINI_PILOT</code>, and if successful, proceed to <code>PILOT</code>. Do not run the <code>FULL_EXPERIMENT</code> mode (this will be manually triggered after human verification).</p></p>
+<p><h4 class="custom-heading"><strong>DATASET</strong></h4>
+<p>Use the Yahoo Finance API to obtain historical stock price data for the S&amp;P 500 index and its constituent stocks. For the experiment:<br />
+- <strong>MINI_PILOT</strong>: Use 5 stocks from the S&amp;P 500 with 30 days of historical data<br />
+- <strong>PILOT</strong>: Use 50 stocks from the S&amp;P 500 with 90 days of historical data<br />
+- <strong>FULL_EXPERIMENT</strong>: Use all S&amp;P 500 stocks with 1 year of historical data</p></p>
+<p><h4 class="custom-heading"><strong>IMPLEMENTATION DETAILS</strong></h4></p>
+<p><h4 class="custom-heading"><strong>1. Baseline Implementation (Traditional Singular Analysis)</strong></h4>
+<p>Implement a traditional trading strategy with the following components:<br />
+- Use a moving average crossover strategy (short-term MA crosses long-term MA)<br />
+- Fixed parameters: short MA period = 10 days, long MA period = 30 days<br />
+- Generate buy/sell signals based on crossover events<br />
+- Calculate precision (true positives / all positive predictions) for buy signals<br />
+- Calculate variance of returns across all trades</p></p>
+<p><h4 class="custom-heading"><strong>2. Experimental Implementation (Boba DSL + Decision Sensitivity Analysis)</strong></h4>
+<p>Implement the integrated approach with the following components:</p></p>
+<p><p><strong>A. Boba DSL Specification</strong><br />
+- Create a Boba DSL template that specifies the shared trading strategy code<br />
+- Define decision blocks for the following variable parameters:<br />
+  - Short MA periods: [5, 10, 15, 20]<br />
+  - Long MA periods: [20, 30, 40, 50]<br />
+  - Signal thresholds: [0.5%, 1%, 1.5%, 2%]<br />
+  - Stop-loss percentages: [2%, 3%, 4%, 5%]<br />
+- Use the Boba compiler to generate all compatible decision paths</p></p>
+<p><p><strong>B. Decision Sensitivity Analysis</strong><br />
+- Execute each decision path on the financial dataset<br />
+- For each path, calculate:<br />
+  - Precision of buy signals (true positives / all positive predictions)<br />
+  - Variance of returns<br />
+  - Total return<br />
+- Analyze the sensitivity of outcomes to each decision variable<br />
+- Identify high-impact decisions<br />
+- Calculate the range of possible outcomes</p></p>
+<p><p><strong>C. Integration</strong><br />
+- Select the top-performing decision paths based on precision and variance<br />
+- Implement an ensemble approach that combines signals from top paths<br />
+- Compare the ensemble approach to the baseline</p></p>
+</div><div style='flex: 1;'>
+<p><h4 class="custom-heading"><strong>EVALUATION METRICS</strong></h4>
+<ol>
+<li><strong>Precision</strong>: Calculate as (true positives) / (true positives + false positives)</li>
+<li>A true positive is defined as a buy signal followed by a price increase within 5 trading days</li>
+<li>Report precision for both baseline and experimental approaches</li>
+</ol></p>
+<p><ol>
+<li><strong>Variance</strong>: Calculate the variance of returns across all trades</li>
+<li>Report variance for both baseline and experimental approaches</li>
+</ol></p>
+<p><ol>
+<li><strong>Decision Impact</strong>: For the experimental approach, report the impact of each decision variable on precision and variance</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>VISUALIZATION AND REPORTING</strong></h4>
+<ol>
+<li>Use the Boba Visualizer to create the following visualizations:</li>
+<li>Distribution of precision across all decision paths</li>
+<li>Distribution of variance across all decision paths</li>
+<li>Heatmap showing the impact of each decision variable on precision and variance</li>
+<li>Decision tree showing the most influential decision paths</li>
+</ol></p>
+<p><ol>
+<li>Generate a comprehensive report including:</li>
+<li>Comparison of baseline vs. experimental approach</li>
+<li>Statistical significance of differences (using bootstrap resampling)</li>
+<li>Identification of high-impact decisions</li>
+<li>Visualization of the multiverse analysis results</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>PILOT CONFIGURATIONS</strong></h4></p>
+<p><p><strong>MINI_PILOT</strong>:<br />
+- 5 stocks from S&amp;P 500<br />
+- 30 days of historical data<br />
+- Reduced decision space: 2 options per variable<br />
+- Maximum of 16 decision paths<br />
+- Run time: ~5-10 minutes</p></p>
+<p><p><strong>PILOT</strong>:<br />
+- 50 stocks from S&amp;P 500<br />
+- 90 days of historical data<br />
+- Full decision space: 4 options per variable<br />
+- Maximum of 256 decision paths<br />
+- Run time: ~1-2 hours</p></p>
+<p><p><strong>FULL_EXPERIMENT</strong>:<br />
+- All S&amp;P 500 stocks<br />
+- 1 year of historical data<br />
+- Extended decision space: 5+ options per variable<br />
+- 500+ decision paths<br />
+- Comprehensive statistical analysis<br />
+- Run time: Several hours</p></p>
+<p><p>Please implement the experiment starting with the MINI_PILOT configuration. After successful completion, proceed to the PILOT configuration. Stop after the PILOT and do not run the FULL_EXPERIMENT (this will be manually triggered after human verification of the pilot results).</p></p>
+</div></div>
+<hr>
+<h2>References</h2>
+<ol>
+<li>
+<p>Boba: Authoring and Visualizing Multiverse Analyses (2020). Paper ID: 3be2bd86c399e5fdc2dd64662c52ee46443ca758</p>
+</li>
+<li>
+<p>Multiverse analyses in the classroom (2020). Paper ID: 438df99e5fc745d13cfc2c14c7bfdb6e5cb1d872</p>
+</li>
+<li>
+<p>Milliways: Taming Multiverses through Principled Evaluation of Data Analysis Paths (2024). Paper ID: 4e42a49f80799ff9973ba164b0d19c566424da40</p>
+</li>
+</ol>
+</body>
+</html>
