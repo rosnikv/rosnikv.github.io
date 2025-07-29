@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; }
+h2, h3, h4 { color: #007b5f; }
+.custom-heading {color: black;font-weight: bold;}
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>cb5323ef22a5a38cfba318abadcadee822ccf8a9</p>
+<hr>
+<h2>Title</h2>
+<p>Integrating ILP with Sub-Trajectory Balance GFlowNets to enhance solution diversity and validity.</p>
+<hr>
+<h2>Introduction</h2>
+<h3>Motivation</h3>
+<p>The source paper is <a href="https://www.semanticscholar.org/paper/cb5323ef22a5a38cfba318abadcadee822ccf8a9">Paper 0: Flow Network based Generative Models for Non-Iterative Diverse Candidate Generation</a> (342 citations, 2021). This idea builds on a progression of related work <a href="https://www.semanticscholar.org/paper/e309fc40c7092104bc767d78a3cff03447a4cdd9">Paper 1</a> --&gt; <a href="https://www.semanticscholar.org/paper/f74e22ca2bba820aa9377420f92ea50abcd94adc">Paper 2</a> --&gt; <a href="https://www.semanticscholar.org/paper/c19c7642931c86bcc1afcafa201c64dc5fab9a0b">Paper 3</a> --&gt; <a href="https://www.semanticscholar.org/paper/a5bcaae165d38a9fbcaa9520135fb48ed3ef5765">Paper 4</a>.</p>
+<p>The analysis reveals a progression from using generative models for optimization to addressing constraints and evaluating model performance. The key challenge remains efficiently generating diverse, high-quality solutions while handling constraints and ensuring generalization. By integrating insights from these papers, we can propose a research idea that enhances GFlowNets by incorporating constraint handling and robust evaluation metrics, addressing limitations in diversity and generalization.</p>
+<h3>Hypothesis</h3>
+<p>Integrating Integer Linear Programming techniques with Sub-Trajectory Balance GFlowNets, evaluated using Jensen-Shannon Divergence, will enhance the diversity and validity of generated solutions compared to traditional GFlowNet configurations.</p>
+<h3>Research Gap</h3>
+<p>Existing research on GFlowNets has extensively explored diversity and generalization but lacks a focused investigation on the integration of Integer Linear Programming (ILP) techniques with Sub-Trajectory Balance GFlowNets using Jensen-Shannon Divergence as a metric. This gap is crucial as it may uncover novel synergies that enhance solution validity and diversity in complex constraint environments.</p>
+<h3>Hypothesis Elements</h3>
+<p>Independent variable: Integration of Integer Linear Programming techniques with Sub-Trajectory Balance GFlowNets</p>
+<p>Dependent variable: Diversity and validity of generated solutions</p>
+<p>Comparison groups: Experimental GFlowNet with Sub-Trajectory Balance integrated with ILP techniques vs. traditional GFlowNet with standard trajectory balance</p>
+<p>Baseline/control: Traditional GFlowNet configurations with standard trajectory balance</p>
+<p>Context/setting: Combinatorial optimization problems such as the Traveling Salesman Problem (TSP) or molecular generation tasks with complex constraints</p>
+<p>Assumptions: ILP techniques can effectively handle complex constraints and optimize solutions; Sub-Trajectory Balance improves training stability and credit assignment</p>
+<p>Relationship type: Causation (integration will enhance/improve outcomes)</p>
+<p>Population: GFlowNet-generated solutions in complex constraint environments</p>
+<p>Timeframe: Training periods ranging from 100 iterations (mini-pilot) to 10,000 iterations or until convergence (full experiment)</p>
+<p>Measurement method: Jensen-Shannon Divergence as primary metric, with secondary metrics including number of unique valid solutions, entropy of solution distribution, percentage of valid solutions, and computational efficiency</p>
+<hr>
+<h2>Proposed Method</h2>
+<h3>Overview</h3>
+<p>This research proposes integrating Integer Linear Programming (ILP) techniques with Sub-Trajectory Balance GFlowNets, using Jensen-Shannon Divergence as the evaluation metric, to enhance the diversity and validity of generated solutions. ILP techniques are adept at handling complex constraints and optimizing solutions in scenarios with numerous variables and constraints, making them suitable for enhancing GFlowNet's capabilities. Sub-Trajectory Balance GFlowNets focus on balancing probabilities along sub-trajectories, improving training stability and credit assignment. By combining these with ILP, we aim to leverage ILP's optimization strengths to refine the exploration of solution spaces in GFlowNets. Jensen-Shannon Divergence will serve as a robust metric to evaluate the similarity between the generated and target distributions, providing insights into the model's generalization capabilities. This combination is expected to enhance the model's ability to generate diverse and valid solutions, particularly in complex environments where traditional GFlowNet configurations may struggle. This approach addresses gaps in existing research by exploring a novel integration of techniques that have not been extensively tested together, potentially leading to significant improvements in solution quality and diversity.</p>
+<h3>Background</h3>
+<p>Integer Linear Programming Techniques: ILP techniques involve formulating problems as sets of linear equations and inequalities with integer constraints. In this experiment, ILP will be used to define and solve complex constraints within the GFlowNet framework. The ILP solver will optimize the flow of solutions by ensuring that all constraints are satisfied, enhancing the validity of the generated solutions. This approach is chosen for its ability to handle large-scale optimization problems efficiently, providing a structured method to explore solution spaces.</p>
+<p><a href="https://www.semanticscholar.org/paper/46652463d92f839e01799a8f684bf47377d6fe2f">Sub-Trajectory Balance GFlowNets</a>: Sub-Trajectory Balance GFlowNets focus on balancing the flow of probabilities along sub-trajectories rather than complete trajectories. This technique enhances training stability and improves credit assignment by focusing on local trajectory properties. In this experiment, it will be used to ensure that the flow balance condition is met for each sub-trajectory, promoting diverse exploration of the solution space. This approach is particularly useful in environments with complex state spaces, where full trajectory balance is challenging to achieve.</p>
+<p><a href="https://www.semanticscholar.org/paper/8cb0ddbba810bf09f0a763762dfb08ed2270679c">Jensen-Shannon Divergence</a>: Jensen-Shannon Divergence (JS) is a metric used to evaluate the similarity between two probability distributions. In this experiment, JS will be used to assess how closely the distribution of generated solutions matches the target distribution. This metric provides a quantitative measure of the model's generalization capabilities, offering insights into the diversity and validity of the solutions. JS is chosen for its ability to provide a symmetric and interpretable measure of distributional similarity, making it suitable for evaluating generative models.</p>
+<h3>Implementation</h3>
+<p>The hypothesis will be implemented by integrating ILP techniques into the GFlowNet framework with Sub-Trajectory Balance. The ILP solver will be configured to handle the integer constraints of the problem, optimizing the flow of solutions within the GFlowNet. Sub-Trajectory Balance will be implemented by decomposing the overall trajectory into smaller segments and ensuring that the flow balance condition is met for each segment. Jensen-Shannon Divergence will be calculated by comparing the log probabilities of the generated and target distributions. The implementation will involve setting up the ILP solver to define the constraints and objective function, integrating it with the GFlowNet's training loop. The Sub-Trajectory Balance will be incorporated by modifying the loss function to account for sub-trajectory flows. The experiment will be conducted using a benchmark dataset with complex constraints, and the performance will be evaluated based on the diversity and validity of the generated solutions, as measured by JS Divergence. The integration will be tested across multiple runs to ensure robustness and reliability of the results.</p>
+<hr>
+<h2>Experiments Plan</h2>
+<h3>Operationalization Information</h3>
+
+<div style="display: flex; gap: 2em;">
+<div style="flex: 1;">
+
+<p><p>Please implement an experiment to test the hypothesis that integrating Integer Linear Programming (ILP) techniques with Sub-Trajectory Balance GFlowNets will enhance the diversity and validity of generated solutions compared to traditional GFlowNet configurations. The experiment should be structured as follows:</p></p>
+<p><h4 class="custom-heading"><strong>Experimental Setup</strong></h4></p>
+<p><h4 class="custom-heading"><strong>Models to Compare</strong></h4>
+<ol>
+<li><strong>Baseline Model</strong>: A traditional GFlowNet with standard trajectory balance</li>
+<li><strong>Experimental Model</strong>: A GFlowNet with Sub-Trajectory Balance integrated with ILP techniques</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Dataset</strong></h4>
+<p>Use a benchmark dataset with complex constraints. For this experiment, we'll use a combinatorial optimization problem such as the Traveling Salesman Problem (TSP) or a molecular generation task, where constraints are well-defined and solutions can be evaluated for validity.</p></p>
+<p><h4 class="custom-heading"><strong>Implementation Details</strong></h4></p>
+<p><h4 class="custom-heading"><strong>Baseline GFlowNet</strong></h4>
+<ul>
+<li>Implement a standard GFlowNet with traditional trajectory balance</li>
+<li>Use a neural network to parameterize the forward policy and backward policy</li>
+<li>Train using the standard flow matching objective</li>
+</ul></p>
+<p><h4 class="custom-heading"><strong>Experimental GFlowNet with ILP Integration</strong></h4>
+<ol>
+<li><strong>Sub-Trajectory Balance Implementation</strong>:</li>
+<li>Decompose trajectories into sub-trajectories</li>
+<li>Modify the loss function to ensure flow balance for each sub-trajectory</li>
+<li>Implement credit assignment for sub-trajectories</li>
+</ol></p>
+<p><ol>
+<li><strong>ILP Integration</strong>:</li>
+<li>Use PuLP or another Python-compatible ILP solver (as an alternative to CPLEX/Gurobi)</li>
+<li>Define constraints as linear inequalities based on the problem domain</li>
+<li>Integrate the ILP solver to validate and optimize solutions during the GFlowNet's exploration</li>
+<li>Use the ILP solver to guide the flow of solutions by ensuring constraint satisfaction</li>
+</ol></p>
+<p><ol>
+<li><strong>Integration Approach</strong>:</li>
+<li>During training, use the ILP solver to validate generated solutions</li>
+<li>Incorporate constraint satisfaction as part of the reward function</li>
+<li>Use ILP to refine the exploration strategy by prioritizing valid regions of the solution space</li>
+</ol></p>
+</div><div style='flex: 1;'>
+<p><h4 class="custom-heading"><strong>Evaluation Metrics</strong></h4>
+<ol>
+<li><strong>Primary Metric</strong>: Jensen-Shannon Divergence between generated and target distributions</li>
+<li><strong>Secondary Metrics</strong>:</li>
+<li>Number of unique valid solutions generated</li>
+<li>Entropy of the solution distribution</li>
+<li>Percentage of valid solutions</li>
+<li>Computational efficiency (training time, inference time)</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Experimental Protocol</strong></h4></p>
+<p><p>Implement a global variable <code>PILOT_MODE</code> with three possible settings: <code>MINI_PILOT</code>, <code>PILOT</code>, or <code>FULL_EXPERIMENT</code>.</p></p>
+<p><h4 class="custom-heading"><strong>MINI_PILOT Mode</strong></h4>
+<ul>
+<li>Use a very small problem instance (e.g., TSP with 5-10 cities or molecular generation with simple constraints)</li>
+<li>Train for 100 iterations</li>
+<li>Generate 50 samples for evaluation</li>
+<li>Run 3 random seeds</li>
+<li>Expected runtime: 10-15 minutes</li>
+</ul></p>
+<p><h4 class="custom-heading"><strong>PILOT Mode</strong></h4>
+<ul>
+<li>Use a moderate-sized problem instance (e.g., TSP with 20-30 cities or molecular generation with moderate constraints)</li>
+<li>Train for 1000 iterations</li>
+<li>Generate 500 samples for evaluation</li>
+<li>Run 5 random seeds</li>
+<li>Expected runtime: 1-2 hours</li>
+</ul></p>
+<p><h4 class="custom-heading"><strong>FULL_EXPERIMENT Mode</strong></h4>
+<ul>
+<li>Use the full-sized problem instance (e.g., TSP with 50+ cities or complex molecular generation)</li>
+<li>Train for 10,000 iterations or until convergence</li>
+<li>Generate 5000 samples for evaluation</li>
+<li>Run 10 random seeds</li>
+<li>Perform hyperparameter tuning on the development set</li>
+<li>Evaluate final performance on the test set</li>
+</ul></p>
+<p><p>First run the MINI_PILOT mode, then if everything looks good, run the PILOT mode. After the PILOT mode completes, stop and do not run the FULL_EXPERIMENT mode (a human will manually verify the results and make the change to FULL_EXPERIMENT if appropriate).</p></p>
+<p><h4 class="custom-heading"><strong>Required Outputs</strong></h4>
+<ol>
+<li>Training curves showing loss convergence for both models</li>
+<li>Jensen-Shannon Divergence values for both models</li>
+<li>Tables comparing all evaluation metrics between baseline and experimental models</li>
+<li>Statistical significance tests (e.g., t-tests or bootstrap resampling) to determine if differences are significant</li>
+<li>Visualizations of the generated solutions from both models</li>
+<li>Analysis of the diversity and validity of solutions</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Implementation Notes</strong></h4>
+<ul>
+<li>Use PyTorch for implementing the neural network components</li>
+<li>Use PuLP for the ILP solver (as it's open-source and Python-compatible)</li>
+<li>Ensure proper logging of all experimental results</li>
+<li>Implement checkpointing to save model states during training</li>
+<li>Use a random seed for reproducibility</li>
+<li>Provide detailed documentation of the implementation</li>
+</ul></p>
+<p><p>Please implement this experiment and report the results as specified.</p></p>
+</div></div>
+<hr>
+<h2>References</h2>
+<ol>
+<li>
+<p>Flow Network based Generative Models for Non-Iterative Diverse Candidate Generation (2021). Paper ID: cb5323ef22a5a38cfba318abadcadee822ccf8a9</p>
+</li>
+<li>
+<p>Enhancing combinatorial optimization with classical and quantum generative models (2021). Paper ID: e309fc40c7092104bc767d78a3cff03447a4cdd9</p>
+</li>
+<li>
+<p>Symmetric tensor networks for generative modeling and constrained combinatorial optimization (2022). Paper ID: f74e22ca2bba820aa9377420f92ea50abcd94adc</p>
+</li>
+<li>
+<p>Generalization metrics for practical quantum advantage in generative models (2022). Paper ID: c19c7642931c86bcc1afcafa201c64dc5fab9a0b</p>
+</li>
+<li>
+<p>Quantum Inception Score (2023). Paper ID: a5bcaae165d38a9fbcaa9520135fb48ed3ef5765</p>
+</li>
+<li>
+<p>Beyond Squared Error: Exploring Loss Design for Enhanced Training of Generative Flow Networks (2024). Paper ID: 46652463d92f839e01799a8f684bf47377d6fe2f</p>
+</li>
+<li>
+<p>Investigating Generalization Behaviours of Generative Flow Networks (2024). Paper ID: 8cb0ddbba810bf09f0a763762dfb08ed2270679c</p>
+</li>
+</ol>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; max-width: 1000px; }
+h1, h2, h3, h4 { color: #007b5f; margin-top: 1.5em; }
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+ul { margin-left: 1.5em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+section { margin-top: 2em; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>cb5323ef22a5a38cfba318abadcadee822ccf8a9</p>
+<hr>
+<section><h2>Title</h2>
+<p>HierMolGen: Multi-Scale Temporal Difference Learning for Hierarchical Molecular Graph Synthesis</p>
+</section>
+<hr>
+<section><h2>Introduction</h2>
+<h3>Problem Statement</h3>
+<p>Current molecular graph generation methods often fail to capture the hierarchical nature of molecular structures, leading to suboptimal designs and limited ability to generate large, complex molecules. This problem hinders the efficient discovery of novel drug candidates and materials with desired properties.</p>
+<h3>Motivation</h3>
+<p>Existing approaches typically focus on atom-level or small fragment-level generation, which can be inefficient for designing larger molecules with specific substructures. Hierarchical reinforcement learning has shown success in complex decision-making tasks. Applying this concept to molecular design could enable more efficient generation of complex molecules by learning at multiple scales simultaneously. Our proposed method, HierMolGen, leverages multi-scale temporal difference learning to capture the hierarchical nature of molecular structures, potentially leading to more efficient and effective molecular graph synthesis.</p>
+</section>
+<hr>
+<section><h2>Proposed Method</h2>
+<p>HierMolGen operates at three levels: atom, functional group, and scaffold. At each level, a separate TD learning agent is trained to make decisions appropriate to its scale. The atom-level agent learns to add or remove individual atoms and bonds. The functional group agent learns to attach or modify common chemical moieties. The scaffold-level agent learns to combine and modify larger substructures. These agents are coordinated through a novel hierarchical action selection mechanism that allows higher-level decisions to guide lower-level actions. We also introduce a cross-scale consistency loss to ensure coherence between decisions at different levels. The flow network aspect is incorporated through a hierarchical reversible flow that allows bidirectional traversal between scales, enabling efficient exploration of the chemical space.</p>
+</section>
+<hr>
+<section><h2>Experiments Plan</h2>
+<h3>Step-by-Step Experiment Plan</h3>
+<p><strong>Step 1: Data Preparation</strong></p><p>Collect and preprocess molecular datasets from ChEMBL and ZINC databases. Split the data into training, validation, and test sets.</p><p><strong>Step 2: Implement HierMolGen Architecture</strong></p><p>Develop the multi-scale TD learning framework with three levels (atom, functional group, scaffold). Implement the hierarchical action selection mechanism and cross-scale consistency loss.</p><p><strong>Step 3: Train HierMolGen</strong></p><p>Train the model using the prepared datasets. Use a curriculum learning approach, starting with simpler molecules and gradually increasing complexity.</p><p><strong>Step 4: Implement Baselines</strong></p><p>Implement single-scale baselines (atom-level generation) and other hierarchical generation methods for comparison.</p><p><strong>Step 5: Evaluation on Standard Tasks</strong></p><p>Evaluate HierMolGen and baselines on standard tasks: generation of drug-like molecules, optimization of multiple properties simultaneously, and targeted generation of molecules with specific substructures.</p><p><strong>Step 6: Novel Metrics Implementation</strong></p><p>Develop and implement novel metrics to assess the method's ability to generate and manipulate complex molecular structures.</p><p><strong>Step 7: Case Studies</strong></p><p>Conduct case studies in collaboration with medicinal chemists to evaluate the practical utility of the generated molecules.</p><p><strong>Step 8: Analysis and Ablation Studies</strong></p><p>Perform ablation studies to understand the contribution of each component of HierMolGen. Analyze the generated molecules at different scales.</p><p><strong>Step 9: Results Compilation and Visualization</strong></p><p>Compile all results, create visualizations, and prepare for reporting.</p>
+<h3>Test Case Examples</h3>
+<p><strong>Baseline Method Input</strong></p><p>Generate a drug-like molecule with LogP between 2 and 3, and molecular weight between 300 and 400 Da.</p><p><strong>Baseline Method Expected Output</strong></p><p>A molecule that meets the basic criteria but may lack complex substructures or specific functional groups important for drug-like properties.</p><p><strong>Proposed Method Input</strong></p><p>Generate a drug-like molecule with LogP between 2 and 3, molecular weight between 300 and 400 Da, and containing a benzimidazole scaffold.</p><p><strong>Proposed Method Expected Output</strong></p><p>A molecule meeting all specified criteria, including the benzimidazole scaffold, with appropriate functional groups attached in chemically sensible positions, demonstrating the method's ability to work across multiple scales.</p><p><strong>Explanation</strong></p><p>The proposed method is expected to generate more structurally complex and chemically relevant molecules by leveraging its multi-scale approach. It can incorporate specific scaffolds and functional groups while maintaining overall molecular properties, which is challenging for single-scale methods.</p>
+<h3>Fallback Plan</h3>
+<p>If HierMolGen doesn't meet the success criteria, we will conduct a thorough analysis to understand the limitations. We'll examine the performance at each scale (atom, functional group, scaffold) to identify where the model struggles. This could involve visualizing the attention patterns in the hierarchical action selection mechanism and analyzing the cross-scale consistency loss. We might discover that certain scales are more effective than others, leading to a hybrid approach that combines the most successful aspects of multi-scale generation with traditional methods. Additionally, we could explore the model's behavior on different types of molecules (e.g., small molecules vs. macromolecules) to identify specific areas of strength or weakness. This analysis could provide valuable insights into the challenges of hierarchical molecular generation, potentially leading to a paper on the limitations and future directions of multi-scale approaches in computational chemistry.</p>
+</section>
+<hr>
+<section><h2>References</h2>
+<ol>
+<li>Discrete Object Generation with Reversible Inductive Construction (2019). Paper ID: 197b60404ccddeedd87eeda4ac715ecc17cfc0d8</li>
+<li>Molecular Graph Generation with Deep Reinforced Multitask Network and Adversarial Imitation Learning (2019). Paper ID: 9c4d96f92aa266e703b6e4268368f5e305bf83c5</li>
+<li>Autoregressive Energy Machines (2019). Paper ID: f774a7b3a843736cfa477df718243b90a5d83792</li>
+<li>Generation of Rational Drug-like Molecular Structures Through a Multiple-Objective Reinforcement Learning Framework (2024). Paper ID: 680fad1da81c40c2609f4851b00885bfd3f97be2</li>
+<li>De Novo Drug Design Using Reinforcement Learning with Graph-Based Deep Generative Models (2021). Paper ID: 85da6c156e97eb5f731d69214684d948829477e9</li>
+<li>MARS: Markov Molecular Sampling for Multi-objective Drug Discovery (2021). Paper ID: 73bc1497aca1a3cd0aa9c48e4d35be5cf40d2a9c</li>
+<li>De novo drug design by iterative multiobjective deep reinforcement learning with graph-based molecular quality assessment (2023). Paper ID: 006f26974d2db9fe7d5bc6365cb74dc2e3afaef0</li>
+<li>GraphAF: a Flow-based Autoregressive Model for Molecular Graph Generation (2020). Paper ID: 036d743c7ca1e513adf0a91594fc8111e03dc30c</li>
+<li>Efficient learning of non-autoregressive graph variational autoencoders for molecular graph generation (2019). Paper ID: e87dbd9294207e73512262fcea8d870ca1356745</li>
+<li>Decoding Molecular Graph Embeddings with Reinforcement Learning (2019). Paper ID: 33eb7177d80860bc5ba1034c4937b8fd7df1ee80</li>
+</ol>
+</section>
+</body></html>
