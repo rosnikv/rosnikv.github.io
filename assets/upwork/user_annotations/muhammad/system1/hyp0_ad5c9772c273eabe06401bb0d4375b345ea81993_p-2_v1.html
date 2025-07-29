@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; }
+h2, h3, h4 { color: #007b5f; }
+.custom-heading {color: black;font-weight: bold;}
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>ad5c9772c273eabe06401bb0d4375b345ea81993</p>
+<hr>
+<h2>Title</h2>
+<p>Integrating Gated Attention with Two-layer LSTM to enhance Roman Urdu sentiment analysis.</p>
+<hr>
+<h2>Introduction</h2>
+<h3>Motivation</h3>
+<p>The source paper is <a href="https://www.semanticscholar.org/paper/ad5c9772c273eabe06401bb0d4375b345ea81993">Paper 0: Sentiment analysis for Urdu online reviews using deep learning models</a> (31 citations, 2021). This idea builds on a progression of related work <a href="https://www.semanticscholar.org/paper/127002d6266efe58048300ebe35cadb7965a3d24">Paper 1</a>.</p>
+<p>The progression from the source paper to Paper 0 highlights a significant advancement in addressing the challenges of Urdu sentiment analysis by introducing a meta-learning ensemble model. This model effectively combines multiple classifiers to improve accuracy and reduce overfitting, which were limitations in the source paper. However, both papers focus primarily on model performance and accuracy. There is an opportunity to explore the interpretability of these models, which is crucial for understanding how sentiment is derived from complex linguistic structures in Urdu. By focusing on model interpretability, we can provide deeper insights into the decision-making process of these models, which can be valuable for further improving sentiment analysis techniques in under-resourced languages like Urdu.</p>
+<h3>Hypothesis</h3>
+<p>Integrating a Gated Attention Layer with a Two-layer LSTM in a CNN-LSTM architecture will improve the interpretability and classification accuracy of Roman Urdu sentiment analysis compared to models without this integration.</p>
+<h3>Research Gap</h3>
+<p>Existing research has extensively explored attention mechanisms in CNN-LSTM models for sentiment analysis, but the specific combination of a Gated Attention Layer with a Two-layer LSTM for Roman Urdu sentiment analysis remains unexplored. This gap is critical as it could enhance the model's ability to focus on key sentences, improving interpretability and classification accuracy.</p>
+<h3>Hypothesis Elements</h3>
+<p>Independent variable: Integrating a Gated Attention Layer with a Two-layer LSTM in a CNN-LSTM architecture</p>
+<p>Dependent variable: interpretability and classification accuracy of Roman Urdu sentiment analysis</p>
+<p>Comparison groups: CNN-LSTM architecture with Gated Attention Layer and Two-layer LSTM vs. models without this integration (CNN-LSTM Model and Two-layer LSTM Model)</p>
+<p>Baseline/control: Standard CNN-LSTM architecture without the Gated Attention Layer and Two-layer LSTM Model without the Gated Attention mechanism</p>
+<p>Context/setting: Roman Urdu sentiment analysis</p>
+<p>Assumptions: The Gated Attention Layer can dynamically measure sentence importance and the Two-layer LSTM can capture long-term dependencies in text</p>
+<p>Relationship type: Causation (integration will improve performance)</p>
+<p>Population: Roman Urdu text data</p>
+<p>Timeframe: Not specified</p>
+<p>Measurement method: Accuracy, Precision, Recall, F1 Score, Confusion Matrix, and visualization of attention weights</p>
+<hr>
+<h2>Proposed Method</h2>
+<h3>Overview</h3>
+<p>This research aims to enhance sentiment analysis in Roman Urdu by integrating a Gated Attention Layer with a Two-layer LSTM within a CNN-LSTM architecture. The Gated Attention Layer will dynamically measure sentence importance, allowing the model to focus on key sentences that contribute significantly to sentiment classification. This is achieved by applying a gating mechanism over sentence representations, which selectively filters out less relevant information. The Two-layer LSTM will capture long-term dependencies in the text, preserving the context necessary for accurate sentiment analysis. This combination is expected to improve interpretability by highlighting key sentences and enhance classification accuracy by focusing on the most informative features. The approach addresses the gap in existing research by exploring a novel configuration that leverages the strengths of both attention mechanisms and deep learning architectures. The evaluation will be conducted using Roman Urdu datasets, with metrics such as precision, recall, and F1 score to assess performance improvements.</p>
+<h3>Background</h3>
+<p><a href="https://www.semanticscholar.org/paper/e67fc9bec879cb8dd31aec5b51e83b9dd8949576">Gated Attention Layer</a>: The Gated Attention Layer is implemented to measure sentence importance by applying a gating mechanism over sentence representations. This layer selectively filters out less relevant information, allowing the model to focus on key sentences that contribute to sentiment classification. The gating mechanism is integrated with the CNN component to enhance local feature extraction. This specific value was selected for its ability to improve interpretability by highlighting key sentences, which is crucial for understanding sentiment expressions in Roman Urdu. The expected role of this variable is to enhance the model's ability to classify sentiment polarities by focusing on the most informative features within a sentence.</p>
+<p><a href="https://www.semanticscholar.org/paper/b52958224f11c5a3940ef44228f0008ed3df66b0">Two-layer LSTM</a>: The Two-layer LSTM is designed to capture long-term dependencies in sentiment analysis tasks. This architecture involves stacking two LSTM layers, which enhances the model's ability to capture complex temporal patterns in the data. The LSTM layers are configured with a specific number of hidden units, which can be adjusted based on the dataset size and complexity. This specific value was selected for its effectiveness in handling the morphological complexities of Roman Urdu, as demonstrated by its superior performance in sentiment classification tasks. The expected role of this variable is to preserve long-term dependencies, providing context necessary for accurate sentiment analysis.</p>
+<h3>Implementation</h3>
+<p>The hypothesis will be implemented by integrating a Gated Attention Layer with a Two-layer LSTM within a CNN-LSTM architecture. The Gated Attention Layer will be implemented as a module that applies a gating mechanism over sentence representations, dynamically adjusting attention weights based on input data. This layer will be positioned after the CNN component, which extracts local features from the text. The Two-layer LSTM will be configured to capture long-term dependencies, with the first LSTM layer processing the input sequence and the second layer refining the context representation. The outputs from the Gated Attention Layer will be fed into the Two-layer LSTM, allowing the model to focus on key sentences while preserving context. The final classification will be performed by a dense layer, which outputs sentiment predictions. The integration of these components will be achieved by linking the outputs of the Gated Attention Layer to the inputs of the Two-layer LSTM, ensuring that the attention weights influence the LSTM's processing of the text. The implementation will involve setting up the model architecture in a Python-based deep learning framework, such as TensorFlow or PyTorch, and training it on Roman Urdu datasets. The evaluation will involve comparing the model's performance against baseline models without the Gated Attention Layer, using metrics such as precision, recall, and F1 score.</p>
+<hr>
+<h2>Experiments Plan</h2>
+<h3>Operationalization Information</h3>
+
+<div style="display: flex; gap: 2em;">
+<div style="flex: 1;">
+
+<p><p>Please implement an experiment to test whether integrating a Gated Attention Layer with a Two-layer LSTM in a CNN-LSTM architecture improves the interpretability and classification accuracy of Roman Urdu sentiment analysis compared to models without this integration.</p></p>
+<p><h4 class="custom-heading"><strong>Dataset</strong></h4>
+<p>Please use a Roman Urdu sentiment analysis dataset. The Roman Urdu Dataset for Sentiment Analysis (RUDSA) or similar datasets can be used. If not readily available, you may need to:<br />
+1. Find and download a Roman Urdu sentiment dataset from sources like Kaggle, GitHub, or academic repositories<br />
+2. Preprocess the dataset to ensure it's in a suitable format for sentiment analysis (text and sentiment labels)<br />
+3. Split the dataset into training (70%), validation (15%), and test (15%) sets</p></p>
+<p><h4 class="custom-heading"><strong>Models Implementation</strong></h4>
+<p>Implement the following models for comparison:</p></p>
+<p><h4 class="custom-heading"><strong>Baseline Models</strong></h4>
+<ol>
+<li><strong>CNN-LSTM Model</strong>: Implement a standard CNN-LSTM architecture without the Gated Attention Layer</li>
+<li>CNN component for local feature extraction</li>
+<li>Single-layer LSTM for sequence modeling</li>
+<li>Dense layer for final classification</li>
+</ol></p>
+<p><ol>
+<li><strong>Two-layer LSTM Model</strong>: Implement a model with two stacked LSTM layers but without the Gated Attention mechanism</li>
+<li>Two stacked LSTM layers (128 units each)</li>
+<li>Dense layer for final classification</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Experimental Model</strong></h4>
+<p><strong>Gated Attention CNN-LSTM Model</strong>: Implement the proposed architecture with the following components:<br />
+1. CNN component for local feature extraction<br />
+2. Gated Attention Layer that:<br />
+   - Takes sentence representations from the CNN<br />
+   - Applies a gating mechanism to selectively filter information<br />
+   - Dynamically adjusts attention weights based on input data<br />
+3. Two-layer LSTM (128 units each) that:<br />
+   - Processes the outputs from the Gated Attention Layer<br />
+   - Captures long-term dependencies in the text<br />
+4. Dense layer for final classification</p></p>
+<p><h4 class="custom-heading"><strong>Gated Attention Layer Implementation</strong></h4>
+<p>Implement a custom Gated Attention Layer with the following characteristics:<br />
+1. The layer should take sentence representations as input<br />
+2. Apply a gating mechanism using sigmoid activation to determine importance weights<br />
+3. The gating mechanism should be defined as: g = σ(W_g * x + b_g), where σ is the sigmoid function<br />
+4. The attention mechanism should be defined as: a = tanh(W_a * x + b_a)<br />
+5. The final output should be: output = g * a, where * represents element-wise multiplication<br />
+6. The layer should be configurable with parameters for the hidden dimension</p></p>
+<p><h4 class="custom-heading"><strong>Model Training</strong></h4>
+<p>Train all models with the following configuration:<br />
+1. Use binary cross-entropy loss for binary sentiment classification (positive/negative)<br />
+2. Use Adam optimizer with learning rate of 0.001<br />
+3. Implement early stopping based on validation loss with patience of 5 epochs<br />
+4. Use batch size of 32<br />
+5. Train for a maximum of 20 epochs</p></p>
+<p><h4 class="custom-heading"><strong>Evaluation</strong></h4>
+<p>Evaluate all models using the following metrics:<br />
+1. Accuracy<br />
+2. Precision<br />
+3. Recall<br />
+4. F1 Score<br />
+5. Confusion Matrix</p></p>
+</div><div style='flex: 1;'>
+<p><p>Also, implement a visualization of attention weights from the Gated Attention Layer to demonstrate interpretability. This should show which parts of the input text the model is focusing on for its predictions.</p></p>
+<p><h4 class="custom-heading"><strong>Pilot Experiment Settings</strong></h4>
+<p>Implement a global variable <code>PILOT_MODE</code> with three possible settings: <code>MINI_PILOT</code>, <code>PILOT</code>, or <code>FULL_EXPERIMENT</code>.</p></p>
+<p><ol>
+<li><strong>MINI_PILOT</strong>:</li>
+<li>Use only 100 samples from the training set</li>
+<li>Train for maximum 5 epochs</li>
+<li>Use 20 validation samples</li>
+<li>Test on 20 samples</li>
+<li>Purpose: Quick code verification and debugging</li>
+</ol></p>
+<p><ol>
+<li><strong>PILOT</strong>:</li>
+<li>Use 1000 samples from the training set</li>
+<li>Train for maximum 10 epochs</li>
+<li>Use 200 validation samples</li>
+<li>Test on 200 samples from the validation set (not the test set)</li>
+<li>Purpose: Verify if the approach shows promising results</li>
+</ol></p>
+<p><ol>
+<li><strong>FULL_EXPERIMENT</strong>:</li>
+<li>Use the entire training dataset</li>
+<li>Train for maximum 20 epochs</li>
+<li>Use the entire validation set</li>
+<li>Test on the entire test set</li>
+<li>Perform hyperparameter tuning if needed</li>
+<li>Purpose: Complete experiment for final results</li>
+</ol></p>
+<p><p>Start by running the MINI_PILOT first. If everything looks good, proceed to the PILOT. After the PILOT completes, stop and do not run the FULL_EXPERIMENT (a human will manually verify the results and make the change to FULL_EXPERIMENT if appropriate).</p></p>
+<p><h4 class="custom-heading"><strong>Statistical Analysis</strong></h4>
+<p>Perform the following statistical analyses:<br />
+1. Calculate mean and standard deviation of all metrics across 5 independent runs with different random seeds<br />
+2. Perform paired t-tests to determine if differences between models are statistically significant (p &lt; 0.05)<br />
+3. Generate box plots to visualize the distribution of performance metrics across runs</p></p>
+<p><h4 class="custom-heading"><strong>Required Output</strong></h4>
+<ol>
+<li>Training and validation loss curves for all models</li>
+<li>Evaluation metrics (accuracy, precision, recall, F1) for all models on the test set</li>
+<li>Confusion matrices for all models</li>
+<li>Visualization of attention weights for sample inputs</li>
+<li>Statistical significance test results</li>
+<li>Summary report comparing the performance of baseline and experimental models</li>
+</ol></p>
+<p><p>Please implement this experiment using TensorFlow or PyTorch, with a preference for TensorFlow if both are available.</p></p>
+</div></div>
+<hr>
+<h2>References</h2>
+<ol>
+<li>
+<p>Sentiment analysis for Urdu online reviews using deep learning models (2021). Paper ID: ad5c9772c273eabe06401bb0d4375b345ea81993</p>
+</li>
+<li>
+<p>Contextually Enriched Meta-Learning Ensemble Model for Urdu Sentiment Analysis (2023). Paper ID: 127002d6266efe58048300ebe35cadb7965a3d24</p>
+</li>
+<li>
+<p>Fine-Grained Feature Extraction in Key Sentence Selection for Explainable Sentiment Classification Using BERT and CNN (2025). Paper ID: e67fc9bec879cb8dd31aec5b51e83b9dd8949576</p>
+</li>
+<li>
+<p>Deep Sentiment Analysis Using CNN-LSTM Architecture of English and Roman Urdu Text Shared in Social Media (2022). Paper ID: b52958224f11c5a3940ef44228f0008ed3df66b0</p>
+</li>
+</ol>
+</body>
+</html>
