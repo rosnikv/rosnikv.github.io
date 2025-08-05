@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; max-width: 1000px; }
+h2, h3, h4 { color: #007b5f; }
+.custom-heading {color: black;font-weight: bold;}
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+.end-note, .end-note * { color: #888 !important; font-style: italic; font-weight: normal; margin-top: 2em; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>cb5323ef22a5a38cfba318abadcadee822ccf8a9</p>
+<hr>
+<h2>Title</h2>
+<p>Integrating GFlowNets with qIS to enhance diversity and quality in quantum optimization.</p>
+<hr>
+<h2>Introduction</h2>
+<h3>Problem Statement</h3>
+<p>Integrating Generative Flow Networks with the Quantum Inception Score will improve the diversity and quality of generated candidates in quantum portfolio optimization tasks compared to traditional quantum generative models.</p>
+<h3>Motivation</h3>
+<p>Existing research has extensively explored the integration of classical generative models like GANs and VAEs with various metrics to enhance the quality and diversity of generated samples. However, the potential of combining Generative Flow Networks (GFlowNets) with the Quantum Inception Score (qIS) in the context of quantum generative models remains underexplored. This gap is significant because GFlowNets are known for their ability to generate diverse candidate solutions, while qIS provides a quantum-specific evaluation of quality and diversity. The hypothesis addresses this gap by proposing a novel integration of GFlowNets with qIS to enhance the performance of quantum generative models in constrained optimization tasks, such as portfolio optimization, which has not been extensively tested in prior work.</p>
+<hr>
+<h2>Proposed Method</h2>
+<p>The research idea explores the integration of Generative Flow Networks (GFlowNets) with the Quantum Inception Score (qIS) to enhance the diversity and quality of generated candidates in quantum portfolio optimization tasks. GFlowNets are designed to generate diverse candidate solutions by sampling candidates with probabilities proportional to their rewards, making them suitable for tasks requiring high diversity. The Quantum Inception Score, on the other hand, is a quantum-specific metric that evaluates the quality and diversity of quantum-generated samples by relating them to the Holevo information. The integration of these two components is expected to leverage the strengths of GFlowNets in generating diverse solutions and the precision of qIS in evaluating quantum generative models. This combination aims to address the gap in existing research by providing a novel approach to improving the performance of quantum generative models in constrained optimization tasks. The expected outcome is a significant improvement in the diversity and quality of generated candidates, which will be evaluated using metrics such as the Rarity Score and Precision and Recall metrics. This research is particularly relevant for applications in portfolio optimization, where diversity and quality of solutions are critical for achieving optimal results.</p>
+<h3>Background</h3>
+<p><a href="https://www.semanticscholar.org/paper/e3160e5fa4cd8e5d3b0fc8e4c0c2032d68b58f34">Generative Flow Networks (GFlowNets)</a>: GFlowNets are probabilistic models used to generate diverse candidate solutions by sampling candidates with probabilities proportional to their rewards. In this research, GFlowNets will be configured to explore multimodal distributions efficiently, making them suitable for generating diverse solutions in quantum portfolio optimization tasks. The expected role of GFlowNets is to enhance the diversity of generated candidates, which will be assessed using diversity metrics such as the Rarity Score.</p>
+<p><a href="https://www.semanticscholar.org/paper/a5bcaae165d38a9fbcaa9520135fb48ed3ef5765">Quantum Inception Score (qIS)</a>: The Quantum Inception Score is a metric designed to evaluate the quality and diversity of quantum-generated samples by relating them to the Holevo information. In this research, qIS will be used to assess the performance of quantum generative models in generating diverse and high-quality samples. The expected role of qIS is to provide a precise evaluation of the quality and diversity of generated candidates, which will be measured using metrics such as Precision and Recall.</p>
+<h3>Implementation</h3>
+<p>The proposed method involves integrating Generative Flow Networks (GFlowNets) with the Quantum Inception Score (qIS) to enhance the performance of quantum generative models in portfolio optimization tasks. The implementation will begin by setting up GFlowNets to generate diverse candidate solutions by sampling candidates with probabilities proportional to their rewards. This involves configuring a probabilistic model that can explore multimodal distributions efficiently. Next, the Quantum Inception Score will be used to evaluate the quality and diversity of the generated samples. This involves using a quantum classifier to assess the generated samples and compute the qIS based on the classifier's output. The integration of GFlowNets and qIS will be achieved by using the diversity-enhancing capabilities of GFlowNets to generate candidate solutions, which will then be evaluated using qIS to ensure high quality and diversity. The outputs from GFlowNets will be fed into the qIS evaluation module, where the diversity and quality of the candidates will be assessed. The integration logic will involve linking the probabilistic sampling mechanism of GFlowNets with the quantum evaluation framework of qIS, ensuring that the generated candidates are both diverse and of high quality. The implementation will be tested using a portfolio optimization task, where the performance of the integrated model will be compared to traditional quantum generative models using metrics such as the Rarity Score and Precision and Recall.</p>
+<hr>
+<h2>Experiments Plan</h2>
+<h3>Operationalization Information</h3>
+
+<div style="display: flex; gap: 2em;">
+<div style="flex: 1;">
+
+<p><p>Please implement an experiment to test the hypothesis that integrating Generative Flow Networks (GFlowNets) with the Quantum Inception Score (qIS) will improve the diversity and quality of generated candidates in quantum portfolio optimization tasks compared to traditional quantum generative models.</p></p>
+<p><h4 class="custom-heading"><strong>Experiment Overview</strong></h4>
+<p>This experiment will compare two approaches for quantum portfolio optimization:<br />
+1. <strong>Baseline</strong>: A traditional quantum generative model (Quantum Variational Autoencoder or QVAE) for portfolio optimization<br />
+2. <strong>Experimental</strong>: An integrated model combining GFlowNets with qIS evaluation</p></p>
+<p><p>Both approaches will be evaluated on the same portfolio optimization dataset, and their performance will be compared using diversity and quality metrics.</p></p>
+<p><h4 class="custom-heading"><strong>Implementation Details</strong></h4></p>
+<p><h4 class="custom-heading"><strong>Setup</strong></h4>
+<ol>
+<li>Create a global variable <code>PILOT_MODE</code> with three possible settings: <code>MINI_PILOT</code>, <code>PILOT</code>, or <code>FULL_EXPERIMENT</code>. Default to <code>MINI_PILOT</code>.</li>
+<li>Implement a portfolio optimization problem using a quantum computing framework (Qiskit or PennyLane).</li>
+<li>Create a dataset of historical stock price data for portfolio optimization.</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Baseline Implementation (Traditional Quantum Generative Model)</strong></h4>
+<ol>
+<li>Implement a Quantum Variational Autoencoder (QVAE) as the baseline model.</li>
+<li>Configure the QVAE to generate portfolio allocations (binary vectors representing which assets to include).</li>
+<li>Train the QVAE on the portfolio optimization dataset.</li>
+<li>Generate candidate portfolio allocations using the trained QVAE.</li>
+<li>Evaluate the generated candidates using standard metrics.</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Experimental Implementation (GFlowNet + qIS)</strong></h4>
+<ol>
+<li>Implement a GFlowNet model configured to generate portfolio allocations.</li>
+<li>Configure the GFlowNet to sample candidates with probabilities proportional to their rewards.</li>
+<li>Implement a quantum classifier to evaluate the generated samples.</li>
+<li>Implement the Quantum Inception Score (qIS) calculation based on the quantum classifier's output.</li>
+<li>Integrate the GFlowNet with the qIS evaluation module:</li>
+<li>Use GFlowNet to generate candidate portfolio allocations</li>
+<li>Evaluate these candidates using qIS</li>
+<li>Use the qIS feedback to guide the GFlowNet's sampling process</li>
+<li>Generate candidate portfolio allocations using the integrated model.</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Evaluation Metrics</strong></h4>
+<ol>
+<li><strong>Rarity Score</strong>: Implement a function to calculate the Rarity Score for both baseline and experimental models. This measures how distinct the generated samples are from the training data distribution.</li>
+<li><strong>Precision and Recall</strong>: Implement functions to calculate Precision and Recall metrics for both models by comparing the overlap between generated and real data distributions.</li>
+<li><strong>Portfolio Performance</strong>: Calculate expected returns and risks for the generated portfolios.</li>
+</ol></p>
+</div><div style='flex: 1;'>
+<p><h4 class="custom-heading"><strong>Experiment Execution</strong></h4></p>
+<p><p>Implement three experiment modes:</p></p>
+<p><h4 class="custom-heading"><strong>MINI_PILOT Mode</strong></h4>
+<ul>
+<li>Use a very small subset of data (e.g., 5-10 stocks over a short time period)</li>
+<li>Run 10 iterations of portfolio generation for both baseline and experimental models</li>
+<li>Calculate all metrics and compare results</li>
+<li>This should run in under 10 minutes for quick debugging</li>
+</ul></p>
+<p><h4 class="custom-heading"><strong>PILOT Mode</strong></h4>
+<ul>
+<li>Use a moderate subset of data (e.g., 20-30 stocks over a medium time period)</li>
+<li>Run 50 iterations of portfolio generation for both models</li>
+<li>Split data into training (80%) and validation (20%) sets</li>
+<li>Calculate all metrics and perform statistical comparison</li>
+<li>This should run in under 1-2 hours</li>
+</ul></p>
+<p><h4 class="custom-heading"><strong>FULL_EXPERIMENT Mode</strong></h4>
+<ul>
+<li>Use the complete dataset (e.g., 50+ stocks over a long time period)</li>
+<li>Run 200+ iterations of portfolio generation</li>
+<li>Use proper train/validation/test splits</li>
+<li>Perform comprehensive statistical analysis</li>
+<li>Run hyperparameter optimization</li>
+</ul></p>
+<p><p>Run the MINI_PILOT first, then if everything looks good, run the PILOT. After the PILOT completes, stop and do not run the FULL_EXPERIMENT (a human will manually verify the results and make the change to FULL_EXPERIMENT if needed).</p></p>
+<p><h4 class="custom-heading"><strong>Output and Analysis</strong></h4>
+<ol>
+<li>Generate plots comparing the diversity and quality metrics between the baseline and experimental models.</li>
+<li>Perform statistical significance testing (e.g., bootstrap resampling) to determine if the differences are statistically significant.</li>
+<li>Create visualizations of the generated portfolios to illustrate differences in diversity.</li>
+<li>Save all results, metrics, and generated portfolios to files for further analysis.</li>
+<li>Generate a comprehensive report summarizing the findings, including tables and figures.</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Required Resources</strong></h4>
+<ol>
+<li>Quantum computing framework (Qiskit or PennyLane)</li>
+<li>Portfolio optimization dataset (historical stock price data)</li>
+<li>GFlowNet implementation</li>
+<li>Quantum Inception Score implementation</li>
+<li>Quantum classifier implementation</li>
+</ol></p>
+<p><p>Please implement this experiment following the structure outlined above, ensuring proper documentation and error handling throughout the code.</p></p>
+</div></div>
+<div class="end-note"><strong>End Note:</strong> <p>The source paper is <a href="https://www.semanticscholar.org/paper/cb5323ef22a5a38cfba318abadcadee822ccf8a9">Paper 0: Flow Network based Generative Models for Non-Iterative Diverse Candidate Generation</a> (352 citations, 2021). This idea draws upon a trajectory of prior work, as seen in the following sequence: <a href="https://www.semanticscholar.org/paper/e309fc40c7092104bc767d78a3cff03447a4cdd9">Paper 1</a> --&gt; <a href="https://www.semanticscholar.org/paper/f74e22ca2bba820aa9377420f92ea50abcd94adc">Paper 2</a> --&gt; <a href="https://www.semanticscholar.org/paper/c19c7642931c86bcc1afcafa201c64dc5fab9a0b">Paper 3</a> --&gt; <a href="https://www.semanticscholar.org/paper/a5bcaae165d38a9fbcaa9520135fb48ed3ef5765">Paper 4</a>. The progression of research from the source paper to the related papers shows a clear trajectory towards enhancing generative models for optimization tasks, particularly in constrained environments. The source paper introduces a novel flow network approach for diverse candidate generation, which is further explored and applied to combinatorial optimization in subsequent papers. The development of evaluation metrics for generative models, as seen in Papers 2 and 3, highlights the need for robust methods to assess the quality and diversity of generated solutions. A research idea that advances this field would focus on integrating these evaluation metrics with the flow network approach to optimize diverse candidate generation, addressing the limitations of previous work by providing a comprehensive framework for assessing and improving generative model performance.<br />
+The initial trend observed from the progression of related work highlights a consistent research focus. However, the final hypothesis proposed here is not merely a continuation of that trend — it is the result of a deeper analysis of the hypothesis space. By identifying underlying gaps and reasoning through the connections between works, the idea builds on, but meaningfully diverges from, prior directions to address a more specific challenge.</p></div>
+<hr>
+<h2>References</h2>
+<ol>
+<li><a href="https://www.semanticscholar.org/paper/cb5323ef22a5a38cfba318abadcadee822ccf8a9" target="_blank">Flow Network based Generative Models for Non-Iterative Diverse Candidate Generation</a> (2021)</li>
+<li><a href="https://www.semanticscholar.org/paper/e309fc40c7092104bc767d78a3cff03447a4cdd9" target="_blank">Enhancing combinatorial optimization with classical and quantum generative models</a> (2021)</li>
+<li><a href="https://www.semanticscholar.org/paper/f74e22ca2bba820aa9377420f92ea50abcd94adc" target="_blank">Symmetric tensor networks for generative modeling and constrained combinatorial optimization</a> (2022)</li>
+<li><a href="https://www.semanticscholar.org/paper/c19c7642931c86bcc1afcafa201c64dc5fab9a0b" target="_blank">Generalization metrics for practical quantum advantage in generative models</a> (2022)</li>
+<li><a href="https://www.semanticscholar.org/paper/a5bcaae165d38a9fbcaa9520135fb48ed3ef5765" target="_blank">Quantum Inception Score</a> (2023)</li>
+<li><a href="https://www.semanticscholar.org/paper/e3160e5fa4cd8e5d3b0fc8e4c0c2032d68b58f34" target="_blank">Multi-Objective GFlowNets</a> (2022)</li>
+<li><a href="https://www.semanticscholar.org/paper/eaf0017f820e2b873c3949c383e7de2c121583c5" target="_blank">VAE-QWGAN: Addressing Mode Collapse in Quantum GANs via Autoencoding Priors</a> (2024)</li>
+<li><a href="https://www.semanticscholar.org/paper/17cd93a4e8bfe6d39554aef6b0c22da524f670fb" target="_blank">Variational Optimization for Quantum Problems using Deep Generative Networks</a> (2024)</li>
+<li><a href="https://www.semanticscholar.org/paper/d5091659ac7b38c6da11f1c47eb571ad197650a9" target="_blank">Hybrid Quantum-Classical Normalizing Flow</a> (2024)</li>
+<li><a href="https://www.semanticscholar.org/paper/f0cf8b653a87681a72977aae5b7d9a6fafc244ed" target="_blank">ARE GENERATIVE ADVERSARIAL NETWORKS CAPABLE OF GENERATING NOVEL AND DIVERSE DESIGN CONCEPTS? AN EXPERIMENTAL ANALYSIS OF PERFORMANCE</a> (2023)</li>
+<li><a href="https://www.semanticscholar.org/paper/c5a4881c8f8b07beea6a85e7a82e67d1ecf80c92" target="_blank">Re-purposing heterogeneous generative ensembles with evolutionary computation</a> (2020)</li>
+<li><a href="https://www.semanticscholar.org/paper/31642a78926e711e658f48a3b3a743f35fa237f7" target="_blank">Augmenting high-dimensional nonlinear optimization with conditional GANs</a> (2021)</li>
+</ol>
+</body>
+</html>

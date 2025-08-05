@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; max-width: 1000px; }
+h2, h3, h4 { color: #007b5f; }
+.custom-heading {color: black;font-weight: bold;}
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+.end-note, .end-note * { color: #888 !important; font-style: italic; font-weight: normal; margin-top: 2em; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>cb5323ef22a5a38cfba318abadcadee822ccf8a9</p>
+<hr>
+<h2>Title</h2>
+<p>Integrating ENNs with Loss-Guided Auxiliary Agents in GFlowNets to enhance exploration diversity and efficiency.</p>
+<hr>
+<h2>Introduction</h2>
+<h3>Problem Statement</h3>
+<p>Integrating Epistemic Neural Networks with Loss-Guided Auxiliary Agents in GFlowNets will improve the diversity of generated solutions and exploration efficiency compared to using either method alone.</p>
+<h3>Motivation</h3>
+<p>Existing methods in GFlowNets often suffer from mode collapse, where exploration is limited to early-discovered modes, leading to suboptimal diversity in solutions. While Loss-Guided Auxiliary Agents have been proposed to address this, they primarily focus on high-loss trajectories without fully leveraging the potential of uncertainty quantification. Similarly, Epistemic Neural Networks (ENNs) have been used to enhance exploration through uncertainty estimation, but their integration with auxiliary agents remains unexplored. This hypothesis addresses the gap by combining ENNs with Loss-Guided Auxiliary Agents to enhance exploration efficiency and diversity, particularly in sparse-reward environments where traditional methods struggle.</p>
+<hr>
+<h2>Proposed Method</h2>
+<p>This research explores the integration of Epistemic Neural Networks (ENNs) with Loss-Guided Auxiliary Agents in GFlowNets to enhance exploration efficiency and diversity of solutions. ENNs provide calibrated estimates of epistemic uncertainty, which guide exploration by focusing on regions of the state space where the model's predictions are uncertain. Loss-Guided Auxiliary Agents prioritize sampling trajectories with high loss, targeting poorly understood regions. By combining these approaches, the hypothesis aims to leverage the strengths of both methods: ENNs' uncertainty-driven exploration and auxiliary agents' focus on high-loss areas. This integration is expected to improve the diversity of solutions by discovering multiple modes and reducing mode collapse. The approach will be tested in sparse-reward environments, where traditional exploration strategies often fail. The expected outcome is a significant improvement in the diversity of generated solutions, measured by unique modes and solution variance, and enhanced exploration efficiency, indicated by reduced training time and resource usage.</p>
+<h3>Background</h3>
+<p><a href="https://www.semanticscholar.org/paper/7391f3c5ebe78bb608b4837d12914d6dfb3e7f50">Epistemic Neural Networks</a>: ENNs are used to estimate epistemic uncertainty by providing joint predictive distributions. In this experiment, ENNs will be integrated into the GFlowNet architecture to guide exploration towards uncertain regions. This is expected to enhance exploration efficiency by focusing on areas where the model's predictions are less certain, thus improving the diversity of solutions. The ENNs will be configured to minimize the L1 distance to target distributions, ensuring efficient and targeted exploration.</p>
+<p><a href="https://www.semanticscholar.org/paper/3e12bc6fb647f8edc6d6cacca4ffa5cb18674ed1">Loss-Guided Auxiliary Agents</a>: These agents enhance exploration by focusing on trajectories where the main GFlowNet exhibits high loss. The auxiliary agent's reward function is modified to include both the original reward and the loss of the main model, directing exploration towards areas of high uncertainty and high loss. This approach is expected to accelerate the discovery of diverse, high-reward samples and overcome mode collapse. The integration with ENNs is novel, as it combines uncertainty-driven exploration with loss-guided prioritization.</p>
+<h3>Implementation</h3>
+<p>The proposed method involves integrating Epistemic Neural Networks (ENNs) with Loss-Guided Auxiliary Agents in the GFlowNet framework. The ENNs will be used to estimate epistemic uncertainty by providing joint predictive distributions, which will guide exploration towards less understood regions of the state space. The Loss-Guided Auxiliary Agents will prioritize sampling trajectories with high loss, focusing on poorly understood areas. The integration will be implemented by modifying the auxiliary agent's reward function to include both the original reward and the loss of the main model, ensuring exploration is directed towards areas of high uncertainty and high loss. The ENNs will be configured to minimize the L1 distance to target distributions, ensuring efficient and targeted exploration. The implementation will involve using existing codeblocks for ENNs and auxiliary agents, with minor modifications to integrate the two approaches. The expected outcome is improved diversity of solutions, measured by unique modes and solution variance, and enhanced exploration efficiency, indicated by reduced training time and resource usage.</p>
+<hr>
+<h2>Experiments Plan</h2>
+<h3>Operationalization Information</h3>
+
+<div style="display: flex; gap: 2em;">
+<div style="flex: 1;">
+
+<p><p>Please implement an experiment to test the hypothesis that integrating Epistemic Neural Networks (ENNs) with Loss-Guided Auxiliary Agents in GFlowNets will improve the diversity of generated solutions and exploration efficiency compared to using either method alone.</p></p>
+<p><h4 class="custom-heading"><strong>Experiment Overview</strong></h4>
+<p>This experiment will compare four different approaches:<br />
+1. Baseline GFlowNet (standard implementation without ENNs or Loss-Guided Auxiliary Agents)<br />
+2. GFlowNet with ENNs only<br />
+3. GFlowNet with Loss-Guided Auxiliary Agents only<br />
+4. GFlowNet with integrated ENNs and Loss-Guided Auxiliary Agents (our experimental condition)</p></p>
+<p><p>The experiment should be implemented with a PILOT_MODE global variable that can be set to 'MINI_PILOT', 'PILOT', or 'FULL_EXPERIMENT' to control the scale of the experiment.</p></p>
+<p><h4 class="custom-heading"><strong>Implementation Details</strong></h4></p>
+<p><h4 class="custom-heading"><strong>Epistemic Neural Networks (ENNs) Integration</strong></h4>
+<ol>
+<li>Implement ENNs to estimate epistemic uncertainty by providing joint predictive distributions</li>
+<li>Configure the ENNs to minimize the L1 distance to target distributions</li>
+<li>Integrate the uncertainty estimates into the GFlowNet architecture to guide exploration towards uncertain regions</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Loss-Guided Auxiliary Agents Integration</strong></h4>
+<ol>
+<li>Implement auxiliary agents that prioritize sampling trajectories with high loss</li>
+<li>Modify the auxiliary agent's reward function to include both the original reward and the loss of the main model</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Combined Approach (Experimental Condition)</strong></h4>
+<ol>
+<li>Integrate the ENNs with Loss-Guided Auxiliary Agents by using the uncertainty estimates from ENNs to further guide the auxiliary agents</li>
+<li>Modify the auxiliary agent's reward function to incorporate both uncertainty estimates and loss values</li>
+<li>The reward function should be: R_combined = α * R_original + β * Loss_main + γ * Uncertainty_ENN<br />
+   where α, β, and γ are hyperparameters to be tuned</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Sparse-Reward Environment Setup</strong></h4>
+<ol>
+<li>Set up two benchmark tasks:<br />
+   a. Structured sequence generation task<br />
+   b. Bayesian structure learning task</li>
+<li>Configure both tasks to have sparse rewards to challenge traditional exploration methods</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Evaluation Metrics</strong></h4></p>
+<p><h4 class="custom-heading"><strong>Primary Metrics</strong></h4>
+<ol>
+<li>Diversity of generated solutions:<br />
+   a. Number of unique modes discovered<br />
+   b. Solution variance (measured by pairwise distances between solutions)</li>
+</ol></p>
+</div><div style='flex: 1;'>
+<p><h4 class="custom-heading"><strong>Secondary Metrics</strong></h4>
+<ol>
+<li>Exploration efficiency:<br />
+   a. Training time (in seconds)<br />
+   b. Number of steps required to reach a target performance level<br />
+   c. Resource usage (memory consumption)</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Pilot Mode Settings</strong></h4></p>
+<p><h4 class="custom-heading"><strong>MINI_PILOT</strong></h4>
+<ul>
+<li>Run each approach on a very small subset of data:</li>
+<li>5 runs for each benchmark task</li>
+<li>Maximum of 100 training iterations per run</li>
+<li>Small network sizes for faster execution</li>
+<li>Purpose: Quick debugging and verification of code functionality</li>
+<li>Expected runtime: 10-15 minutes</li>
+</ul></p>
+<p><h4 class="custom-heading"><strong>PILOT</strong></h4>
+<ul>
+<li>Run each approach on a moderate subset of data:</li>
+<li>20 runs for each benchmark task</li>
+<li>Maximum of 500 training iterations per run</li>
+<li>Medium network sizes</li>
+<li>Purpose: Preliminary assessment of performance differences between approaches</li>
+<li>Expected runtime: 1-2 hours</li>
+</ul></p>
+<p><h4 class="custom-heading"><strong>FULL_EXPERIMENT</strong></h4>
+<ul>
+<li>Run each approach on the full dataset:</li>
+<li>100 runs for each benchmark task</li>
+<li>Maximum of 5000 training iterations per run</li>
+<li>Full-sized networks</li>
+<li>Purpose: Comprehensive evaluation of the hypothesis</li>
+<li>Expected runtime: Several hours to days</li>
+</ul></p>
+<p><h4 class="custom-heading"><strong>Implementation Steps</strong></h4></p>
+<p><ol>
+<li>Set up the GFlowNet framework with the sparse-reward environments</li>
+<li>Implement the four approaches (baseline, ENNs-only, Loss-Guided-only, combined)</li>
+<li>Implement the evaluation metrics</li>
+<li>Run the experiments in MINI_PILOT mode first</li>
+<li>If successful, run in PILOT mode</li>
+<li>Stop after PILOT mode and wait for human verification before running FULL_EXPERIMENT</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Output and Analysis</strong></h4></p>
+<p><ol>
+<li>Generate plots comparing the four approaches on all metrics</li>
+<li>Perform statistical significance tests (e.g., t-tests or bootstrap resampling) to determine if the differences between approaches are significant</li>
+<li>Generate a summary report with the following sections:<br />
+   a. Experiment setup<br />
+   b. Results on primary and secondary metrics<br />
+   c. Statistical analysis<br />
+   d. Conclusions regarding the hypothesis</li>
+</ol></p>
+<p><p>Please implement this experiment with careful attention to the integration of ENNs and Loss-Guided Auxiliary Agents. The code should be modular, well-documented, and include appropriate logging for debugging and analysis. Start with the MINI_PILOT mode, then proceed to PILOT mode if successful, but do not run the FULL_EXPERIMENT without human verification of the PILOT results.</p></p>
+</div></div>
+<div class="end-note"><strong>End Note:</strong> <p>The source paper is <a href="https://www.semanticscholar.org/paper/cb5323ef22a5a38cfba318abadcadee822ccf8a9">Paper 0: Flow Network based Generative Models for Non-Iterative Diverse Candidate Generation</a> (352 citations, 2021). This idea draws upon a trajectory of prior work, as seen in the following sequence: <a href="https://www.semanticscholar.org/paper/b0c63b16f9f519b631a46ce95fbe296d30b53896">Paper 1</a> --&gt; <a href="https://www.semanticscholar.org/paper/cdf4a982bf6dc373eb6463263ab5fd147c61c8ca">Paper 2</a> --&gt; <a href="https://www.semanticscholar.org/paper/72ead40f0e8969f8081ec263a6271562da189033">Paper 3</a> --&gt; <a href="https://www.semanticscholar.org/paper/6e5e65ec544bc7ec1c18954f678ae586dc553ea1">Paper 4</a> --&gt; <a href="https://www.semanticscholar.org/paper/caf0d9240495e87937020a874ce017588908e2ea">Paper 5</a> --&gt; <a href="https://www.semanticscholar.org/paper/acf748598f73fb27ea89b636ae7baeb95fad0f68">Paper 6</a> --&gt; <a href="https://www.semanticscholar.org/paper/3e12bc6fb647f8edc6d6cacca4ffa5cb18674ed1">Paper 7</a> --&gt; <a href="https://www.semanticscholar.org/paper/7391f3c5ebe78bb608b4837d12914d6dfb3e7f50">Paper 8</a>. The analysis reveals a consistent effort to expand the theoretical and practical applications of GFlowNets, particularly in the context of Bayesian networks and causal inference. However, a recurring challenge is the efficient exploration and avoidance of mode collapse, which limits the diversity of generated solutions. Building upon these insights, a research idea that focuses on enhancing exploration strategies within GFlowNets could address these limitations. By leveraging recent advancements in uncertainty quantification and adaptive training, the research could propose a novel method to improve the diversity and efficiency of candidate generation in complex domains.<br />
+The initial trend observed from the progression of related work highlights a consistent research focus. However, the final hypothesis proposed here is not merely a continuation of that trend — it is the result of a deeper analysis of the hypothesis space. By identifying underlying gaps and reasoning through the connections between works, the idea builds on, but meaningfully diverges from, prior directions to address a more specific challenge.</p></div>
+<hr>
+<h2>References</h2>
+<ol>
+<li><a href="https://www.semanticscholar.org/paper/cb5323ef22a5a38cfba318abadcadee822ccf8a9" target="_blank">Flow Network based Generative Models for Non-Iterative Diverse Candidate Generation</a> (2021)</li>
+<li><a href="https://www.semanticscholar.org/paper/b0c63b16f9f519b631a46ce95fbe296d30b53896" target="_blank">GFlowNet Foundations</a> (2021)</li>
+<li><a href="https://www.semanticscholar.org/paper/cdf4a982bf6dc373eb6463263ab5fd147c61c8ca" target="_blank">Bayesian Structure Learning with Generative Flow Networks</a> (2022)</li>
+<li><a href="https://www.semanticscholar.org/paper/72ead40f0e8969f8081ec263a6271562da189033" target="_blank">Bayesian learning of Causal Structure and Mechanisms with GFlowNets and Variational Bayes</a> (2022)</li>
+<li><a href="https://www.semanticscholar.org/paper/6e5e65ec544bc7ec1c18954f678ae586dc553ea1" target="_blank">Joint Bayesian Inference of Graphical Structure and Parameters with a Single Generative Flow Network</a> (2023)</li>
+<li><a href="https://www.semanticscholar.org/paper/caf0d9240495e87937020a874ce017588908e2ea" target="_blank">Delta-AI: Local objectives for amortized inference in sparse graphical models</a> (2023)</li>
+<li><a href="https://www.semanticscholar.org/paper/acf748598f73fb27ea89b636ae7baeb95fad0f68" target="_blank">Adaptive teachers for amortized samplers</a> (2024)</li>
+<li><a href="https://www.semanticscholar.org/paper/3e12bc6fb647f8edc6d6cacca4ffa5cb18674ed1" target="_blank">Loss-Guided Auxiliary Agents for Overcoming Mode Collapse in GFlowNets</a> (2025)</li>
+<li><a href="https://www.semanticscholar.org/paper/7391f3c5ebe78bb608b4837d12914d6dfb3e7f50" target="_blank">Improved Exploration in GFlownets via Enhanced Epistemic Neural Networks</a> (2025)</li>
+<li><a href="https://www.semanticscholar.org/paper/7391f3c5ebe78bb608b4837d12914d6dfb3e7f50" target="_blank">Improved Exploration in GFlowNets via Enhanced Epistemic Neural Networks</a> (2025)</li>
+<li><a href="https://www.semanticscholar.org/paper/83899230e039e62675d0f9b3eaffa00d5a99e6a4" target="_blank">Enhancing Solution Efficiency in Reinforcement Learning: Leveraging Sub-GFlowNet and Entropy Integration</a> (2024)</li>
+<li><a href="https://www.semanticscholar.org/paper/d9b2ed2116fa2887714f0c46fa2916cf1420a3fb" target="_blank">Denoising autoencoder genetic programming: strategies to control exploration and exploitation in search</a> (2023)</li>
+<li><a href="https://www.semanticscholar.org/paper/b4c4b77e60e1f72227c92f7c4cd58d2c749c4b52" target="_blank">Augmenting Novelty Search with a Surrogate Model to Engineer Meta-Diversity in Ensembles of Classifiers</a> (2022)</li>
+</ol>
+</body>
+</html>
