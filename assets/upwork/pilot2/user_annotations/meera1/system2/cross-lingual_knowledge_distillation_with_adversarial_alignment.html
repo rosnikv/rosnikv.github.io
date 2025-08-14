@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; max-width: 1000px; }
+h1, h2, h3, h4 { color: #007b5f; margin-top: 1.5em; }
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+ul { margin-left: 1.5em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+section { margin-top: 2em; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>4578717d5593b88e1c10555ce67a14be312b84b2</p>
+<hr>
+<section><h2>Title</h2>
+<p>CKDAA: Cross-lingual Knowledge Distillation with Adversarial Alignment for Low-Resource Text Classification</p>
+</section>
+<hr>
+<section><h2>Introduction</h2>
+<h3>Problem Statement</h3>
+<p>Low-resource languages lack sufficient labeled data for effective text classification, and existing multilingual models often struggle to generalize across diverse language families. This hinders the development of robust natural language processing systems for many languages worldwide.</p>
+<h3>Motivation</h3>
+<p>Current approaches like zero-shot transfer, few-shot learning, and multilingual pretraining have shown promise but still face challenges in aligning feature spaces across languages and transferring task-specific knowledge effectively. By leveraging the complementary strengths of knowledge distillation and adversarial learning, we can better align feature spaces across languages while transferring task-specific knowledge from high-resource to low-resource languages. This approach has the potential to significantly improve cross-lingual text classification performance, especially for languages with limited labeled data.</p>
+</section>
+<hr>
+<section><h2>Proposed Method</h2>
+<p>We introduce CKDAA (Cross-lingual Knowledge Distillation with Adversarial Alignment), a novel framework that combines knowledge distillation and adversarial learning. The method consists of the following steps:<br />
+1. Train a teacher model on high-resource language data.<br />
+2. Simultaneously distill knowledge to a student model on low-resource language data while using a language discriminator in an adversarial setup.<br />
+3. The student model tries to fool the discriminator into being unable to distinguish the language of the hidden representations, encouraging language-agnostic features.<br />
+4. Implement a dynamic curriculum that gradually increases the difficulty of the adversarial task and the complexity of distilled knowledge.<br />
+5. Incorporate a character-level CNN module in the student model to handle morphological differences.<br />
+6. Employ a multi-task learning objective that combines classification loss, distillation loss, and adversarial loss.</p>
+</section>
+<hr>
+<section><h2>Experiments Plan</h2>
+<h3>Step-by-Step Experiment Plan</h3>
+<p><strong>Step 1: Data Preparation</strong></p><ol>
+<li>Select low-resource target languages: Swahili, Quechua, and Inuktitut.</li>
+<li>Choose a high-resource source language: English.</li>
+<li>Collect or identify existing text classification datasets for these languages. If not available, use machine translation to create synthetic datasets from English.</li>
+<li>Split the data into train, validation, and test sets for each language.</li>
+</ol><p><strong>Step 2: Baseline Models</strong></p><ol>
+<li>Implement and evaluate baseline models:<br />
+   a. mBERT<br />
+   b. XLM-R<br />
+   c. Few-shot learning with GPT-3.5</li>
+<li>Fine-tune these models on the source language data and evaluate on target languages.</li>
+</ol><p><strong>Step 3: Teacher Model</strong></p><ol>
+<li>Fine-tune XLM-R on the English dataset as the teacher model.</li>
+<li>Evaluate the teacher model's performance on the English test set.</li>
+</ol><p><strong>Step 4: Student Model</strong></p><ol>
+<li>Implement the student model architecture:<br />
+   a. Use a smaller Transformer-based model (e.g., DistilBERT)<br />
+   b. Add a character-level CNN module<br />
+   c. Implement the classification head</li>
+<li>Initialize the student model with pretrained multilingual weights.</li>
+</ol><p><strong>Step 5: Language Discriminator</strong></p><ol>
+<li>Implement a gradient reversal layer.</li>
+<li>Design the language discriminator network (e.g., a small MLP).</li>
+<li>Connect the discriminator to the student model's hidden representations.</li>
+</ol><p><strong>Step 6: Knowledge Distillation</strong></p><ol>
+<li>Implement the distillation loss function (e.g., KL divergence between teacher and student logits).</li>
+<li>Design a dynamic curriculum for increasing distillation complexity:<br />
+   a. Start with simple examples and gradually introduce more difficult ones<br />
+   b. Adjust the temperature parameter in the distillation loss over time</li>
+</ol><p><strong>Step 7: Adversarial Training</strong></p><ol>
+<li>Implement the adversarial loss function.</li>
+<li>Design a curriculum for increasing adversarial task difficulty:<br />
+   a. Start with easily distinguishable language pairs and gradually introduce more similar ones<br />
+   b. Adjust the weight of the adversarial loss over time</li>
+</ol><p><strong>Step 8: Multi-task Learning</strong></p><ol>
+<li>Combine classification loss, distillation loss, and adversarial loss.</li>
+<li>Implement a scheduler for balancing the weights of different loss components during training.</li>
+</ol><p><strong>Step 9: Training</strong></p><ol>
+<li>Train the CKDAA model using the prepared datasets.</li>
+<li>Monitor validation performance and adjust hyperparameters as needed.</li>
+<li>Implement early stopping based on validation performance.</li>
+</ol><p><strong>Step 10: Evaluation</strong></p><ol>
+<li>Evaluate the CKDAA model on the test sets of all target languages.</li>
+<li>Compare performance with baseline models using F1-score and accuracy.</li>
+<li>Calculate the cross-lingual transfer gap for each language pair.</li>
+</ol><p><strong>Step 11: Ablation Studies</strong></p><ol>
+<li>Train and evaluate variants of CKDAA:<br />
+   a. Without adversarial learning<br />
+   b. Without knowledge distillation<br />
+   c. Without character-level CNN<br />
+   d. Without dynamic curriculum</li>
+<li>Analyze the impact of each component on the model's performance.</li>
+</ol>
+<h3>Test Case Examples</h3>
+<p><strong>Baseline Prompt Input (mBERT)</strong></p><p>Classify the sentiment of this Swahili text: "Filamu hii ilikuwa ya kufurahisha sana."</p><p><strong>Baseline Prompt Expected Output (mBERT)</strong></p><p>Positive</p><p><strong>Baseline Prompt Input (Few-shot GPT-3.5)</strong></p><p>Classify the sentiment of this Swahili text as positive, negative, or neutral. Here are some examples:<br />
+1. "Chakula kilikuwa kitamu sana." - Positive<br />
+2. "Hali ya hewa ni mbaya leo." - Negative<br />
+3. "Gari limeegeshwa nje." - Neutral<br />
+Now classify: "Filamu hii ilikuwa ya kufurahisha sana."</p><p><strong>Baseline Prompt Expected Output (Few-shot GPT-3.5)</strong></p><p>Positive</p><p><strong>Proposed Prompt Input (CKDAA)</strong></p><p>Classify the sentiment of this Swahili text: "Filamu hii ilikuwa ya kufurahisha sana."</p><p><strong>Proposed Prompt Expected Output (CKDAA)</strong></p><p>Positive</p><p><strong>explanation</strong></p><p>While all methods correctly classify the sentiment, CKDAA is expected to perform better on more challenging examples and maintain consistent performance across different low-resource languages due to its cross-lingual knowledge transfer and feature alignment capabilities.</p>
+<h3>Fallback Plan</h3>
+<p>If CKDAA doesn't significantly outperform baselines, we can pivot the project in several ways. First, we could conduct a thorough error analysis to understand where and why CKDAA fails. This might reveal interesting patterns about cross-lingual transfer and the limitations of our approach. Second, we could explore the learned representations of both the teacher and student models, visualizing how they change during training and across languages. This could provide insights into the cross-lingual alignment process and potentially inspire new approaches. Third, we could investigate the impact of different teacher-student architectures, such as using mT5 as the teacher and a lightweight Transformer as the student. Finally, we could expand our analysis to include more diverse language pairs, which might reveal specific linguistic features that are challenging for cross-lingual transfer. These investigations could lead to a valuable analysis paper on the challenges and opportunities in cross-lingual knowledge transfer for low-resource languages.</p>
+</section>
+<hr>
+<section><h2>References</h2>
+<ol>
+<li><a href="https://www.semanticscholar.org/paper/38c6d8004d8b20c66f1adafe029785e0cb91a3f2" target="_blank">Entropy-guided Vocabulary Augmentation of Multilingual Language Models for Low-resource Tasks</a> (2023)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/4d95ec8007f3a340f5877f07799063b8faacba18" target="_blank">Multilingual Models with Language Embeddings for Low-resource Speech Recognition</a> (2023)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/83c9f5ea327b4abde1e867fc4035c58de150a10c" target="_blank">Lexicon-based fine-tuning of multilingual language models for low-resource language sentiment analysis</a> (2024)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/02ebd57d5b613cc6a2f9041071f7c89485fbd31d" target="_blank">Multi-Hypothesis Distillation of Multilingual Neural Translation Models for Low-Resource Languages</a> (2025)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/bba7358adc89091934ab32abce9ed5e251ee35e4" target="_blank">Mini But Mighty: Efficient Multilingual Pretraining with Linguistically-Informed Data Selection</a> (2023)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/e6a6c7c1e231e745021d2312f7f88f3ea24bcba8" target="_blank">Benchmarking Multi-Task Learning for Sentiment Analysis and Offensive Language Identification in Under-Resourced Dravidian Languages</a> (2021)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/4d769193cb2f13bfed9719e35bb688e8901058fb" target="_blank">Adapting Open-Source Generative Large Language Models for Low-Resource Languages: A Case Study for Turkish</a> (2024)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/14489ec7893e373a0dcc9555c52b99b2b3a429f6" target="_blank">Are All Languages Created Equal in Multilingual BERT?</a> (2020)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/3b8a649aebacb8befc593475c637ca8a10f599af" target="_blank">Small Models, Big Impact: Efficient Corpus and Graph-Based Adaptation of Small Multilingual Language Models for Low-Resource Languages</a> (2025)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/2778a469740ee6ed51574f7bb601e7f53fc543bd" target="_blank">Exploiting Domain-Specific Parallel Data on Multilingual Language Models for Low-resource Language Translation</a> (2024)
+</li>
+</ol>
+</section>
+</body></html>

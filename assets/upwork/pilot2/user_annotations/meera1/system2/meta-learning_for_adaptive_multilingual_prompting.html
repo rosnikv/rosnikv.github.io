@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; max-width: 1000px; }
+h1, h2, h3, h4 { color: #007b5f; margin-top: 1.5em; }
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+ul { margin-left: 1.5em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+section { margin-top: 2em; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>4578717d5593b88e1c10555ce67a14be312b84b2</p>
+<hr>
+<section><h2>Title</h2>
+<p>MLAMP: Meta-Learning for Adaptive Multilingual Prompting in Low-Resource Languages</p>
+</section>
+<hr>
+<section><h2>Introduction</h2>
+<h3>Problem Statement</h3>
+<p>Existing prompting techniques for text classification often fail to generalize well to low-resource languages due to linguistic diversity and limited exemplars. This problem is particularly acute in multilingual settings where the goal is to perform classification across a wide range of languages with varying amounts of available data.</p>
+<h3>Motivation</h3>
+<p>Current approaches typically use fixed prompts or simple prompt engineering techniques, which may not capture the unique characteristics of each low-resource language. Few-shot prompting and in-context learning, while common baselines, often struggle with the linguistic diversity present in low-resource scenarios. By learning to generate language-specific prompts that adapt to the unique characteristics of each low-resource language, we can potentially improve classification performance without extensive labeled data. This approach leverages the meta-learning paradigm to learn prompt generation strategies that can quickly adapt to new languages, even with limited examples.</p>
+</section>
+<hr>
+<section><h2>Proposed Method</h2>
+<p>We propose Meta-Learning for Adaptive Multilingual Prompting (MLAMP). MLAMP uses a meta-learning framework to learn how to generate effective prompts for any given language. The method consists of the following key components:<br />
+1. Meta-learner: A transformer-based model trained on a diverse set of high-resource languages to learn prompt generation strategies.<br />
+2. Unsupervised feature extraction: For each low-resource target language, we use techniques like clustering and topic modeling on unlabeled text to extract language-specific features.<br />
+3. Prompt generator: The meta-learned model takes language-specific features and a few labeled examples as input to produce custom prompts for the target language.<br />
+4. Classification: The generated prompts are used with a frozen multilingual language model (e.g., XLM-R) for zero-shot or few-shot classification.<br />
+5. Prompt diversity regularization: A novel term in the meta-learning objective to encourage exploration of different prompting strategies.<br />
+6. Cross-lingual prompt consistency: A module that ensures generated prompts for related languages maintain semantic similarity.</p>
+</section>
+<hr>
+<section><h2>Experiments Plan</h2>
+<h3>Step-by-Step Experiment Plan</h3>
+<p><strong>Step 1: Data Preparation</strong></p><ol>
+<li>Collect text classification datasets for 30+ low-resource languages across multiple language families. Use existing multilingual datasets like XNLI, PAWS-X, and XQuAD.</li>
+<li>For each language, prepare unlabeled text corpora from sources like Wikipedia and Common Crawl.</li>
+<li>Split the data into meta-training (high-resource languages), meta-validation, and meta-testing (low-resource languages) sets.</li>
+</ol><p><strong>Step 2: Unsupervised Feature Extraction</strong></p><ol>
+<li>For each language, apply topic modeling (e.g., LDA) on the unlabeled corpus to extract top topics and keywords.</li>
+<li>Perform clustering (e.g., K-means) on multilingual word embeddings to identify language-specific word clusters.</li>
+<li>Extract linguistic features like character n-gram statistics, word length distributions, and morphological complexity measures.</li>
+<li>Combine these features into a fixed-size vector representation for each language.</li>
+</ol><p><strong>Step 3: Meta-Learner Architecture</strong></p><ol>
+<li>Implement a transformer-based meta-learner that takes language features and few-shot examples as input and generates prompts as output.</li>
+<li>Add a prompt diversity regularization term to the meta-learning objective to encourage exploration of different prompting strategies.</li>
+<li>Implement a cross-lingual prompt consistency module using cosine similarity between prompt embeddings of related languages.</li>
+</ol><p><strong>Step 4: Meta-Training</strong></p><ol>
+<li>Train the meta-learner on high-resource languages using MAML (Model-Agnostic Meta-Learning) algorithm.</li>
+<li>For each meta-training iteration:<br />
+   a. Sample a batch of tasks (languages and classification problems)<br />
+   b. Generate prompts for each task using the current meta-learner<br />
+   c. Evaluate prompts using a frozen multilingual LM (e.g., XLM-R)<br />
+   d. Compute loss and update meta-learner parameters</li>
+<li>Use meta-validation set to tune hyperparameters and prevent overfitting.</li>
+</ol><p><strong>Step 5: Evaluation on Low-Resource Languages</strong></p><ol>
+<li>For each low-resource language in the meta-testing set:<br />
+   a. Extract language features using the unsupervised methods from Step 2<br />
+   b. Sample a few labeled examples (e.g., 5-shot, 10-shot)<br />
+   c. Use the meta-learned prompt generator to create custom prompts<br />
+   d. Apply the prompts with a frozen multilingual LM for classification<br />
+   e. Compute accuracy and F1-score</li>
+<li>Compare MLAMP performance against baselines:<br />
+   a. Zero-shot prompting with fixed multilingual prompts<br />
+   b. Few-shot prompting with manually designed prompts<br />
+   c. Recent prompt tuning methods (e.g., P-tuning v2)</li>
+<li>Analyze performance across different language families and resource levels.</li>
+</ol><p><strong>Step 6: Ablation Studies and Analysis</strong></p><ol>
+<li>Evaluate the impact of each component (unsupervised features, prompt diversity regularization, cross-lingual consistency)</li>
+<li>Analyze generated prompts qualitatively for different languages</li>
+<li>Measure prompt transfer performance between related languages</li>
+<li>Conduct error analysis to identify challenging cases and potential improvements</li>
+</ol><p><strong>Step 7: Human Evaluation</strong></p><ol>
+<li>Recruit native speakers or linguistic experts for a subset of low-resource languages</li>
+<li>Present them with generated prompts and ask them to rate:<br />
+   a. Relevance to the classification task<br />
+   b. Naturalness in the target language<br />
+   c. Potential effectiveness for guiding the model</li>
+<li>Compare human evaluation scores with automatic metrics to validate the approach</li>
+</ol>
+<h3>Test Case Examples</h3>
+<p><strong>Baseline Prompt Input (Fixed Multilingual Prompt)</strong></p><p>Classify the following text into one of these categories: Business, Sports, Technology, Entertainment. Text: "La nueva película de Marvel rompe récords de taquilla en su primer fin de semana."</p><p><strong>Baseline Prompt Expected Output (Fixed Multilingual Prompt)</strong></p><p>Entertainment</p><p><strong>Proposed Prompt Input (MLAMP; Step 1: Generate Custom Prompt)</strong></p><p>Given the language features [Spanish: {topic_keywords: ['película', 'taquilla', 'fin de semana'], word_clusters: ['entretenimiento', 'cine'], morphological_complexity: 0.7}] and the task of classifying text into Business, Sports, Technology, or Entertainment categories, generate an appropriate prompt in Spanish.</p><p><strong>Proposed Prompt Expected Output (MLAMP; Step 1: Generate Custom Prompt)</strong></p><p>Analiza el siguiente texto y clasifícalo en una de estas categorías: Negocios, Deportes, Tecnología o Entretenimiento. Considera el uso de palabras clave relacionadas con el cine, los estrenos y la industria del entretenimiento. Texto: "La nueva película de Marvel rompe récords de taquilla en su primer fin de semana."</p><p><strong>Proposed Prompt Input (MLAMP; Step 2: Classification)</strong></p><p>(Prepend the generated prompt from Step 1) Classify the text based on the given prompt.</p><p><strong>Proposed Prompt Expected Output (MLAMP; Step 2: Classification)</strong></p><p>Entretenimiento (Entertainment)</p><p><strong>Explanation</strong></p><p>The MLAMP method generates a language-specific prompt that incorporates relevant keywords and context for the Spanish language and the entertainment domain. This custom prompt provides more guidance to the model compared to the generic multilingual prompt, potentially leading to more accurate classification, especially for low-resource languages.</p>
+<h3>Fallback Plan</h3>
+<p>If MLAMP does not significantly outperform baselines, we can pivot the project towards an in-depth analysis of prompt generation strategies across languages. We could investigate why certain prompts work better for some languages than others, and how linguistic features correlate with prompt effectiveness. This analysis could involve clustering languages based on prompt similarity, visualizing prompt embeddings across language families, and identifying patterns in successful vs. unsuccessful prompts. Additionally, we could explore combining MLAMP with other techniques like retrieval-augmented generation or self-consistency checking to further improve performance. Another direction could be to focus on the few-shot learning aspect, analyzing how the number and selection of examples impact prompt generation and classification accuracy across different languages.</p>
+</section>
+<hr>
+<section><h2>References</h2>
+<ol>
+<li><a href="https://www.semanticscholar.org/paper/38c6d8004d8b20c66f1adafe029785e0cb91a3f2" target="_blank">Entropy-guided Vocabulary Augmentation of Multilingual Language Models for Low-resource Tasks</a> (2023)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/4d95ec8007f3a340f5877f07799063b8faacba18" target="_blank">Multilingual Models with Language Embeddings for Low-resource Speech Recognition</a> (2023)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/83c9f5ea327b4abde1e867fc4035c58de150a10c" target="_blank">Lexicon-based fine-tuning of multilingual language models for low-resource language sentiment analysis</a> (2024)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/02ebd57d5b613cc6a2f9041071f7c89485fbd31d" target="_blank">Multi-Hypothesis Distillation of Multilingual Neural Translation Models for Low-Resource Languages</a> (2025)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/bba7358adc89091934ab32abce9ed5e251ee35e4" target="_blank">Mini But Mighty: Efficient Multilingual Pretraining with Linguistically-Informed Data Selection</a> (2023)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/e6a6c7c1e231e745021d2312f7f88f3ea24bcba8" target="_blank">Benchmarking Multi-Task Learning for Sentiment Analysis and Offensive Language Identification in Under-Resourced Dravidian Languages</a> (2021)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/4d769193cb2f13bfed9719e35bb688e8901058fb" target="_blank">Adapting Open-Source Generative Large Language Models for Low-Resource Languages: A Case Study for Turkish</a> (2024)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/14489ec7893e373a0dcc9555c52b99b2b3a429f6" target="_blank">Are All Languages Created Equal in Multilingual BERT?</a> (2020)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/3b8a649aebacb8befc593475c637ca8a10f599af" target="_blank">Small Models, Big Impact: Efficient Corpus and Graph-Based Adaptation of Small Multilingual Language Models for Low-Resource Languages</a> (2025)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/2778a469740ee6ed51574f7bb601e7f53fc543bd" target="_blank">Exploiting Domain-Specific Parallel Data on Multilingual Language Models for Low-resource Language Translation</a> (2024)
+</li>
+</ol>
+</section>
+</body></html>

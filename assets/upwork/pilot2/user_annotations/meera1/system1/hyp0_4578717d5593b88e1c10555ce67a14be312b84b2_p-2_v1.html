@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; max-width: 1000px; }
+h2, h3, h4 { color: #007b5f; }
+.custom-heading {color: black;font-weight: bold;}
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+.end-note, .end-note * { color: #888 !important; font-style: italic; font-weight: normal; margin-top: 2em; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>4578717d5593b88e1c10555ce67a14be312b84b2</p>
+<hr>
+<h2>Title</h2>
+<p>Combining Benford's Law distribution with a digit bias benchmark to improve numerical reasoning accuracy.</p>
+<hr>
+<h2>Introduction</h2>
+<h3>Problem Statement</h3>
+<p>Implementing a Benford's Law distribution in pretraining datasets, combined with a digit bias benchmark, will enhance the accuracy and reduce error rates of GPT-J-6B on few-shot numerical reasoning tasks by mitigating digit bias and improving generalization to real-world digit distributions.</p>
+<h3>Motivation</h3>
+<p>Existing methods primarily focus on altering term frequency distributions to improve model performance on numerical reasoning tasks, but they often overlook the impact of digit bias and the interaction between different term frequency distributions. No prior work has extensively tested the combination of Benford's Law distribution with digit bias benchmarks to address numerical reasoning performance, especially under conditions that simulate real-world digit distribution skewness. This hypothesis aims to fill this gap by exploring how these distributions can synergistically reduce digit bias and improve model accuracy on numerical reasoning tasks.</p>
+<hr>
+<h2>Proposed Method</h2>
+<p>This research investigates the impact of combining a Benford's Law distribution with a digit bias benchmark on the performance of GPT-J-6B in few-shot numerical reasoning tasks. Benford's Law, a logarithmic distribution where smaller digits appear more frequently, is naturally occurring in many datasets. By aligning the pretraining dataset with this distribution, we aim to simulate real-world conditions more accurately. The digit bias benchmark will be used to evaluate the model's performance on tasks with uniformly distributed ground-truth digits, such as addition, multiplication, and division. This approach is expected to reduce the model's internal bias towards smaller digits, a common issue in numerical reasoning tasks. The hypothesis posits that this combination will lead to improved accuracy and reduced error rates by enhancing the model's ability to generalize across different digit distributions. This research addresses gaps in existing literature by exploring the interaction between Benford's Law distribution and digit bias, providing insights into how these factors influence model performance. The expected outcome is a more robust model capable of handling real-world numerical reasoning tasks with greater accuracy.</p>
+<h3>Background</h3>
+<p><a href="https://www.semanticscholar.org/paper/a20b7b9495d2aadb3c60a1507423b3849e1b8dbc">Benford's Law Distribution</a>: Benford's Law describes a logarithmic distribution where smaller digits appear more frequently. In this experiment, the pretraining dataset will be adjusted to align with Benford's Law by ensuring that the frequency of leading digits follows this distribution. This adjustment aims to simulate real-world conditions where digit distributions are skewed towards smaller values. The expected role of this variable is to reduce digit bias in the model, thereby improving its accuracy on numerical reasoning tasks. The success of this variable will be measured by the model's performance on tasks requiring digit prediction, with a focus on accuracy and error rates.</p>
+<p><a href="https://www.semanticscholar.org/paper/a20b7b9495d2aadb3c60a1507423b3849e1b8dbc">Digit Bias Benchmark</a>: The digit bias benchmark is designed to evaluate the model's performance on tasks with uniformly distributed ground-truth digits. This benchmark includes tasks such as addition, multiplication, and division, where the digits 0-9 appear with equal frequency. The purpose of this benchmark is to assess the model's internal bias towards smaller digits and its ability to generalize across different digit distributions. The benchmark will be used to measure the model's accuracy and error rates, providing insights into the effectiveness of the Benford's Law distribution in reducing digit bias.</p>
+<h3>Implementation</h3>
+<p>The proposed method involves adjusting the pretraining dataset to align with Benford's Law distribution and evaluating the model's performance using a digit bias benchmark. First, the pretraining dataset will be analyzed to ensure that the frequency of leading digits follows Benford's Law. This involves counting the occurrences of leading digits and adjusting the dataset to match the expected logarithmic distribution. Next, the GPT-J-6B model will be retrained on this adjusted dataset. The digit bias benchmark will then be used to evaluate the model's performance on numerical reasoning tasks. This benchmark includes tasks such as addition, multiplication, and division, where the digits 0-9 appear with equal frequency. The model's accuracy and error rates will be measured and compared to a baseline model trained on a uniform distribution. The expected outcome is improved accuracy and reduced error rates, indicating a reduction in digit bias and enhanced generalization to real-world digit distributions. The integration of Benford's Law distribution and digit bias benchmark is expected to provide a comprehensive evaluation of the model's performance, addressing gaps in existing literature and offering insights into the interaction between these variables.</p>
+<hr>
+<h2>Experiments Plan</h2>
+<h3>Operationalization Information</h3>
+
+<div style="display: flex; gap: 2em;">
+<div style="flex: 1;">
+
+<p><p>Please implement an experiment to investigate whether aligning pretraining data with Benford's Law distribution improves numerical reasoning in language models. This experiment will test the hypothesis that implementing a Benford's Law distribution in pretraining datasets, combined with a digit bias benchmark, will enhance the accuracy and reduce error rates of GPT-J-6B on few-shot numerical reasoning tasks.</p></p>
+<p><h4 class="custom-heading"><strong>Experiment Overview</strong></h4>
+<p>The experiment will compare three conditions:<br />
+1. Baseline: GPT-J-6B fine-tuned on a dataset with uniform digit distribution<br />
+2. Zipf's Law: GPT-J-6B fine-tuned on a dataset with Zipf's Law digit distribution (as an alternative skewed distribution)<br />
+3. Experimental: GPT-J-6B fine-tuned on a dataset with Benford's Law digit distribution</p></p>
+<p><p>Each model will be evaluated on a digit bias benchmark consisting of numerical reasoning tasks with uniformly distributed ground-truth digits.</p></p>
+<p><h4 class="custom-heading"><strong>Implementation Details</strong></h4></p>
+<p><h4 class="custom-heading"><strong>Dataset Preparation</strong></h4>
+<ol>
+<li>Create a subset of The Pile dataset for fine-tuning</li>
+<li>For each condition, modify the numerical content in the dataset to follow the respective distribution:</li>
+<li>Uniform: Digits 0-9 appear with equal frequency as leading digits</li>
+<li>Zipf's Law: Frequency of digits follows Zipf's Law distribution</li>
+<li>Benford's Law: Frequency of leading digits follows Benford's Law (log10(1 + 1/d))</li>
+<li>Implement a function to analyze and verify the digit distributions in each dataset</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Model Training</strong></h4>
+<ol>
+<li>Load the pre-trained GPT-J-6B model</li>
+<li>Fine-tune the model on each of the three datasets (uniform, Zipf's, Benford's)</li>
+<li>Save the fine-tuned models for evaluation</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Digit Bias Benchmark</strong></h4>
+<ol>
+<li>Create a benchmark of numerical reasoning tasks including:</li>
+<li>Addition problems (e.g., "What is 347 + 892?")</li>
+<li>Multiplication problems (e.g., "What is 76 × 39?")</li>
+<li>Division problems (e.g., "What is 624 ÷ 13?")</li>
+<li>Other numerical reasoning tasks</li>
+<li>Ensure that the ground-truth digits in these problems are uniformly distributed</li>
+<li>Format the tasks for few-shot learning (provide 3-5 examples before each test question)</li>
+</ol></p>
+</div><div style='flex: 1;'>
+<p><h4 class="custom-heading"><strong>Evaluation</strong></h4>
+<ol>
+<li>Evaluate each model on the digit bias benchmark</li>
+<li>Calculate accuracy and error rates for each model</li>
+<li>Perform statistical analysis to compare the performance of the three models</li>
+<li>Generate visualizations of the results</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Pilot Mode Implementation</strong></h4>
+<p>Implement a global variable PILOT_MODE with three possible settings: 'MINI_PILOT', 'PILOT', or 'FULL_EXPERIMENT'.</p></p>
+<p><h4 class="custom-heading"><strong>MINI_PILOT Setting</strong></h4>
+<ul>
+<li>Dataset: Use only 100 examples from The Pile for fine-tuning each model</li>
+<li>Benchmark: Create 20 numerical reasoning tasks (5 addition, 5 multiplication, 5 division, 5 other)</li>
+<li>Training: Limit fine-tuning to 5 epochs with a small batch size</li>
+<li>Purpose: Quick verification of code functionality (should run in ~10-15 minutes)</li>
+</ul></p>
+<p><h4 class="custom-heading"><strong>PILOT Setting</strong></h4>
+<ul>
+<li>Dataset: Use 1,000 examples from The Pile for fine-tuning each model</li>
+<li>Benchmark: Create 200 numerical reasoning tasks (50 each of addition, multiplication, division, and other)</li>
+<li>Training: Fine-tune for 10 epochs with moderate batch size</li>
+<li>Purpose: Preliminary assessment of results (should run in ~1-2 hours)</li>
+</ul></p>
+<p><h4 class="custom-heading"><strong>FULL_EXPERIMENT Setting</strong></h4>
+<ul>
+<li>Dataset: Use 10,000+ examples from The Pile for fine-tuning each model</li>
+<li>Benchmark: Create 1,000+ numerical reasoning tasks with comprehensive coverage</li>
+<li>Training: Fine-tune for optimal number of epochs determined from pilot results</li>
+<li>Purpose: Complete experiment with robust results</li>
+</ul></p>
+<p><h4 class="custom-heading"><strong>Output and Analysis</strong></h4>
+<ol>
+<li>For each model, report:</li>
+<li>Overall accuracy on the benchmark</li>
+<li>Accuracy broken down by problem type</li>
+<li>Error analysis by digit (are certain digits more problematic?)</li>
+<li>Confusion matrices where applicable</li>
+<li>Statistical comparison between models using appropriate tests (t-tests or non-parametric alternatives)</li>
+<li>Visualizations of performance differences</li>
+<li>Analysis of whether Benford's Law distribution improves performance on real-world numerical tasks</li>
+</ol></p>
+<p><p>Please run the MINI_PILOT first, then if everything looks good, proceed to the PILOT. After the PILOT completes, stop and do not run the FULL_EXPERIMENT (a human will manually verify the results and make the change to FULL_EXPERIMENT if appropriate).</p></p>
+<p><p>All code should include proper error handling, logging, and documentation. Use scikit-learn for evaluation metrics and statistical analysis where appropriate.</p></p>
+</div></div>
+<div class="end-note"><strong>End Note:</strong> <p>The source paper is <a href="https://www.semanticscholar.org/paper/4578717d5593b88e1c10555ce67a14be312b84b2">Paper 0: Impact of Pretraining Term Frequencies on Few-Shot Numerical Reasoning</a> (139 citations, 2022). This idea draws upon a trajectory of prior work, as seen in the following sequence: <a href="https://www.semanticscholar.org/paper/9715be0a94c9b05bafe299cbfb4f846453bfd2ab">Paper 1</a>. The analysis of the source and related paper reveals a focus on understanding how pretraining term frequencies affect model performance, particularly in few-shot learning scenarios. The source paper highlights the impact on numerical reasoning, while the related paper introduces a tool for broader exploration across multiple NLP tasks. However, both papers primarily focus on the correlation between term frequencies and model performance without delving into the causal mechanisms or potential interventions to mitigate any negative impacts. A novel research idea could explore the causal relationship between term frequencies and model performance, potentially identifying strategies to adjust pretraining datasets or model architectures to optimize performance across tasks with varying term frequency distributions.<br />
+The initial trend observed from the progression of related work highlights a consistent research focus. However, the final hypothesis proposed here is not merely a continuation of that trend — it is the result of a deeper analysis of the hypothesis space. By identifying underlying gaps and reasoning through the connections between works, the idea builds on, but meaningfully diverges from, prior directions to address a more specific challenge.</p></div>
+<hr>
+<h2>References</h2>
+<ol>
+<li><a href="https://www.semanticscholar.org/paper/4578717d5593b88e1c10555ce67a14be312b84b2" target="_blank">Impact of Pretraining Term Frequencies on Few-Shot Numerical Reasoning</a> (2022)</li>
+<li><a href="https://www.semanticscholar.org/paper/9715be0a94c9b05bafe299cbfb4f846453bfd2ab" target="_blank">Snoopy: An Online Interface for Exploring the Effect of Pretraining Term Frequencies on Few-Shot LM Performance</a> (2022)</li>
+<li><a href="https://www.semanticscholar.org/paper/af46b5ee6d0c1aada1c482d53018a50909aa4c90" target="_blank">Impact of Pretraining Term Frequencies on Few-Shot Reasoning</a> (2022)</li>
+<li><a href="https://www.semanticscholar.org/paper/a8da1e22a371bfeca7ed93ad51e5ee75169fc6d2" target="_blank">Fast-ELECTRA for Efficient Pre-training</a> (2023)</li>
+<li><a href="https://www.semanticscholar.org/paper/a20b7b9495d2aadb3c60a1507423b3849e1b8dbc" target="_blank">Benford's Curse: Tracing Digit Bias to Numerical Hallucination in LLMs</a> (2023)</li>
+<li><a href="https://www.semanticscholar.org/paper/5efab88c0cdb11c795fa8f44a5d31b40e2a1c261" target="_blank">What do Large Language Models Learn beyond Language?</a> (2022)</li>
+<li><a href="https://www.semanticscholar.org/paper/36f7bc27c9a37eb337c35df4ae86f148e13d4e9a" target="_blank">Understanding In-Context Learning via Supportive Pretraining Data</a> (2023)</li>
+<li><a href="https://www.semanticscholar.org/paper/6028780bfb3728292d37c07951e3f463fae0981e" target="_blank">Unsupervised Improvement of Factual Knowledge in Language Models</a> (2023)</li>
+</ol>
+</body>
+</html>
