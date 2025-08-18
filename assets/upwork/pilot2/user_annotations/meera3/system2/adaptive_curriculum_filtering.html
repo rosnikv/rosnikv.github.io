@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; max-width: 1000px; }
+h1, h2, h3, h4 { color: #007b5f; margin-top: 1.5em; }
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+ul { margin-left: 1.5em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+section { margin-top: 2em; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>0a4b8b161931799d5c6bc3ecf07c53bae0e9e502</p>
+<hr>
+<section><h2>Title</h2>
+<p>Adaptive Curriculum Filtering: Optimizing Language Model Training on High School Newspaper Articles</p>
+</section>
+<hr>
+<section><h2>Introduction</h2>
+<h3>Problem Statement</h3>
+<p>Traditional quality filtering methods for language models often fail to account for the developmental nature of student writing, potentially discarding valuable learning examples from high school newspapers. This problem is significant because it limits the ability of language models to capture the progression of writing skills and adapt to diverse educational contexts.</p>
+<h3>Motivation</h3>
+<p>Existing approaches typically use static thresholds or uniform criteria to filter text data, which may not be suitable for the evolving quality of student journalism. High school newspapers provide a unique opportunity to capture the progression of writing skills, but require a more nuanced filtering approach that can adapt to different stages of student development and diverse educational contexts. Our proposed Adaptive Curriculum Filtering (ACF) method is inspired by curriculum learning in education and aims to dynamically adjust filtering criteria based on the model's improving performance and the developmental stage of the writing.</p>
+</section>
+<hr>
+<section><h2>Proposed Method</h2>
+<p>We introduce Adaptive Curriculum Filtering (ACF), a dynamic quality assessment framework designed to optimize language model training on high school newspaper articles. ACF operates as follows: 1) Develop a multi-dimensional rubric that evaluates articles based on factors such as coherence, factual accuracy, creativity, and journalistic ethics. 2) Implement a temporal modeling component that tracks the progression of writing quality for individual students and schools over time. 3) Design a curriculum learning algorithm that gradually increases the complexity and quality thresholds for article selection as the language model improves. 4) Create a diversity-aware sampling strategy that ensures representation from various writing styles, topics, and skill levels. 5) Incorporate a feedback loop that allows the filtering criteria to adapt based on the language model's performance on downstream tasks.</p>
+</section>
+<hr>
+<section><h2>Experiments Plan</h2>
+<h3>Step-by-Step Experiment Plan</h3>
+<p><strong>Step 1: Data Collection</strong></p><p>Gather a large dataset of high school newspaper articles from multiple schools over several years. Ensure the dataset includes metadata such as publication date, school, and author (anonymized if necessary).</p><p><strong>Step 2: Baseline Model Training</strong></p><p>Train a baseline language model (e.g., GPT-2 small) on the raw, unfiltered dataset of high school newspaper articles.</p><p><strong>Step 3: Rubric Development</strong></p><p>Create a multi-dimensional rubric for article evaluation. Use GPT-4 to generate initial rubric criteria, then refine with expert input. Example prompt: "Create a detailed rubric for evaluating high school newspaper articles, considering factors such as coherence, factual accuracy, creativity, and journalistic ethics."</p><p><strong>Step 4: Article Scoring</strong></p><p>Use GPT-4 to score a subset of articles based on the rubric. Prompt: "Score the following high school newspaper article according to the provided rubric. Provide a detailed explanation for each score." Use these scores to calibrate an automated scoring system using a smaller language model (e.g., BERT) fine-tuned on the GPT-4 scored examples.</p><p><strong>Step 5: Temporal Modeling</strong></p><p>Implement a temporal modeling component using a time series analysis technique (e.g., ARIMA) to track writing quality progression for individual students and schools.</p><p><strong>Step 6: Curriculum Learning Algorithm</strong></p><p>Develop a curriculum learning algorithm that adjusts filtering thresholds based on the language model's perplexity on a validation set. Start with lenient thresholds and gradually increase them as the model improves.</p><p><strong>Step 7: Diversity-Aware Sampling</strong></p><p>Implement a sampling strategy that ensures representation across different writing styles, topics, and skill levels. Use topic modeling (e.g., LDA) and clustering techniques to categorize articles and inform the sampling process.</p><p><strong>Step 8: Feedback Loop Implementation</strong></p><p>Create a feedback mechanism that adjusts filtering criteria based on the language model's performance on downstream tasks such as text completion and summarization.</p><p><strong>Step 9: ACF Model Training</strong></p><p>Train a language model using the ACF method, applying the developed components in an end-to-end pipeline.</p><p><strong>Step 10: Evaluation</strong></p><p>Compare the ACF-trained model against the baseline model on various tasks, including perplexity on a held-out test set, text completion, summarization, and style transfer specific to student journalism contexts.</p><p><strong>Step 11: Analysis</strong></p><p>Conduct ablation studies to understand the contribution of each component of the ACF method. Analyze the model's performance across different stages of the curriculum and various student developmental levels.</p>
+<h3>Test Case Examples</h3>
+<p><strong>Baseline Prompt Input</strong></p><p>Summarize the following high school newspaper article: [Insert a complex article about a controversial local issue]</p><p><strong>Baseline Prompt Expected Output</strong></p><p>A summary that may contain factual inaccuracies or fail to capture the nuances of the controversial issue.</p><p><strong>Proposed Prompt Input</strong></p><p>Summarize the following high school newspaper article, paying attention to factual accuracy and balanced reporting: [Insert the same complex article about a controversial local issue]</p><p><strong>Proposed Prompt Expected Output</strong></p><p>A more accurate and balanced summary that captures the key points of the controversy while maintaining journalistic integrity.</p><p><strong>Explanation</strong></p><p>The ACF-trained model is expected to produce a more nuanced and accurate summary, demonstrating improved understanding of complex local issues and adherence to journalistic standards, which are key aspects of high school newspaper writing.</p>
+<h3>Fallback Plan</h3>
+<p>If the ACF method does not significantly outperform the baseline, we will conduct a thorough analysis of each component to identify potential areas for improvement. We may explore alternative rubric designs, investigate different temporal modeling techniques, or adjust the curriculum learning algorithm. Additionally, we could expand our evaluation to include human assessment of article quality and model outputs, which might reveal qualitative improvements not captured by automated metrics. If these approaches do not yield significant improvements, we could pivot the project to focus on analyzing the developmental trajectories of student writing in high school newspapers, using the collected data and developed tools to provide insights into how writing skills evolve over time and across different school contexts. This could result in a valuable contribution to educational research and inform future approaches to language model training on student-generated content.</p>
+</section>
+<hr>
+<section><h2>References</h2>
+<ol>
+<li><a href="https://www.semanticscholar.org/paper/50a8974c6f44ba898f2b2846432df67faab92eef" target="_blank">Sem-Rouge: Graph-Based Embedding for Automated Text Summarization with Using Large Language Models</a> (2025)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/0a4b8b161931799d5c6bc3ecf07c53bae0e9e502" target="_blank">Whose Language Counts as High Quality? Measuring Language Ideologies in Text Data Selection</a> (2022)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/46ad0c77d2bb9d62f2fc31e3e63caa161342b6ba" target="_blank">On the Predictive Power of Representation Dispersion in Language Models</a> (2025)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/9d1d6dee1470e601ce42ba19c412514f49d09b8a" target="_blank">StructText: A Synthetic Table-to-Text Approach for Benchmark Generation with Multi-Dimensional Evaluation</a> (2025)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/4052b228b9d843164f35069bb5c351103b3c86cc" target="_blank">WETBench: A Benchmark for Detecting Task-Specific Machine-Generated Text on Wikipedia</a> (2025)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/6b24274dfde641b27c19a6f023e7700862694de1" target="_blank">Mangosteen: An Open Thai Corpus for Language Model Pretraining</a> (2025)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/204ab008a98d1f0b1602a443ccd305c04647df75" target="_blank">A Penalty Goes a Long Way: Measuring Lexical Diversity in Synthetic Texts Under Prompt-Influenced Length Variations</a> (2025)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/952d1810d8d14565e41ea9f203b5b0c92ffe60e3" target="_blank">Beyond the Link: Assessing LLMs' ability to Classify Political Content across Global Media</a> (2025)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/ca2f1088d3e581b2c6c75cf0ebc96506d620f64d" target="_blank">On the Dangers of Stochastic Parrots: Can Language Models Be Too Big? 🦜</a> (2021)
+</li>
+<li><a href="https://www.semanticscholar.org/paper/9898bbde43fa16e5e1b67d5ab651529a5915eb91" target="_blank">MuRating: A High Quality Data Selecting Approach to Multilingual Large Language Model Pretraining</a> (2025)
+</li>
+</ol>
+</section>
+</body></html>

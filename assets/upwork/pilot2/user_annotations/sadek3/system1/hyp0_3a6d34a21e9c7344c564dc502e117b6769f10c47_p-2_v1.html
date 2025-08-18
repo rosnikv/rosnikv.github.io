@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; max-width: 1000px; }
+h2, h3, h4 { color: #007b5f; }
+.custom-heading {color: black;font-weight: bold;}
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+.end-note, .end-note * { color: #888 !important; font-style: italic; font-weight: normal; margin-top: 2em; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>3a6d34a21e9c7344c564dc502e117b6769f10c47</p>
+<hr>
+<h2>Title</h2>
+<p>Integrating dynamic user modeling with real-time adaptive feedback to enhance sleep health recommendations.</p>
+<hr>
+<h2>Introduction</h2>
+<h3>Problem Statement</h3>
+<p>Integrating dynamic user modeling with real-time adaptive feedback mechanisms in LLM-based sleep health prediction models will significantly enhance user-reported sleep quality and engagement levels compared to static models.</p>
+<h3>Motivation</h3>
+<p>Existing methods in sleep health prediction using LLMs have not extensively explored the integration of dynamic user modeling with real-time adaptive feedback mechanisms to enhance user engagement and sleep quality. Previous studies have focused on static or less adaptive models that do not fully leverage real-time data to personalize recommendations. This gap is significant because real-time adaptation can potentially improve the personalization and effectiveness of interventions, leading to better health outcomes. By integrating dynamic user modeling with adaptive feedback, this hypothesis aims to fill the gap by providing a more responsive and personalized health recommendation system.</p>
+<hr>
+<h2>Proposed Method</h2>
+<p>This research explores the integration of dynamic user modeling with real-time adaptive feedback mechanisms within LLM-based sleep health prediction models. The hypothesis posits that this integration will enhance user-reported sleep quality and engagement levels. Dynamic user modeling continuously updates user profiles based on real-time data, ensuring that recommendations remain relevant and personalized. Real-time adaptive feedback mechanisms provide immediate, context-aware feedback to users, enhancing engagement and adherence to health recommendations. The expected outcome is a more personalized and effective health recommendation system that adapts to the user's evolving needs and preferences. This approach addresses the gap in existing research by combining two powerful mechanisms—dynamic user modeling and real-time adaptive feedback—to create a more responsive and personalized health intervention system. The chosen evaluation domain, sleep health, is appropriate due to its reliance on continuous data and the need for timely interventions. By leveraging real-time data, the system can provide more accurate and personalized recommendations, leading to improved user engagement and sleep quality.</p>
+<h3>Background</h3>
+<p><a href="https://www.semanticscholar.org/paper/ce1565008dfa7d25261eae16df6e31e2c897788f">Dynamic User Modeling</a>: Dynamic user modeling involves continuously updating user profiles based on real-time data to provide personalized recommendations. This approach uses LLMs to analyze user behaviors and preferences, ensuring recommendations remain relevant and effective. The model updates user profiles by integrating data from wearable devices and other real-time sources. This continuous updating process allows the system to adapt to changes in user behavior, providing more accurate and personalized recommendations. The expected role of dynamic user modeling is to enhance personalization by ensuring that recommendations are always aligned with the user's current needs and preferences. This variable will be assessed by measuring the accuracy and relevance of the recommendations provided, using metrics such as user satisfaction scores and engagement levels.</p>
+<p>Real-time Adaptive Feedback Mechanisms: Real-time adaptive feedback mechanisms involve using LLMs to provide immediate and personalized feedback based on user interactions and data. This approach supports dynamic and context-aware health recommendations. The system continuously collects data from wearables and other sources to provide timely feedback. The expected role of real-time adaptive feedback is to enhance user engagement and adherence to health recommendations by providing timely and relevant feedback. This variable will be assessed by measuring user engagement levels, such as app usage frequency and response rates to recommendations. The success of this variable will be indicated by higher engagement levels and improved user-reported sleep quality.</p>
+<h3>Implementation</h3>
+<p>The proposed method integrates dynamic user modeling with real-time adaptive feedback mechanisms in LLM-based sleep health prediction models. The system begins by collecting real-time data from wearable devices, which is used to update user profiles continuously. This dynamic user modeling ensures that recommendations are always aligned with the user's current needs and preferences. The real-time adaptive feedback mechanism uses LLMs to analyze the updated user profiles and provide immediate, context-aware feedback. This feedback is delivered through a user-friendly interface, enhancing user engagement and adherence to health recommendations. The integration of these components occurs at the data processing stage, where real-time data is used to update user profiles and generate feedback. The system's outputs are linked through a feedback loop that continuously updates recommendations based on user interactions and data. This approach ensures that the system remains responsive and personalized, adapting to the user's evolving needs. The hypothesis will be implemented using the ASD agent's capabilities, with codeblocks for data collection, user modeling, and feedback generation. The system will be evaluated using metrics such as user engagement levels and user-reported sleep quality, comparing the integrated system to a baseline static model.</p>
+<hr>
+<h2>Experiments Plan</h2>
+<h3>Operationalization Information</h3>
+
+<div style="display: flex; gap: 2em;">
+<div style="flex: 1;">
+
+<p><p>Please build an experiment to test the hypothesis that integrating dynamic user modeling with real-time adaptive feedback mechanisms in LLM-based sleep health prediction models will significantly enhance user-reported sleep quality and engagement levels compared to static models.</p></p>
+<p><h4 class="custom-heading"><strong>Experiment Overview</strong></h4>
+<p>This experiment will compare three systems:<br />
+1. <strong>Baseline System</strong>: A static sleep recommendation system that provides generic sleep advice based on fixed user profiles and sleep data.<br />
+2. <strong>Partial Dynamic System</strong>: A system with dynamic user modeling but without real-time adaptive feedback (for ablation study).<br />
+3. <strong>Full Dynamic System</strong>: A system integrating both dynamic user modeling and real-time adaptive feedback mechanisms.</p></p>
+<p><h4 class="custom-heading"><strong>Data Requirements</strong></h4>
+<p>Use a synthetic dataset that simulates wearable device data for sleep monitoring. The dataset should include:<br />
+- Sleep metrics (duration, quality, interruptions)<br />
+- Activity data (steps, exercise)<br />
+- Environmental factors (room temperature, light, noise)<br />
+- User-reported sleep quality (Likert scale 1-5)<br />
+- User engagement metrics (app usage frequency, response rates)</p></p>
+<p><h4 class="custom-heading"><strong>System Components</strong></h4></p>
+<p><h4 class="custom-heading"><strong>1. Wearable Data Collection</strong></h4>
+<p>Implement a module to simulate collecting and processing real-time data from wearable devices. This should:<br />
+- Generate synthetic sleep and activity data<br />
+- Format data for consumption by the user modeling component<br />
+- Simulate real-time data streams with appropriate timestamps</p></p>
+<p><h4 class="custom-heading"><strong>2. Dynamic User Modeling</strong></h4>
+<p>Implement a user modeling component that:<br />
+- Creates and maintains user profiles with sleep preferences and patterns<br />
+- Continuously updates profiles based on new data<br />
+- Uses an LLM to analyze patterns and identify relevant factors affecting sleep<br />
+- Maintains a history of sleep quality and correlating factors</p></p>
+<p><h4 class="custom-heading"><strong>3. Real-time Feedback Generation</strong></h4>
+<p>Implement a feedback generation component that:<br />
+- Uses an LLM to generate personalized sleep recommendations<br />
+- Adapts recommendations based on updated user profiles<br />
+- Provides context-aware feedback (e.g., suggesting different interventions based on time of day)<br />
+- Varies feedback style based on user engagement patterns</p></p>
+<p><h4 class="custom-heading"><strong>4. User Interface</strong></h4>
+<p>Implement a simulated user interface that:<br />
+- Displays sleep recommendations to users<br />
+- Collects user feedback on recommendations<br />
+- Tracks user engagement metrics<br />
+- Provides a way for users to report sleep quality</p></p>
+<p><h4 class="custom-heading"><strong>5. Evaluation Metrics</strong></h4>
+<p>Implement evaluation metrics to measure:<br />
+- User-reported sleep quality (primary outcome)<br />
+- User engagement levels (secondary outcome)<br />
+- Recommendation relevance and personalization<br />
+- System responsiveness to changing sleep patterns</p></p>
+<p><h4 class="custom-heading"><strong>Experiment Design</strong></h4></p>
+<p><h4 class="custom-heading"><strong>Pilot Mode Settings</strong></h4>
+<p>Implement a global variable <code>PILOT_MODE</code> with three possible settings: <code>MINI_PILOT</code>, <code>PILOT</code>, or <code>FULL_EXPERIMENT</code>.</p></p>
+</div><div style='flex: 1;'>
+<p><h4 class="custom-heading"><strong>MINI_PILOT</strong></h4>
+<ul>
+<li>Use 5 simulated users</li>
+<li>Simulate 3 days of sleep data per user</li>
+<li>Run 10 recommendation cycles per user</li>
+<li>Use a simplified user model with 3-5 key sleep factors</li>
+</ul></p>
+<p><h4 class="custom-heading"><strong>PILOT</strong></h4>
+<ul>
+<li>Use 20 simulated users</li>
+<li>Simulate 14 days of sleep data per user</li>
+<li>Run 30 recommendation cycles per user</li>
+<li>Use a more complex user model with 8-10 sleep factors</li>
+</ul></p>
+<p><h4 class="custom-heading"><strong>FULL_EXPERIMENT</strong></h4>
+<ul>
+<li>Use 100 simulated users</li>
+<li>Simulate 30 days of sleep data per user</li>
+<li>Run all recommendation cycles (daily for the full period)</li>
+<li>Use the complete user model with all sleep factors</li>
+</ul></p>
+<p><p>Start by running the MINI_PILOT first, then if everything looks good, run the PILOT. After the pilot, stop and do not run the FULL_EXPERIMENT (a human will manually verify the results and make the change to FULL_EXPERIMENT).</p></p>
+<p><h4 class="custom-heading"><strong>Experimental Procedure</strong></h4>
+<ol>
+<li>Initialize user profiles with basic sleep preferences and patterns</li>
+<li>For each day in the simulation:<br />
+   a. Generate synthetic sleep and activity data<br />
+   b. Update user profiles based on new data (for dynamic systems)<br />
+   c. Generate sleep recommendations using the appropriate system<br />
+   d. Simulate user engagement with recommendations<br />
+   e. Collect user-reported sleep quality<br />
+   f. Record all metrics for evaluation</li>
+</ol></p>
+<p><ol>
+<li>Compare the three systems using the following metrics:<br />
+   a. Average user-reported sleep quality over time<br />
+   b. User engagement levels (app usage, response rates)<br />
+   c. Improvement in sleep quality over baseline<br />
+   d. User satisfaction with recommendations</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Statistical Analysis</strong></h4>
+<ol>
+<li>Perform paired t-tests to compare sleep quality and engagement metrics between systems</li>
+<li>Calculate effect sizes (Cohen's d) for significant differences</li>
+<li>Perform a repeated measures ANOVA to analyze changes over time</li>
+<li>Generate confidence intervals for all metrics</li>
+<li>Create visualizations showing trends in sleep quality and engagement</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Implementation Details</strong></h4></p>
+<p><h4 class="custom-heading"><strong>LLM Configuration</strong></h4>
+<ul>
+<li>Use GPT-4 or similar for both user modeling and feedback generation</li>
+<li>Implement appropriate prompting strategies for each component</li>
+<li>Cache responses where appropriate to reduce API costs</li>
+</ul></p>
+<p><h4 class="custom-heading"><strong>Simulation Parameters</strong></h4>
+<ul>
+<li>Set random seeds for reproducibility</li>
+<li>Implement realistic noise and variability in sleep patterns</li>
+<li>Model different user types (e.g., light sleepers, those with insomnia)</li>
+<li>Simulate various environmental factors affecting sleep</li>
+</ul></p>
+<p><h4 class="custom-heading"><strong>Output and Logging</strong></h4>
+<ul>
+<li>Log all system interactions and recommendations</li>
+<li>Record all metrics for each user and day</li>
+<li>Generate summary statistics for each experimental condition</li>
+<li>Create visualizations comparing the three systems</li>
+</ul></p>
+<p><p>Please implement this experiment using the specified codeblocks and ensure that all components are properly integrated. The code should be modular, well-documented, and include appropriate error handling.</p></p>
+</div></div>
+<div class="end-note"><strong>End Note:</strong> <p>The source paper is <a href="https://www.semanticscholar.org/paper/3a6d34a21e9c7344c564dc502e117b6769f10c47">Paper 0: Health-LLM: Large Language Models for Health Prediction via Wearable Sensor Data</a> (78 citations, 2024). This idea draws upon a trajectory of prior work, as seen in the following sequence: <a href="https://www.semanticscholar.org/paper/86b57eba5a37cee1eef0a6989ad042ace9e0fe12">Paper 1</a> --&gt; <a href="https://www.semanticscholar.org/paper/5d5dc58bdf18f82b55d03ffe160d784a02357dc4">Paper 2</a>. The analysis of the progression from the source paper to the related papers reveals a trend towards making health predictions more personalized and accessible. The source paper laid the groundwork by demonstrating the potential of LLMs in health prediction using wearable data. PhysioLLM advanced this by integrating personalized insights and statistical analysis, while SleepCoT further refined the approach by focusing on resource-efficient models for personalized sleep health management. A promising research idea would be to explore the integration of real-time adaptive feedback mechanisms in LLM-based health prediction models, addressing the limitation of static insights and enhancing user engagement and health outcomes.<br />
+The initial trend observed from the progression of related work highlights a consistent research focus. However, the final hypothesis proposed here is not merely a continuation of that trend — it is the result of a deeper analysis of the hypothesis space. By identifying underlying gaps and reasoning through the connections between works, the idea builds on, but meaningfully diverges from, prior directions to address a more specific challenge.</p></div>
+<hr>
+<h2>References</h2>
+<ol>
+<li><a href="https://www.semanticscholar.org/paper/3a6d34a21e9c7344c564dc502e117b6769f10c47" target="_blank">Health-LLM: Large Language Models for Health Prediction via Wearable Sensor Data</a> (2024)</li>
+<li><a href="https://www.semanticscholar.org/paper/86b57eba5a37cee1eef0a6989ad042ace9e0fe12" target="_blank">PhysioLLM: Supporting Personalized Health Insights with Wearables and Large Language Models</a> (2024)</li>
+<li><a href="https://www.semanticscholar.org/paper/5d5dc58bdf18f82b55d03ffe160d784a02357dc4" target="_blank">SleepCoT: A Lightweight Personalized Sleep Health Model via Chain-of-Thought Distillation</a> (2024)</li>
+<li><a href="https://www.semanticscholar.org/paper/ce1565008dfa7d25261eae16df6e31e2c897788f" target="_blank">Exploring Personalized Health Support through Data-Driven, Theory-Guided LLMs: A Case Study in Sleep Health</a> (2023)</li>
+<li><a href="https://www.semanticscholar.org/paper/f543cd277dcc137712e3e74bad6e7eb927fccaf6" target="_blank">Just-in-Time Adaptive Intervention for Stabilizing Sleep Hours of Japanese Workers: Microrandomized Trial</a> (2021)</li>
+<li><a href="https://www.semanticscholar.org/paper/1cbb64f8d9c2246a1bc45f80d5fc9a1872b09648" target="_blank">Towards a Personal Health Large Language Model</a> (2024)</li>
+<li><a href="https://www.semanticscholar.org/paper/6c27f9a7aca4eacba32c368b0146172abdbd3071" target="_blank">Exploration of LLMs, EEG, and behavioral data to measure and support attention and sleep</a> (2023)</li>
+<li><a href="https://www.semanticscholar.org/paper/cf14a7ae5fcfbf2155b82654b687719d3d35b230" target="_blank">Using Large Language Models to Enhance Exercise Recommendations and Physical Activity in Clinical and Healthy Populations: Scoping Review</a> (2023)</li>
+<li><a href="https://www.semanticscholar.org/paper/2e8da450c8e6684966a619f8dcea5260ef2bed1e" target="_blank">Intelligent Exercise and Feedback System for Social Healthcare using LLMOps</a> (2023)</li>
+<li><a href="https://www.semanticscholar.org/paper/754602fa47e985dd27e732361984e9f097eeb211" target="_blank">Personalized Causal Graph Reasoning for LLMs: A Case Study on Dietary Recommendations</a> (2023)</li>
+<li><a href="https://www.semanticscholar.org/paper/cceb0fd73608b760f1cf6f0f3f2ee0a9c2501d77" target="_blank">Biomechanical application research on cognitive health management in the elderly based on data analysis and intelligent coordination in the age of artificial intelligence</a> (2020)</li>
+<li><a href="https://www.semanticscholar.org/paper/5a5318c06167f5d96986ba6c8ec33888b769b9d4" target="_blank">Generative AI and Personalized Health Coaching: Empowering Medicare Beneficiaries</a> (2021)</li>
+<li><a href="https://www.semanticscholar.org/paper/cc64cb56b87b7c3b468f968eabdb0d92db279e3d" target="_blank">Reasoning support for risk prediction and prevention in independent living</a> (2010)</li>
+<li><a href="https://www.semanticscholar.org/paper/f8d67842ed751e010ddb9881031442ca180d8335" target="_blank">RHealthTwin: Towards Responsible and Multimodal Digital Twins for Personalized Well-being</a> (2025)</li>
+</ol>
+</body>
+</html>

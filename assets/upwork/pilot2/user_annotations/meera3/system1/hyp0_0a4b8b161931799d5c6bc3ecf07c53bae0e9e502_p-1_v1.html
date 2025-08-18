@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; max-width: 1000px; }
+h2, h3, h4 { color: #007b5f; }
+.custom-heading {color: black;font-weight: bold;}
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+.end-note, .end-note * { color: #888 !important; font-style: italic; font-weight: normal; margin-top: 2em; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>0a4b8b161931799d5c6bc3ecf07c53bae0e9e502</p>
+<hr>
+<h2>Title</h2>
+<p>Combining human-annotated debiasing and KGAT to reduce gender and geographic biases in LLMs.</p>
+<hr>
+<h2>Introduction</h2>
+<h3>Problem Statement</h3>
+<p>Combining debiasing models trained on human-annotated examples with knowledge graph-augmented training will significantly reduce both gender and geographic biases in large language models, as measured by improvements in demographic parity and equal opportunity metrics.</p>
+<h3>Motivation</h3>
+<p>Existing methods for bias mitigation in large language models (LLMs) often focus on either gender or geographic bias separately, using techniques like fairness-aware neural language models or post-hoc debiasing. However, these approaches do not explore the potential synergy between debiasing models trained on human-annotated examples and knowledge graph-augmented training (KGAT) for simultaneously addressing both gender and geographic biases. This gap is significant because addressing these biases in isolation may overlook interactions that could lead to more comprehensive bias mitigation. This hypothesis aims to fill this gap by testing the combined effect of these two methods, which has not been extensively explored in the literature.</p>
+<hr>
+<h2>Proposed Method</h2>
+<p>This research explores the synergistic effect of combining debiasing models trained on human-annotated examples with knowledge graph-augmented training (KGAT) to mitigate gender and geographic biases in large language models (LLMs). The hypothesis posits that this combination will lead to a more comprehensive reduction in biases compared to using either method alone. Debiasing models trained on human-annotated examples involve fine-tuning LLMs on datasets where biases have been manually identified and corrected, thereby directly addressing known biases. Meanwhile, KGAT integrates structured domain-specific knowledge to provide context and factual information, which helps in correcting biased associations. By combining these methods, the model can benefit from both explicit bias correction and enhanced contextual understanding, leading to improved fairness metrics such as demographic parity and equal opportunity. This approach addresses the gap in existing research where these methods are typically applied in isolation, potentially missing interactions that could enhance bias mitigation. The expected outcome is a significant reduction in both gender and geographic biases, making LLMs more equitable across diverse applications.</p>
+<h3>Background</h3>
+<p><a href="https://www.semanticscholar.org/paper/2e44bee2481687945f82beaf7a0b435b5e4fea90">Debiasing Models Trained on Human-Annotated Examples</a>: This variable involves fine-tuning language models on datasets annotated to highlight and correct biases. The process includes collecting diverse datasets, having human annotators mark biased instances, and training models on these corrected datasets. This approach is expected to directly reduce biases by adjusting the model's internal representations. It is chosen for its ability to leverage human insights into bias correction, which is crucial for addressing nuanced biases that automated methods might miss.</p>
+<p><a href="https://www.semanticscholar.org/paper/88212aff6c1017e434aa712eeb79268f1dd9c594">Knowledge Graph-Augmented Training (KGAT)</a>: KGAT uses structured knowledge from real-world knowledge graphs to enhance the model's understanding and reduce biased output. This method integrates knowledge graphs during training to provide additional context, helping correct biased associations. It is selected for its ability to provide factual context that can counteract biases inherent in the training data. The expected role of KGAT is to improve the model's contextual understanding, thereby reducing biases related to geographic and demographic information.</p>
+<h3>Implementation</h3>
+<p>The proposed method involves two main steps: First, the language model will be fine-tuned using a dataset of human-annotated examples where biases have been identified and corrected. This step involves collecting a diverse dataset, having human annotators mark biased instances, and training the model on these corrected examples. The goal is to adjust the model's internal representations to reduce biases. Second, the model will undergo knowledge graph-augmented training (KGAT). This involves integrating structured knowledge from real-world knowledge graphs into the training process. The knowledge graphs provide additional context and factual information, helping the model correct biased associations. The integration of these two methods is expected to leverage the strengths of both approaches: the direct bias correction from human annotations and the enhanced contextual understanding from KGAT. The outputs from the debiasing step will serve as inputs for the KGAT step, ensuring that the model benefits from both explicit bias correction and contextual enhancement. The expected outcome is a significant reduction in both gender and geographic biases, as measured by improvements in demographic parity and equal opportunity metrics.</p>
+<hr>
+<h2>Experiments Plan</h2>
+<h3>Operationalization Information</h3>
+
+<div style="display: flex; gap: 2em;">
+<div style="flex: 1;">
+
+<p><p>Please implement an experiment to test the hypothesis that combining debiasing models trained on human-annotated examples with knowledge graph-augmented training (KGAT) will significantly reduce both gender and geographic biases in large language models, compared to using either method alone.</p></p>
+<p><h4 class="custom-heading"><strong>Experiment Overview</strong></h4>
+<p>This experiment will compare three approaches to bias mitigation in LLMs:<br />
+1. <strong>Baseline 1</strong>: Debiasing with human-annotated examples only<br />
+2. <strong>Baseline 2</strong>: Knowledge Graph-Augmented Training (KGAT) only<br />
+3. <strong>Experimental</strong>: Combined approach (debiasing + KGAT)</p></p>
+<p><p>The experiment should evaluate these approaches using gender and geographic bias datasets, measuring improvements in demographic parity and equal opportunity metrics.</p></p>
+<p><h4 class="custom-heading"><strong>Pilot Mode Implementation</strong></h4>
+<p>Implement a global variable <code>PILOT_MODE</code> with three possible settings: <code>MINI_PILOT</code>, <code>PILOT</code>, or <code>FULL_EXPERIMENT</code>.</p></p>
+<p><ul>
+<li><strong>MINI_PILOT</strong>: Use only 20 examples from each bias dataset for training and 10 examples for evaluation. Run only 1 training epoch. This should complete in a few minutes and is for code verification.</li>
+<li><strong>PILOT</strong>: Use 200 examples from each bias dataset for training and 50 examples for evaluation. Run 3 training epochs. This should complete in 1-2 hours and is to verify if the approaches show promising differences.</li>
+<li><strong>FULL_EXPERIMENT</strong>: Use the complete datasets. Train for the optimal number of epochs determined by validation performance. This is the final experiment with comprehensive evaluation.</li>
+</ul></p>
+<p><p>Start by running the MINI_PILOT, then if everything looks good, run the PILOT. After the pilot completes, stop and do not run the FULL_EXPERIMENT (a human will verify results and manually change to FULL_EXPERIMENT if needed).</p></p>
+<p><h4 class="custom-heading"><strong>Data Requirements</strong></h4>
+<ol>
+<li><strong>Human-annotated bias datasets</strong>:</li>
+<li>For gender bias: Use a subset of the "Bias in Bios" dataset</li>
+<li>For geographic bias: Use a subset of the "FairFace" dataset</li>
+<li>Each example should have the original (potentially biased) text and the human-corrected (debiased) version</li>
+</ol></p>
+<p><ol>
+<li><strong>Knowledge Graph</strong>:</li>
+<li>Use a pre-built knowledge graph containing factual information about gender and geographic entities</li>
+<li>The knowledge graph should be in a standard format (e.g., RDF triples)</li>
+</ol></p>
+<p><ol>
+<li><strong>Evaluation datasets</strong>:</li>
+<li>Gender bias evaluation: Use examples from "Bias in Bios" (different from training)</li>
+<li>Geographic bias evaluation: Use examples from "FairFace" (different from training)</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Model Implementation</strong></h4></p>
+</div><div style='flex: 1;'>
+<p><h4 class="custom-heading"><strong>Base Model</strong></h4>
+<p>Use a small pre-trained language model (e.g., DistilBERT or a small GPT-2) as the base model for all three approaches to ensure the experiment runs efficiently in the pilot modes.</p></p>
+<p><h4 class="custom-heading"><strong>Baseline 1: Debiasing with Human-Annotated Examples</strong></h4>
+<ol>
+<li>Fine-tune the base model on the human-annotated debiasing dataset</li>
+<li>The model should learn to generate debiased outputs based on the human corrections</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Baseline 2: Knowledge Graph-Augmented Training (KGAT)</strong></h4>
+<ol>
+<li>Implement a KGAT approach that integrates knowledge graph information during model training</li>
+<li>For each training example, retrieve relevant knowledge graph triples</li>
+<li>Incorporate these triples into the training process (e.g., by adding them to the input or using them in a specialized attention mechanism)</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Experimental: Combined Approach</strong></h4>
+<ol>
+<li>First, fine-tune the model on the human-annotated debiasing dataset (as in Baseline 1)</li>
+<li>Then, apply KGAT to the resulting model (as in Baseline 2)</li>
+<li>Ensure that the debiased representations from step 1 are preserved while enhancing them with knowledge graph information</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Evaluation Metrics</strong></h4></p>
+<p><h4 class="custom-heading"><strong>Demographic Parity</strong></h4>
+<p>Measure whether the model's outputs are independent of protected attributes (gender, geography):<br />
+1. Calculate the probability of a positive outcome for each demographic group<br />
+2. Compute the difference between these probabilities<br />
+3. A smaller difference indicates better demographic parity</p></p>
+<p><h4 class="custom-heading"><strong>Equal Opportunity</strong></h4>
+<p>Measure whether the model's true positive rates are equal across demographic groups:<br />
+1. Calculate the true positive rate for each demographic group<br />
+2. Compute the difference between these rates<br />
+3. A smaller difference indicates better equal opportunity</p></p>
+<p><h4 class="custom-heading"><strong>Statistical Significance</strong></h4>
+<p>Use bootstrap resampling to determine if differences between approaches are statistically significant:<br />
+1. Perform bootstrap resampling on the evaluation results<br />
+2. Calculate 95% confidence intervals for each metric<br />
+3. Report whether differences between approaches are statistically significant</p></p>
+<p><h4 class="custom-heading"><strong>Experiment Workflow</strong></h4>
+<ol>
+<li>Load and preprocess the datasets based on the current PILOT_MODE</li>
+<li>Implement and train the three model approaches</li>
+<li>Evaluate each model on the gender and geographic bias evaluation datasets</li>
+<li>Calculate demographic parity and equal opportunity metrics</li>
+<li>Perform statistical significance testing</li>
+<li>Generate a comprehensive report with results, visualizations, and analysis</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Output Requirements</strong></h4>
+<ol>
+<li>Performance metrics for each approach on both gender and geographic bias datasets</li>
+<li>Statistical significance of differences between approaches</li>
+<li>Visualizations comparing the three approaches</li>
+<li>Analysis of which types of biases were most effectively mitigated by each approach</li>
+<li>Detailed logs of the training and evaluation process</li>
+</ol></p>
+<p><p>Please implement this experiment following best practices for reproducibility and code organization. Ensure all random seeds are fixed for reproducibility across runs.</p></p>
+</div></div>
+<div class="end-note"><strong>End Note:</strong> <p>The source paper is <a href="https://www.semanticscholar.org/paper/0a4b8b161931799d5c6bc3ecf07c53bae0e9e502">Paper 0: Whose Language Counts as High Quality? Measuring Language Ideologies in Text Data Selection</a> (83 citations, 2022). This idea draws upon a trajectory of prior work, as seen in the following sequence: <a href="https://www.semanticscholar.org/paper/3a096a3d67348640084c209abb09f79447fbbc11">Paper 1</a> --&gt; <a href="https://www.semanticscholar.org/paper/557a5147d88ad361b807d4c93decac6d57d2d5e9">Paper 2</a> --&gt; <a href="https://www.semanticscholar.org/paper/9fe9af7cf3d54b707a7be3c53ce94b77dcc3bae5">Paper 3</a> --&gt; <a href="https://www.semanticscholar.org/paper/0ae7bc864a66feae9e5a189a9ac24cf4c19aa0dd">Paper 4</a> --&gt; <a href="https://www.semanticscholar.org/paper/25b5416c84d185a29dc4bbaf0bfff9dc5ac0fa9c">Paper 5</a> --&gt; <a href="https://www.semanticscholar.org/paper/4c01cfc55f3bd648ea1388e46db4a095baf75eaa">Paper 6</a>. The analysis reveals a progression from understanding the biases in data filtering to embedding legal knowledge in AI systems and optimizing LLMs for legal tasks. The existing literature highlights the need for transparency, ethical considerations, and technical improvements in using LLMs for legal applications. A research idea that advances this field could focus on developing a framework for evaluating and mitigating biases in LLMs used for legal information extraction, ensuring that the models align with diverse legal standards and societal values.<br />
+The initial trend observed from the progression of related work highlights a consistent research focus. However, the final hypothesis proposed here is not merely a continuation of that trend — it is the result of a deeper analysis of the hypothesis space. By identifying underlying gaps and reasoning through the connections between works, the idea builds on, but meaningfully diverges from, prior directions to address a more specific challenge.</p></div>
+<hr>
+<h2>References</h2>
+<ol>
+<li><a href="https://www.semanticscholar.org/paper/0a4b8b161931799d5c6bc3ecf07c53bae0e9e502" target="_blank">Whose Language Counts as High Quality? Measuring Language Ideologies in Text Data Selection</a> (2022)</li>
+<li><a href="https://www.semanticscholar.org/paper/3a096a3d67348640084c209abb09f79447fbbc11" target="_blank">Pile of Law: Learning Responsible Data Filtering from the Law and a 256GB Open-Source Legal Dataset</a> (2022)</li>
+<li><a href="https://www.semanticscholar.org/paper/557a5147d88ad361b807d4c93decac6d57d2d5e9" target="_blank">Law Informs Code: A Legal Informatics Approach to Aligning Artificial Intelligence with Humans</a> (2022)</li>
+<li><a href="https://www.semanticscholar.org/paper/9fe9af7cf3d54b707a7be3c53ce94b77dcc3bae5" target="_blank">A Short Survey of Viewing Large Language Models in Legal Aspect</a> (2023)</li>
+<li><a href="https://www.semanticscholar.org/paper/0ae7bc864a66feae9e5a189a9ac24cf4c19aa0dd" target="_blank">Large Language Models are legal but they are not: Making the case for a powerful LegalLLM</a> (2023)</li>
+<li><a href="https://www.semanticscholar.org/paper/25b5416c84d185a29dc4bbaf0bfff9dc5ac0fa9c" target="_blank">Automatic Information Extraction From Employment Tribunal Judgements Using Large Language Models</a> (2024)</li>
+<li><a href="https://www.semanticscholar.org/paper/4c01cfc55f3bd648ea1388e46db4a095baf75eaa" target="_blank">Case Law as Data : Prompt Engineering Strategies for Case Outcome Extraction with Large Language Models in a Zero-Shot Setting</a> (2024)</li>
+<li><a href="https://www.semanticscholar.org/paper/8f7d8582314e10e122f2ac7527e6022788cef21f" target="_blank">Questioning Biases in Case Judgment Summaries: Legal Datasets or Large Language Models?</a> (2023)</li>
+<li><a href="https://www.semanticscholar.org/paper/a5b5917713bdb6a574eb457ebd20891fcfb2684a" target="_blank">InSaAF: Incorporating Safety through Accuracy and Fairness | Are LLMs ready for the Indian Legal Domain?</a> (2024)</li>
+<li><a href="https://www.semanticscholar.org/paper/88212aff6c1017e434aa712eeb79268f1dd9c594" target="_blank">Detecting and Mitigating Bias in LLMs through Knowledge Graph-Augmented Training</a> (2025)</li>
+<li><a href="https://www.semanticscholar.org/paper/3313d6c1425d96f68c6107f640c8c385a0e5aec5" target="_blank">ASTRAEA: Grammar-Based Fairness Testing</a> (2020)</li>
+<li><a href="https://www.semanticscholar.org/paper/73e75107c3b80f4627a88c279a294b16b1de407d" target="_blank">Overview of the NLPCC 2025 Shared Task: Gender Bias Mitigation Challenge</a> (2025)</li>
+<li><a href="https://www.semanticscholar.org/paper/8a38e9b8c18ef74af9a5cd6ba9278ccde14d95eb" target="_blank">LFTF: Locating First and Then Fine-Tuning for Mitigating Gender Bias in Large Language Models</a> (2025)</li>
+<li><a href="https://www.semanticscholar.org/paper/bcfa73aedf1b2d1ee4f168e21298a37ac55a37f7" target="_blank">Bias and Fairness in Large Language Models: A Survey</a> (2023)</li>
+<li><a href="https://www.semanticscholar.org/paper/3a03e88f8feab80c04e822a88ae0ee448ef049d1" target="_blank">Efficiently Mitigating Classification Bias via Transfer Learning</a> (2020)</li>
+<li><a href="https://www.semanticscholar.org/paper/3b878124b7cf8a6721837e9eceb7e5b5f67f1f89" target="_blank">Neutralizing the Narrative: AI-Powered Debiasing of Online News Articles</a> (2023)</li>
+<li><a href="https://www.semanticscholar.org/paper/bf1c0ca90d7177edeabd0003a4d215ef9165035f" target="_blank">BiasGuard: A Reasoning-enhanced Bias Detection Tool For Large Language Models</a> (2025)</li>
+<li><a href="https://www.semanticscholar.org/paper/f16919fd64801a995db28ca4c1fe24eb97bee3ac" target="_blank">An Actionable Framework for Assessing Bias and Fairness in Large Language Model Use Cases</a> (2024)</li>
+<li><a href="https://www.semanticscholar.org/paper/2b14f81a8afc191cdcc9cd03e8488c20a77d375e" target="_blank">BiasWipe: Mitigating Unintended Bias in Text Classifiers through Model Interpretability</a> (2024)</li>
+<li><a href="https://www.semanticscholar.org/paper/2e44bee2481687945f82beaf7a0b435b5e4fea90" target="_blank">Improving Commonsense Bias Classification by Mitigating the Influence of Demographic Terms</a> (2024)</li>
+</ol>
+</body>
+</html>

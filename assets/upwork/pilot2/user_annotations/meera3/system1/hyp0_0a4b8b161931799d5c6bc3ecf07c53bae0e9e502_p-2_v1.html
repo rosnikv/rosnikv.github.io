@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Summary</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; padding: 20px; line-height: 1.6; box-sizing: border-box; max-width: 1000px; }
+h2, h3, h4 { color: #007b5f; }
+.custom-heading {color: black;font-weight: bold;}
+hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
+p { margin-bottom: 1em; }
+table { border-collapse: collapse; width: 100%; margin-top: 1em; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+.end-note, .end-note * { color: #888 !important; font-style: italic; font-weight: normal; margin-top: 2em; }
+</style>
+</head>
+<body>
+<hr>
+<h2>Paper ID</h2>
+<p>0a4b8b161931799d5c6bc3ecf07c53bae0e9e502</p>
+<hr>
+<h2>Title</h2>
+<p>Integrating dynamic adapter aggregation with dialect-aware data augmentation to enhance dialectal robustness.</p>
+<hr>
+<h2>Introduction</h2>
+<h3>Problem Statement</h3>
+<p>Integrating dynamic adapter aggregation with dialect-aware data augmentation will enhance dialectal robustness and reduce performance disparities in language models across African American English and Indian English, as measured by the Multi-VALUE benchmark.</p>
+<h3>Motivation</h3>
+<p>Existing methods for dialect adaptation in NLP often focus on task-specific or synthetic data augmentation approaches, which require extensive intervention for each dialect-task pair. This poses scalability issues and limits the broad adoption of robust dialectal English NLP. The gap lies in the lack of exploration of dynamic and task-agnostic methods that can adapt to multiple dialects without task-specific supervision. This hypothesis addresses the gap by proposing a novel combination of dynamic adapter aggregation and dialect-aware data augmentation, which has not been extensively tested in prior work. This approach aims to provide a scalable and efficient solution for dialect adaptation, reducing the need for task-specific data and improving dialect robustness across various NLP applications.</p>
+<hr>
+<h2>Proposed Method</h2>
+<p>The research idea explores the integration of dynamic adapter aggregation and dialect-aware data augmentation to enhance dialectal robustness and reduce performance disparities in language models. Dynamic adapter aggregation involves using hypernetworks to generate language-specific adapters from linguistic distance metrics, allowing for the creation of adapters tailored to specific linguistic features of a dialect. This method enables models to dynamically adjust to new dialects without extensive retraining. Dialect-aware data augmentation involves generating pseudo-dialect examples during fine-tuning, enhancing model robustness across dialects without requiring task-specific supervision. By combining these two approaches, the hypothesis aims to provide a scalable and efficient solution for dialect adaptation, reducing the need for task-specific data and improving model performance across various dialects. The expected outcome is an improvement in dialect robustness and a reduction in performance disparities, as measured by the Multi-VALUE benchmark. This approach addresses the gap in existing research by exploring a novel combination of dynamic and task-agnostic methods for dialect adaptation, which has not been extensively tested in prior work.</p>
+<h3>Background</h3>
+<p><a href="https://www.semanticscholar.org/paper/7daed64417251a7118bb7cec7a5993715b9ac86f">Dynamic Adapter Aggregation</a>: Dynamic adapter aggregation uses hypernetworks to generate language-specific adapters from linguistic distance metrics. This method allows for the creation of adapters tailored to the specific linguistic features of a dialect, enabling models to dynamically adjust to new dialects without extensive retraining. The advantage of this approach is its scalability and efficiency, as it reduces the need for task-specific data and allows for zero-shot transfer across dialects. The expected role of dynamic adapter aggregation in the research problem is to enhance dialectal robustness by enabling models to adapt to various dialects dynamically. This variable will be assessed by measuring improvements in dialect robustness and performance disparities using the Multi-VALUE benchmark.</p>
+<p><a href="https://www.semanticscholar.org/paper/61d40d7263d9c03649fcd6ccb840ef8dac2243d1">Dialect-aware Data Augmentation</a>: Dialect-aware data augmentation involves generating pseudo-dialect examples during fine-tuning, enhancing model robustness across dialects without requiring task-specific supervision. This approach uses synthetic examples that mimic the linguistic features of target dialects, such as African American English or Indian English. The advantage of this method is its ability to improve model performance across dialects without the need for extensive task-specific data. The expected role of dialect-aware data augmentation in the research problem is to provide diverse training examples that enhance model robustness across dialects. This variable will be assessed by measuring improvements in dialect robustness and performance disparities using the Multi-VALUE benchmark.</p>
+<h3>Implementation</h3>
+<p>The proposed method integrates dynamic adapter aggregation with dialect-aware data augmentation to enhance dialectal robustness and reduce performance disparities in language models. The implementation involves the following steps: First, dynamic adapter aggregation is used to generate language-specific adapters from linguistic distance metrics. This involves training hypernetworks that adjust the adapters based on the input dialect's linguistic profile. The adapters are dynamically aggregated at test time, allowing the model to flexibly adapt to various dialects. Second, dialect-aware data augmentation is implemented by generating pseudo-dialect examples during fine-tuning. This involves using synthetic examples that mimic the linguistic features of target dialects, such as African American English or Indian English. The augmented data is used to fine-tune the model, enhancing its robustness across dialects. The integration of these two approaches is expected to improve dialect robustness and reduce performance disparities, as measured by the Multi-VALUE benchmark. The data flows from the input dialect through the hypernetworks, which generate the language-specific adapters. These adapters are dynamically aggregated at test time, allowing the model to adapt to the input dialect. The augmented data is used to fine-tune the model, enhancing its robustness across dialects. The expected outcome is an improvement in dialect robustness and a reduction in performance disparities, as measured by the Multi-VALUE benchmark.</p>
+<hr>
+<h2>Experiments Plan</h2>
+<h3>Operationalization Information</h3>
+
+<div style="display: flex; gap: 2em;">
+<div style="flex: 1;">
+
+<p><p>Please implement an experiment to test the hypothesis that integrating dynamic adapter aggregation with dialect-aware data augmentation will enhance dialectal robustness and reduce performance disparities in language models across African American English (AAE) and Indian English (IE), as measured by the Multi-VALUE benchmark.</p></p>
+<p><h4 class="custom-heading"><strong>Experiment Overview</strong></h4>
+<p>This experiment will compare three systems:<br />
+1. <strong>Baseline</strong>: A standard pre-trained language model fine-tuned on standard English data only<br />
+2. <strong>Dialect Augmentation Only</strong>: The baseline model with dialect-aware data augmentation<br />
+3. <strong>Full System (Experimental)</strong>: Integration of both dynamic adapter aggregation and dialect-aware data augmentation</p></p>
+<p><h4 class="custom-heading"><strong>Implementation Details</strong></h4></p>
+<p><h4 class="custom-heading"><strong>Pilot Mode Configuration</strong></h4>
+<p>Implement a global variable <code>PILOT_MODE</code> with three possible settings: <code>MINI_PILOT</code>, <code>PILOT</code>, or <code>FULL_EXPERIMENT</code>.<br />
+- <strong>MINI_PILOT</strong>: Use only 10 examples from each dialect (AAE and IE) from the Multi-VALUE training set<br />
+- <strong>PILOT</strong>: Use 100 examples from each dialect from the Multi-VALUE training set and evaluate on 50 examples from the development set<br />
+- <strong>FULL_EXPERIMENT</strong>: Use the complete Multi-VALUE dataset</p></p>
+<p><p>Start with <code>MINI_PILOT</code>, then run <code>PILOT</code> if successful. Do not run <code>FULL_EXPERIMENT</code> automatically - this will be manually triggered after human verification of the pilot results.</p></p>
+<p><h4 class="custom-heading"><strong>Data Preparation</strong></h4>
+<ol>
+<li>Load the Multi-VALUE benchmark dataset, which contains examples in Standard English, African American English, and Indian English</li>
+<li>Split the data into training, development, and test sets (if not already split)</li>
+<li>For dialect-aware data augmentation, implement a function to generate pseudo-dialect examples by transforming Standard English examples to mimic AAE and IE linguistic features</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Model Architecture</strong></h4>
+<ol>
+<li>Use a pre-trained transformer model (e.g., BERT, RoBERTa) as the base model</li>
+<li>Implement adapter modules that can be inserted into the transformer layers</li>
+<li>Implement a hypernetwork that takes linguistic distance metrics as input and generates adapter parameters</li>
+<li>The hypernetwork should output adapter weights based on dialect features</li>
+<li>Define linguistic distance metrics between Standard English and target dialects (AAE and IE)</li>
+</ol></p>
+</div><div style='flex: 1;'>
+<p><h4 class="custom-heading"><strong>Training Process</strong></h4>
+<ol>
+<li><strong>Baseline</strong>: Fine-tune the base model on standard English data only</li>
+<li><strong>Dialect Augmentation Only</strong>: Fine-tune the base model on a combination of standard English data and augmented dialect data</li>
+<li><strong>Full System</strong>:</li>
+<li>Train the hypernetwork to generate adapter parameters based on linguistic distance metrics</li>
+<li>Fine-tune the base model with adapters on a combination of standard English data and augmented dialect data</li>
+<li>Implement dynamic adapter aggregation at test time</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Evaluation</strong></h4>
+<p>Evaluate all three systems on the Multi-VALUE benchmark using the following metrics:<br />
+1. Task success rate<br />
+2. Reasoning accuracy<br />
+3. Number of valid steps<br />
+4. Performance disparity between dialects (calculate the difference in performance between Standard English and each dialect)</p></p>
+<p><p>Report results separately for each dialect (Standard English, AAE, IE) and calculate the average performance across dialects.</p></p>
+<p><h4 class="custom-heading"><strong>Hypernetwork Implementation</strong></h4>
+<p>The hypernetwork should:<br />
+1. Take as input a vector representing linguistic features/distance metrics of a dialect<br />
+2. Output adapter parameters for each transformer layer<br />
+3. Allow for dynamic aggregation of adapters at test time</p></p>
+<p><h4 class="custom-heading"><strong>Dialect-Aware Data Augmentation</strong></h4>
+<p>Implement a rule-based or model-based approach to transform Standard English examples to mimic AAE and IE features, such as:<br />
+- For AAE: Apply syntactic transformations (e.g., copula deletion, habitual 'be')<br />
+- For IE: Apply lexical and syntactic transformations common in Indian English</p></p>
+<p><h4 class="custom-heading"><strong>Experimental Workflow</strong></h4>
+<ol>
+<li>Prepare the Multi-VALUE dataset and create augmented dialect examples</li>
+<li>Train the baseline model</li>
+<li>Train the dialect augmentation only model</li>
+<li>Train the hypernetwork and full system model</li>
+<li>Evaluate all three systems on the Multi-VALUE benchmark</li>
+<li>Analyze results and calculate performance disparities</li>
+<li>Use bootstrap resampling to determine statistical significance of differences between systems</li>
+</ol></p>
+<p><h4 class="custom-heading"><strong>Results Analysis</strong></h4>
+<ol>
+<li>Compare the performance of all three systems across dialects</li>
+<li>Calculate the reduction in performance disparity achieved by each system</li>
+<li>Analyze which components (adapter aggregation vs. data augmentation) contribute most to improvements</li>
+<li>Generate visualizations showing performance across dialects for each system</li>
+</ol></p>
+<p><p>Please implement this experiment with proper logging, error handling, and checkpointing to ensure reproducibility. Save model checkpoints and evaluation results at each stage. Generate a comprehensive report with tables and figures showing the performance of each system across dialects.</p></p>
+</div></div>
+<div class="end-note"><strong>End Note:</strong> <p>The source paper is <a href="https://www.semanticscholar.org/paper/0a4b8b161931799d5c6bc3ecf07c53bae0e9e502">Paper 0: Whose Language Counts as High Quality? Measuring Language Ideologies in Text Data Selection</a> (83 citations, 2022). This idea draws upon a trajectory of prior work, as seen in the following sequence: <a href="https://www.semanticscholar.org/paper/0d4eb08b82cb839e8888dcf26fb41c00a76d56ba">Paper 1</a> --&gt; <a href="https://www.semanticscholar.org/paper/61d40d7263d9c03649fcd6ccb840ef8dac2243d1">Paper 2</a> --&gt; <a href="https://www.semanticscholar.org/paper/b6f4fc4ed72abaa8496c0db775d601d32fa9de4e">Paper 3</a> --&gt; <a href="https://www.semanticscholar.org/paper/6b039a96c551eb17c9bf68ea393cf82e04d7087b">Paper 4</a> --&gt; <a href="https://www.semanticscholar.org/paper/d9bea0361721e7755d2d2925ec04d23e57f9b51b">Paper 5</a> --&gt; <a href="https://www.semanticscholar.org/paper/9e09dbcdfd15130c1680cd5a18cae9cdf15719ea">Paper 6</a>. The analysis reveals a progression from understanding dialectal performance discrepancies in NLP systems to developing scalable methods for dialect adaptation and evaluating these methods in practical settings. However, the existing research primarily focuses on improving model robustness and performance across dialects without addressing the underlying biases in language quality filtering. To advance the field, a new research idea should explore the intersection of dialect adaptation and language quality filtering, aiming to develop a method that not only adapts to dialects but also critically evaluates and adjusts the quality filtering process to reduce inherent biases.<br />
+The initial trend observed from the progression of related work highlights a consistent research focus. However, the final hypothesis proposed here is not merely a continuation of that trend — it is the result of a deeper analysis of the hypothesis space. By identifying underlying gaps and reasoning through the connections between works, the idea builds on, but meaningfully diverges from, prior directions to address a more specific challenge.</p></div>
+<hr>
+<h2>References</h2>
+<ol>
+<li><a href="https://www.semanticscholar.org/paper/0a4b8b161931799d5c6bc3ecf07c53bae0e9e502" target="_blank">Whose Language Counts as High Quality? Measuring Language Ideologies in Text Data Selection</a> (2022)</li>
+<li><a href="https://www.semanticscholar.org/paper/0d4eb08b82cb839e8888dcf26fb41c00a76d56ba" target="_blank">Multi-VALUE: A Framework for Cross-Dialectal English NLP</a> (2022)</li>
+<li><a href="https://www.semanticscholar.org/paper/61d40d7263d9c03649fcd6ccb840ef8dac2243d1" target="_blank">TADA: Task-Agnostic Dialect Adapters for English</a> (2023)</li>
+<li><a href="https://www.semanticscholar.org/paper/b6f4fc4ed72abaa8496c0db775d601d32fa9de4e" target="_blank">Task-Agnostic Low-Rank Adapters for Unseen English Dialects</a> (2023)</li>
+<li><a href="https://www.semanticscholar.org/paper/6b039a96c551eb17c9bf68ea393cf82e04d7087b" target="_blank">Evaluating Dialect Robustness of Language Models via Conversation Understanding</a> (2024)</li>
+<li><a href="https://www.semanticscholar.org/paper/d9bea0361721e7755d2d2925ec04d23e57f9b51b" target="_blank">BESSTIE: A Benchmark for Sentiment and Sarcasm Classification for Varieties of English</a> (2024)</li>
+<li><a href="https://www.semanticscholar.org/paper/9e09dbcdfd15130c1680cd5a18cae9cdf15719ea" target="_blank">Nek Minit: Harnessing Pragmatic Metacognitive Prompting for Explainable Sarcasm Detection of Australian and Indian English</a> (2025)</li>
+<li><a href="https://www.semanticscholar.org/paper/5242aa4319203dc2773c31b1c6a1c159dc63fb7e" target="_blank">DADA: Dialect Adaptation via Dynamic Aggregation of Linguistic Rules</a> (2023)</li>
+<li><a href="https://www.semanticscholar.org/paper/66521063549cc84da1eab51f9f0b42108dd3efc7" target="_blank">ScalingFilter: Assessing Data Quality through Inverse Utilization of Scaling Laws</a> (2024)</li>
+<li><a href="https://www.semanticscholar.org/paper/7daed64417251a7118bb7cec7a5993715b9ac86f" target="_blank">Vuyko Mistral: Adapting LLMs for Low-Resource Dialectal Translation</a> (2025)</li>
+</ol>
+</body>
+</html>
