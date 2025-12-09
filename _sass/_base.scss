@@ -39,6 +39,7 @@ a, table.table a {
   }
 }
 
+
 figure, img {
   max-width: 90vw;
 }
@@ -688,4 +689,9 @@ html.transition *:after {
       padding: 8px;
     }
   }
+}
+
+.profile .address p {
+  font-size: 0.6rem !important;
+  line-height: 1.1;
 }

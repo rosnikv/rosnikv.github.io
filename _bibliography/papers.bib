@@ -3,18 +3,45 @@
 
 @string{aps = {American Physical Society,}}
 
-@misc{vasu2025hyperliteraturegroundedhypothesisgeneration,
-      title={HypER: Literature-grounded Hypothesis Generation and Distillation with Provenance}, 
-      author={Rosni Vasu and Chandrayee Basu and Bhavana Dalvi Mishra and Cristina Sarasua and Peter Clark and Abraham Bernstein},
+@article{vasu2025harpa,
+  title={HARPA: A Testability-Driven, Literature-Grounded Framework for Research Ideation},
+  author={Vasu, Rosni and Jansen, Peter and Siangliulue, Pao and Sarasua, Cristina and Bernstein, Abraham and Clark, Peter and Mishra, Bhavana Dalvi},
+  journal={arXiv preprint arXiv:2510.00620},
+  abbr = {arXiv},
+  abstract      = { While there has been a surge of interest in automated scientific discovery (ASD), especially with the emergence of LLMs, it remains challenging for tools to generate hypotheses that are both testable and grounded in the scientific literature. Additionally, existing ideation tools are not adaptive to prior experimental outcomes. We developed HARPAto address these challenges by incorporating the ideation workflow inspired by human researchers. HARPA first identifies emerging research trends through literature mining, then explores hypothesis design spaces, and finally converges on precise, testable hypotheses by pinpointing research gaps and justifying design choices. Our evaluations show that HARPA-generated hypothesis-driven research proposals perform comparably to a strong baseline AI-researcher across most qualitative dimensions (e.g., specificity, novelty, overall quality), but achieve significant gains in feasibility(+0.78, p< 0.05, bootstrap) and groundedness (+0.85, p< 0.01, bootstrap) on a 10-point Likert scale. When tested with the ASD agent (CodeScientist), HARPA produced more successful executions (20 vs. 11 out of 40) and fewer failures (16 vs. 21 out of 40), showing that expert feasibility judgments track with actual execution success. Furthermore, to simulate how researchers continuously refine their understanding of what hypotheses are both testable and potentially interesting from experience, HARPA learns a reward model that scores new hypotheses based on prior experimental outcomes, achieving approx. a 28% absolute gain over HARPA’s untrained baseline scorer. Together, these methods represent a step forward in the field of AI-driven scientific discovery.},
+  year={2025},
+  pdf = {https://arxiv.org/pdf/2510.00620},
+  selected      = {true}
+}
+
+@misc{bragg2025astabenchrigorousbenchmarkingai,
+      title={AstaBench: Rigorous Benchmarking of AI Agents with a Scientific Research Suite}, 
+      author={Jonathan Bragg and Mike D'Arcy and Nishant Balepur and Dan Bareket and Bhavana Dalvi and Sergey Feldman and Dany Haddad and Jena D. Hwang and Peter Jansen and Varsha Kishore and Bodhisattwa Prasad Majumder and Aakanksha Naik and Sigal Rahamimov and Kyle Richardson and Amanpreet Singh and Harshit Surana and Aryeh Tiktinsky and Rosni Vasu and Guy Wiener and Chloe Anastasiades and Stefan Candra and Jason Dunkelberger and Dan Emery and Rob Evans and Malachi Hamada and Regan Huff and Rodney Kinney and Matt Latzke and Jaron Lochner and Ruben Lozano-Aguilera and Cecile Nguyen and Smita Rao and Amber Tanaka and Brooke Vlahos and Peter Clark and Doug Downey and Yoav Goldberg and Ashish Sabharwal and Daniel S. Weld},
       year={2025},
-      abbr = {EMNLP},
-      eprint={2506.12937},
+      abstract      = {AI agents hold the potential to revolutionize scientific productivity by automating literature reviews, replicating experiments, analyzing data, and even proposing new directions of inquiry; indeed, there are now many such agents, ranging from general-purpose "deep research" systems to specialized science-specific agents, such as AI Scientist and AIGS. Rigorous evaluation of these agents is critical for progress. Yet existing benchmarks fall short on several fronts: they (1) fail to provide holistic, product-informed measures of real-world use cases such as science research; (2) lack reproducible agent tools necessary for a controlled comparison of core agentic capabilities; (3) do not account for confounding variables such as model cost and tool access; (4) do not provide standardized interfaces for quick agent prototyping and evaluation; and (5) lack comprehensive baseline agents necessary to identify true advances. In response, we define principles and tooling for more rigorously benchmarking agents. Using these, we present AstaBench, a suite that provides the first holistic measure of agentic ability to perform scientific research, comprising 2400+ problems spanning the entire scientific discovery process and multiple scientific domains, and including many problems inspired by actual user requests to deployed Asta agents. Our suite comes with the first scientific research environment with production-grade search tools that enable controlled, reproducible evaluation, better accounting for confounders. Alongside, we provide a comprehensive suite of nine science-optimized classes of Asta agents and numerous baselines. Our extensive evaluation of 57 agents across 22 agent classes reveals several interesting findings, most importantly that despite meaningful progress on certain individual aspects, AI remains far from solving the challenge of science research assistance.},
+      eprint={2510.21652},
       archivePrefix={arXiv},
+      abbr = {arXiv},
       primaryClass={cs.AI},
-      abstract      = {Large Language models have demonstrated promising performance in research ideation across scientific domains. Hypothesis development, the process of generating a highly specific declarative statement connecting a research idea with empirical validation, has received relatively less attention. Existing approaches trivially deploy retrieval augmentation and focus only on the quality of the final output ignoring the underlying reasoning process behind ideation. We present HypER (Hypothesis Generation with Explanation and Reasoning), a small language model (SLM) trained for literature-guided reasoning and evidence-based hypothesis generation. HypER is trained in a multi-task setting to discriminate between valid and invalid scientific reasoning chains in presence of controlled distractions. We find that HypER outperformes the base model, distinguishing valid from invalid reasoning chains (+22% average absolute F1), generates better evidence-grounded hypotheses (0.327 vs. 0.305 base model) with high feasibility and impact as judged by human experts (>3.5 on 5-point Likert scale).},
-      url={https://arxiv.org/abs/2506.12937}, 
-      pdf = {https://arxiv.org/pdf/2506.12937.pdf},
-      selected      = {true}
+      selected      = {true},
+      url={https://arxiv.org/abs/2510.21652}, 
+      pdf = {https://arxiv.org/abs/2510.21652.pdf},
+      code          = {https://github.com/allenai/asta-bench},
+}
+
+@inproceedings{vasu2025hyper,
+  title={HypER: Literature-grounded hypothesis generation and distillation with provenance},
+  author={Vasu, Rosni and Basu, Chandrayee and Dalvi, Bhavana and Sarasua, Cristina and Clark, Peter and Bernstein, Abraham},
+  booktitle={Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing},
+  abbr = {EMNLP},
+  abstract      = {Large Language models have demonstrated promising performance in research ideation across scientific domains. Hypothesis development, the process of generating a highly specific declarative statement connecting a research idea with empirical validation, has received relatively less attention. Existing approaches trivially deploy retrieval augmentation and focus only on the quality of the final output ignoring the underlying reasoning process behind ideation. We present HypER (Hypothesis Generation with Explanation and Reasoning), a small language model (SLM) trained for literature-guided reasoning and evidence-based hypothesis generation. HypER is trained in a multi-task setting to discriminate between valid and invalid scientific reasoning chains in presence of controlled distractions. We find that HypER outperformes the base model, distinguishing valid from invalid reasoning chains (+22% average absolute F1), generates better evidence-grounded hypotheses (0.327 vs. 0.305 base model) with high feasibility and impact as judged by human experts (>3.5 on 5-point Likert scale).},
+  pdf = {https://arxiv.org/pdf/2506.12937.pdf},
+  url={https://arxiv.org/abs/2506.12937},
+  pages={25424--25449},
+  poster        = {EMNLP_2025_main-2871_poster.pdf},
+  code          = {https://github.com/rosnikv/HypER},
+  year={2025},
+  selected      = {true}
 }
 
 @inproceedings{vasu2025healtac,
@@ -28,7 +55,7 @@
     url           = {https://healtac2025.github.io/programme/},
     abstract      = {},
     poster       = {HealTAC_Poster.pdf},
-    selected      = {true}
+    selected      = {false}
 }
 
 
@@ -163,7 +190,7 @@ abbr          = {WWW Companion}
                      We propose that careful crowd-sourcing for medical text simplification is possible, when combined with automatic data
                      labeling, a well-designed expert-layman collaboration framework, and context-dependent crowd-sourcing instructions.},
     pdf           = {http://ceur-ws.org/Vol-3068/short6.pdf},
-    selected      = {true}
+    selected      = {false}
 }
 
 @inproceedings{seetharaman2022influence,
