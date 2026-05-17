@@ -52,8 +52,33 @@
     background-color: var(--hover-color); /* Dynamic hover effect */
 }
 
+.news-content.collapsed {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.news-read-more {
+    font-size: 0.75rem;
+    color: var(--global-theme-color);
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 2px;
+}
 
     </style>
+    <script>
+    function toggleNews(link) {
+        var content = link.previousElementSibling;
+        if (content.classList.contains('collapsed')) {
+            content.classList.remove('collapsed');
+            link.textContent = 'show less';
+        } else {
+            content.classList.add('collapsed');
+            link.textContent = 'read more';
+        }
+    }
+    </script>
     
 
     <div class="news">
@@ -65,7 +90,8 @@
                 <tr>
                     <td scope="row" class="lec-years">{{ item.date | date: "%b %d, %Y" }}</td>
                     <td>
-                        {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
+                        <div class="news-content collapsed">{{ item.content | remove: '<p>' | remove: '</p>' | emojify }}</div>
+                        <a href="#" class="news-read-more" onclick="toggleNews(this);return false;">read more</a>
                     </td>
                 </tr>
                 {% endfor %}

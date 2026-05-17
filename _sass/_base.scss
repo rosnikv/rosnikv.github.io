@@ -132,6 +132,7 @@ blockquote {
 .profile {
   margin-left: 1rem;
   margin-right: 1rem;
+  margin-top: 2rem;
   width: 100%;
 
   .address {
@@ -147,7 +148,7 @@ blockquote {
 
 @media (min-width: 576px) {
   .profile {
-    width: 30%;
+    width: 20%;
     .address {
       p { display: block; }
     }
@@ -692,6 +693,6 @@ html.transition *:after {
 }
 
 .profile .address p {
-  font-size: 0.6rem !important;
-  line-height: 1.1;
+  font-size: 0.78rem !important;
+  line-height: 1.6;
 }
