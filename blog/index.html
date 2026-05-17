@@ -13,6 +13,36 @@ pagination:
     after: 3  # The number of links after the current page
 ---
 
+<div id="page-fade" style="position:fixed;inset:0;background:rgba(255,255,255,0.6);z-index:99;pointer-events:none;transition:opacity 0.4s;"></div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+<div id="redirect-banner" style="position:relative;z-index:100;background:#f0f4ff;border:1px solid #c0d0f0;border-radius:6px;padding:14px 18px;margin-bottom:20px;">
+  <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+    <div>
+      <span style="font-family:'DM Serif Display',Georgia,serif;font-size:1.4rem;color:rgb(17,19,17);letter-spacing:-0.035em;">AI &amp; Medicine</span>
+      <span style="color:#555;font-size:0.85rem;"> &mdash; research notes on AI and medicine.</span>
+      <br><small id="banner-msg" style="color:#777;">Taking you there in <strong id="countdown">3</strong>s&hellip;</small>
+    </div>
+    <button id="banner-btn" onclick="cancelRedirect()" style="background:none;border:1px solid #888;border-radius:4px;padding:4px 10px;cursor:pointer;font-size:0.85rem;white-space:nowrap;">Stay &amp; browse old posts</button>
+  </div>
+</div>
+<script>
+  var _redirectTimer, _count = 3;
+  function cancelRedirect() {
+    clearInterval(_redirectTimer);
+    document.getElementById('page-fade').style.opacity = '0';
+    setTimeout(function() { document.getElementById('page-fade').style.display = 'none'; }, 400);
+    document.getElementById('banner-msg').innerHTML = 'Want to visit the new blog? <a href="https://ai-medicine-blog.vercel.app/" style="text-decoration:underline;">Go there &rarr;</a>';
+    document.getElementById('banner-btn').textContent = 'Close';
+    document.getElementById('banner-btn').onclick = function() { document.getElementById('redirect-banner').style.display = 'none'; };
+  }
+  _redirectTimer = setInterval(function() {
+    _count--;
+    if (_count <= 0) { clearInterval(_redirectTimer); window.location.href = 'https://ai-medicine-blog.vercel.app/'; }
+    else { document.getElementById('countdown').textContent = _count; }
+  }, 1000);
+</script>
+
 <div class="post">
 
   <div class="header-bar">
